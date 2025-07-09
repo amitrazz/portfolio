@@ -18,7 +18,7 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        I'm an{' '}
+        I&apos;m an{' '}
         <span className="font-medium">experienced and impact-driven Senior Software Engineer</span>{' '}
         with over <span className="font-medium">9 years</span> of expertise in building scalable,
         cloud-native, and high-performance software solutions. I specialize in{' '}
@@ -30,14 +30,14 @@ export default function About() {
 
       <p className="mb-3">
         I’m a systems thinker focused on{' '}
-        <span className="font-medium">scalability, reliability, and developer velocity</span>. I've
-        led monolith-to-microservices migrations, built event-driven architectures, implemented
-        CI/CD pipelines, and delivered mission-critical features with{' '}
+        <span className="font-medium">scalability, reliability, and developer velocity</span>.
+        I&apos;ve led monolith-to-microservices migrations, built event-driven architectures,
+        implemented CI/CD pipelines, and delivered mission-critical features with{' '}
         <span className="font-medium">99.99% uptime guarantees</span>.
       </p>
 
       <p className="mb-3">
-        I'm an{' '}
+        I&apos;m an{' '}
         <span className="font-medium">
           AWS Certified Solutions Architect, DevOps Engineer, and Developer
         </span>{' '}

@@ -1,6 +1,5 @@
 'use client';
 
-import { useActiveSectionContext } from '@/context/active-section-context';
 import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -10,7 +9,6 @@ import { HiDownload } from 'react-icons/hi';
 
 export default function Intro() {
   const { ref } = useSectionInView('Home', 0.5);
-  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
 
   return (
     <section
@@ -60,7 +58,7 @@ export default function Intro() {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <span className="font-bold">Hello, I'm Amit.</span> I'm a{' '}
+        <span className="font-bold">Hello, I&apos;m Amit.</span> I&apos;m a{' '}
         <span className="font-bold">full-stack developer</span> with{' '}
         <span className="font-bold">9+ years</span> of experience, specializing in{' '}
         <span className="underline">Frontend</span>, <span className="underline">Backend</span>,{' '}
