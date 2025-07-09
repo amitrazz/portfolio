@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/amitrazz/portfolio/compare/v1.2.1...v1.2.2) (2025-07-09)
+
+
+### Bug Fixes
+
+* minor change ([0340981](https://github.com/amitrazz/portfolio/commit/03409816f3b70ca0ee71808d85b6489422b9f29a))
+
 ## [1.2.1](https://github.com/amitrazz/portfolio/compare/v1.2.0...v1.2.1) (2025-07-09)
 
 
