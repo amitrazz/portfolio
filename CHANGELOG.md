@@ -1,3 +1,10 @@
+## [1.2.3](https://github.com/amitrazz/portfolio/compare/v1.2.2...v1.2.3) (2025-07-09)
+
+
+### Bug Fixes
+
+* removed theme swtich button ([9d7efce](https://github.com/amitrazz/portfolio/commit/9d7efcee063e25e444f853444b944c59c4282317))
+
 ## [1.2.2](https://github.com/amitrazz/portfolio/compare/v1.2.1...v1.2.2) (2025-07-09)
 
 
