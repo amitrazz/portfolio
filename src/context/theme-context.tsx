@@ -16,6 +16,7 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | null>(null);
 
 export default function ThemeContextProvider({ children }: ThemeContextProviderProps) {
+  const [hasMounted, setHasMounted] = useState(false);
   const [theme, setTheme] = useState<Theme>('light');
 
   const toggleTheme = () => {
@@ -43,7 +44,10 @@ export default function ThemeContextProvider({ children }: ThemeContextProviderP
       setTheme('dark');
       document.documentElement.classList.add('dark');
     }
+    setHasMounted(true);
   }, []);
+
+  if (!hasMounted) return null;
 
   return (
     <ThemeContext.Provider
