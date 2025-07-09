@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/amitrazz/portfolio/compare/v1.2.0...v1.2.1) (2025-07-09)
+
+
+### Bug Fixes
+
+* footer copy test ([fd4d86a](https://github.com/amitrazz/portfolio/commit/fd4d86a5e7fbf0fd71307c94416360c0e5383c62))
+
 # [1.2.0](https://github.com/amitrazz/portfolio/compare/v1.1.0...v1.2.0) (2025-07-09)
 
 
