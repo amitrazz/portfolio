@@ -2,7 +2,6 @@
 
 import Footer from '@/components/footer';
 import Header from '@/components/header';
-import ThemeSwitch from '@/components/theme-switch';
 import ActiveSectionContextProvider from '@/context/active-section-context';
 import ThemeContextProvider from '@/context/theme-context';
 import { useEffect, useState } from 'react';
@@ -23,7 +22,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
         <Header />
         {children}
         <Footer />
-        <ThemeSwitch />
+        {/* <ThemeSwitch /> */}
         <Toaster position="top-right" />
       </ActiveSectionContextProvider>
     </ThemeContextProvider>
