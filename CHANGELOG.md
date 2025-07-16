@@ -1,3 +1,10 @@
+## [1.2.4](https://github.com/amitrazz/portfolio/compare/v1.2.3...v1.2.4) (2025-07-16)
+
+
+### Bug Fixes
+
+* GRT-1 Trigger Build ([152016f](https://github.com/amitrazz/portfolio/commit/152016fca48c57c9fe1063920ca95f5f025e4d76))
+
 ## [1.2.3](https://github.com/amitrazz/portfolio/compare/v1.2.2...v1.2.3) (2025-07-09)
 
 
