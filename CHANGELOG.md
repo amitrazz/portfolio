@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/amitrazz/portfolio/compare/v1.2.4...v1.2.5) (2025-07-24)
+
+
+### Bug Fixes
+
+* Added README.md ([f6e2e26](https://github.com/amitrazz/portfolio/commit/f6e2e26bfb64bc0ebb79c5628e837cb1727b3327))
+
 ## [1.2.4](https://github.com/amitrazz/portfolio/compare/v1.2.3...v1.2.4) (2025-07-16)
 
 
