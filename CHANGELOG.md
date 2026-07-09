@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/amitrazz/portfolio/compare/v1.2.5...v1.3.0) (2026-07-09)
+
+
+### Features
+
+* redesign portfolio for principal engineer positioning ([cbf181e](https://github.com/amitrazz/portfolio/commit/cbf181ec21eba16955b77f3757ec4f407c23b340))
+
 ## [1.2.5](https://github.com/amitrazz/portfolio/compare/v1.2.4...v1.2.5) (2025-07-24)
 
 
