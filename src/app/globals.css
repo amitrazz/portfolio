@@ -121,3 +121,25 @@ html:not(.dark) .shimmer-box::after {
     rgba(9, 9, 11, 0) 100%
   );
 }
+
+/* Shimmer Sweep Animation for skeleton loader */
+@keyframes shimmerSweep {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.animate-shimmer {
+  animation: shimmerSweep 1.6s infinite linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shimmer {
+    animation: none !important;
+    background-image: none !important;
+    @apply bg-zinc-200 dark:bg-zinc-800;
+  }
+}
