@@ -97,8 +97,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`${inter.className} relative min-h-screen grid-overlay pt-28 sm:pt-36 transition-colors duration-300`}
       >
-        <div className="absolute top-[-10rem] -z-10 right-[10%] h-[30rem] w-[30rem] rounded-full blur-[10rem] bg-indigo-500/10 dark:bg-indigo-500/5"></div>
-        <div className="absolute top-[-5rem] -z-10 left-[10%] h-[30rem] w-[30rem] rounded-full blur-[10rem] bg-blue-500/10 dark:bg-blue-500/5"></div>
+              <div className="absolute top-[-10rem] -z-10 right-[10%] h-[30rem] w-[30rem] rounded-full blur-[10rem] bg-indigo-500/[0.02] dark:bg-indigo-500/5"></div>
+        <div className="absolute top-[-5rem] -z-10 left-[10%] h-[30rem] w-[30rem] rounded-full blur-[10rem] bg-blue-500/[0.02] dark:bg-blue-500/5"></div>
 
         <ClientWrapper>{children}</ClientWrapper>
       </body>
