@@ -28,7 +28,7 @@ export default function Achievements() {
           return (
             <motion.div
               key={item.label}
-              className="premium-card p-6 flex flex-col justify-between"
+              className="premium-card shimmer-box p-6 flex flex-col justify-between"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
