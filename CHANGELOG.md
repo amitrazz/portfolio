@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/amitrazz/portfolio/compare/v1.3.1...v1.3.2) (2026-07-09)
+
+
+### Bug Fixes
+
+* light theme fixes ([7657900](https://github.com/amitrazz/portfolio/commit/7657900e445350c5623754d77e81e5ae6407f1fb))
+
 ## [1.3.1](https://github.com/amitrazz/portfolio/compare/v1.3.0...v1.3.1) (2026-07-09)
 
 
