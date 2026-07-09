@@ -134,7 +134,7 @@ export default function Intro() {
         {stats.map((stat, index) => (
           <div
             key={index}
-            className="premium-card shimmer-box p-4 flex flex-col items-center justify-center"
+            className="premium-card p-4 flex flex-col items-center justify-center"
           >
             <span className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 block mb-1 tracking-tight">
               {stat.value}
