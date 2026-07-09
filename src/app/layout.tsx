@@ -5,18 +5,100 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Amit | Personal Portfolio',
-  description: 'Amit is a full-stack developer with 8 years of experience.',
+  title: 'Amit Kumar | Principal Software Engineer & Software Architect',
+  description: 'Amit Kumar is a Principal Software Engineer and Software Architect based in Bangalore, India, specializing in Distributed Systems, Cloud Architecture, Event-Driven Platforms, and Full-Stack Performance Engineering.',
+  keywords: [
+    'Amit Kumar',
+    'Principal Software Engineer',
+    'Software Architect',
+    'Distributed Systems',
+    'Cloud Architecture',
+    'Event-Driven Systems',
+    'Platform Engineering',
+    'Micro-frontends',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Performance Optimization'
+  ],
+  authors: [{ name: 'Amit Kumar', url: 'https://amitrazz.in' }],
+  creator: 'Amit Kumar',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://amitrazz.in',
+    title: 'Amit Kumar | Principal Software Engineer & Software Architect',
+    description: 'Specializing in Distributed Systems, Micro-frontends, AWS Cloud Architecture, and Performance Engineering. Building scalable enterprise platforms.',
+    siteName: 'Amit Kumar Portfolio',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Amit Kumar | Principal Software Engineer & Software Architect',
+    description: 'Specializing in Distributed Systems, Micro-frontends, AWS Cloud Architecture, and Performance Engineering.',
+    creator: '@amitrazz',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Amit Kumar',
+    jobTitle: 'Principal Software Engineer & Software Architect',
+    url: 'https://amitrazz.in',
+    sameAs: [
+      'https://github.com/amitrazz',
+      'https://www.linkedin.com/in/amitrazz',
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Bangalore',
+      addressCountry: 'India',
+    },
+    alumniOf: {
+      '@type': 'EducationalOrganization',
+      name: 'KNS Institute of Technology',
+    },
+    knowsAbout: [
+      'Distributed Systems',
+      'Software Architecture',
+      'Microservices',
+      'Micro-frontends',
+      'React',
+      'Next.js',
+      'TypeScript',
+      'GraphQL',
+      'Cloud Architecture',
+      'AWS',
+      'Performance Optimization',
+      'DevOps'
+    ],
+  };
+
   return (
     <html lang="en" className="!scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
-        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+        className={`${inter.className} relative min-h-screen grid-overlay pt-28 sm:pt-36 transition-colors duration-300`}
       >
-        <div className="bg-[#fbe2e3] absolute top-[-6rem] -z-10 right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]"></div>
-        <div className="bg-[#dbd7fb] absolute top-[-1rem] -z-10 left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]"></div>
+        <div className="absolute top-[-10rem] -z-10 right-[10%] h-[30rem] w-[30rem] rounded-full blur-[10rem] bg-indigo-500/10 dark:bg-indigo-500/5"></div>
+        <div className="absolute top-[-5rem] -z-10 left-[10%] h-[30rem] w-[30rem] rounded-full blur-[10rem] bg-blue-500/10 dark:bg-blue-500/5"></div>
 
         <ClientWrapper>{children}</ClientWrapper>
       </body>

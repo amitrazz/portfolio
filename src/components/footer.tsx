@@ -1,10 +1,14 @@
+"use client";
+
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
-    <footer className="mb-10 px-4 text-center text-gray-500">
-      <small className="mb-2 block text-xs">&copy; 2025 Amit. All rights reserved.</small>
-      <p className="text-xs">
-        <span className="font-semibold">About this website:</span> built with React & Next.js (App
-        Router & Server Actions), TypeScript, Tailwind CSS, Framer Motion, Vercel hosting.
+    <footer className="mt-auto py-8 px-6 border-t border-zinc-200/50 dark:border-zinc-800/40 text-center text-zinc-500 dark:text-zinc-500 text-xs w-full max-w-[58rem] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <small className="block text-zinc-400 dark:text-zinc-500 font-medium">
+        &copy; {currentYear} Amit Kumar. All rights reserved.
+      </small>
+      <p className="text-zinc-400 dark:text-zinc-500 font-medium">
+        Engineered with React, Next.js, Tailwind CSS, & Framer Motion.
       </p>
     </footer>
   );
