@@ -39,7 +39,7 @@ export default function Architecture() {
               {item.title}
             </h3>
             
-            <p className="text-sm text-zinc-750 dark:text-zinc-400 leading-relaxed">
+            <p className="text-sm text-zinc-800 dark:text-zinc-400 leading-relaxed">
               {item.description}
             </p>
           </motion.div>

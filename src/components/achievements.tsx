@@ -55,7 +55,7 @@ export default function Achievements() {
                 </h4>
               </div>
 
-              <p className="text-xs sm:text-sm text-zinc-750 dark:text-zinc-400 leading-relaxed mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
+              <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
                 {item.description}
               </p>
             </motion.div>

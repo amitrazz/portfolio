@@ -12,18 +12,7 @@ html {
 }
 
 body {
-  @apply bg-zinc-950 text-zinc-100 selection:bg-indigo-500/30 selection:text-indigo-200 transition-colors duration-300 antialiased;
-  background-color: #09090b;
-}
-
-html.dark body {
-  background-color: #09090b;
-  color: #f4f4f5;
-}
-
-html:not(.dark) body {
-  background-color: #fcfcfd;
-  color: #1f2024;
+  @apply selection:bg-indigo-500/30 selection:text-indigo-200 antialiased;
 }
 
 /* Grid overlay background */
