@@ -14,11 +14,11 @@ export default function Achievements() {
     <section
       ref={ref}
       id="achievements"
-      className="mb-28 max-w-[58rem] scroll-mt-28 sm:mb-40 px-4 w-full"
+      className="mb-28 max-w-[58rem] scroll-mt-28 w-full"
     >
       <SectionHeading>Measurable Achievements</SectionHeading>
 
-      <p className="mb-12 text-center text-zinc-600 dark:text-zinc-400 max-w-[36rem] mx-auto text-lg leading-relaxed">
+      <p className="mb-12 text-center text-zinc-700 dark:text-zinc-300 max-w-[36rem] mx-auto text-lg leading-relaxed">
         Quantifiable business impact, performance metrics, and professional execution awards.
       </p>
 
@@ -36,7 +36,7 @@ export default function Achievements() {
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-bold uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                  <span className="text-xs font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
                     Metric / Honor
                   </span>
                   {isAward ? (
@@ -55,7 +55,7 @@ export default function Achievements() {
                 </h4>
               </div>
 
-              <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
+              <p className="text-xs sm:text-sm text-zinc-750 dark:text-zinc-400 leading-relaxed mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
                 {item.description}
               </p>
             </motion.div>

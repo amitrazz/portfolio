@@ -41,17 +41,17 @@ export default function Experience() {
                 </div>
                 
                 <div className="text-left md:text-right">
-                  <span className="inline-block text-xs font-semibold px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800/80 rounded-md text-zinc-600 dark:text-zinc-400">
+                  <span className="inline-block text-xs font-semibold px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800/80 rounded-md text-zinc-700 dark:text-zinc-300">
                     {item.date}
                   </span>
-                  <p className="text-xs text-zinc-500 dark:text-zinc-500 mt-1">
+                  <p className="text-xs text-zinc-650 dark:text-zinc-400 mt-1">
                     {item.location}
                   </p>
                 </div>
               </div>
 
               {/* Responsibilities list */}
-              <ul className="list-disc pl-4 space-y-2.5 mb-6 text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed">
+              <ul className="list-disc pl-4 space-y-2.5 mb-6 text-sm md:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
                 {item.responsibilities.map((resp, idx) => (
                   <li key={idx} className="marker:text-indigo-500">
                     {resp}

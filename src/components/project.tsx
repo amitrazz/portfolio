@@ -49,7 +49,7 @@ export default function Project({
         </button>
       </div>
 
-      <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+      <p className="text-sm md:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">
         <span className="font-semibold text-zinc-800 dark:text-zinc-200">Business Impact:</span> {businessImpact}
       </p>
 
@@ -58,7 +58,7 @@ export default function Project({
         {technologies.map((tag, index) => (
           <span
             key={index}
-            className="bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 text-xs px-2.5 py-1 rounded-md font-medium"
+            className="bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs px-2.5 py-1 rounded-md font-medium"
           >
             {tag}
           </span>
@@ -81,7 +81,7 @@ export default function Project({
                 <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
                   <LuShieldAlert className="text-indigo-500" /> The Problem
                 </h4>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed">
                   {problem}
                 </p>
               </div>
@@ -90,7 +90,7 @@ export default function Project({
                 <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
                   <LuCpu className="text-indigo-500" /> The Solution
                 </h4>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed">
                   {solution}
                 </p>
               </div>
@@ -101,18 +101,17 @@ export default function Project({
               <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
                 <LuLayers className="text-indigo-500" /> System Architecture
               </h4>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 font-mono leading-relaxed bg-white dark:bg-zinc-900 p-3.5 rounded-lg border border-zinc-200/40 dark:border-zinc-800/80">
+              <p className="text-sm text-zinc-700 dark:text-zinc-400 font-mono leading-relaxed bg-white dark:bg-zinc-900 p-3.5 rounded-lg border border-zinc-200/40 dark:border-zinc-800/80">
                 {architecture}
               </p>
             </div>
 
-            {/* Challenges & Results */}
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2">
                   Key Technical Challenges
                 </h4>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed">
                   {challenges}
                 </p>
               </div>
@@ -121,7 +120,7 @@ export default function Project({
                 <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
                   <LuAward className="text-amber-500" /> Outcomes & Results
                 </h4>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                <p className="text-sm text-zinc-700 dark:text-zinc-400 leading-relaxed">
                   {results}
                 </p>
               </div>

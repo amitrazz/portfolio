@@ -17,7 +17,7 @@ export default function Architecture() {
     >
       <SectionHeading>Architecture Expertise</SectionHeading>
       
-      <p className="mb-12 text-center text-zinc-600 dark:text-zinc-400 max-w-[38rem] mx-auto text-lg leading-relaxed">
+      <p className="mb-12 text-center text-zinc-700 dark:text-zinc-300 max-w-[38rem] mx-auto text-lg leading-relaxed">
         Designing modular, reliable, and high-performance system topologies that scale with business growth and organizational structure.
       </p>
 
@@ -39,7 +39,7 @@ export default function Architecture() {
               {item.title}
             </h3>
             
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <p className="text-sm text-zinc-750 dark:text-zinc-400 leading-relaxed">
               {item.description}
             </p>
           </motion.div>

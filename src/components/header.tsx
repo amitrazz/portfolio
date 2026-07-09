@@ -39,7 +39,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <ul className="hidden sm:flex items-center gap-1.5 text-[0.82rem] font-medium text-zinc-500 dark:text-zinc-400">
+        <ul className="hidden sm:flex items-center gap-1.5 text-[0.82rem] font-medium text-zinc-600 dark:text-zinc-400">
           {links.map((link) => (
             <li
               className="relative h-full flex items-center justify-center"
@@ -96,7 +96,7 @@ export default function Header() {
             transition={{ duration: 0.18, ease: "easeInOut" }}
             className="fixed top-[4.5rem] left-0 w-full bg-white/95 dark:bg-zinc-950/95 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800/60 z-[998] shadow-md flex flex-col py-6 px-6 sm:hidden"
           >
-            <ul className="flex flex-col gap-3 text-sm font-medium text-zinc-600 dark:text-zinc-300">
+            <ul className="flex flex-col gap-3 text-sm font-medium text-zinc-700 dark:text-zinc-300">
               {links.map((link) => (
                 <li key={link.hash}>
                   <Link

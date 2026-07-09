@@ -8,7 +8,7 @@ export default function Logo() {
       <div className="relative flex items-center justify-center">
         {/* Subtle hover background glow */}
         <div className="absolute inset-0 bg-indigo-500/10 rounded-lg blur-md scale-75 group-hover:scale-100 transition-all duration-350" />
-        
+
         <svg
           width="26"
           height="26"
@@ -55,9 +55,9 @@ export default function Logo() {
           />
         </svg>
       </div>
-      
+
       <span className="text-base font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
-        amit<span className="text-indigo-500 font-black">.</span>kumar
+        Amit<span className="text-indigo-500 font-black"> </span>Kumar
       </span>
     </div>
   );

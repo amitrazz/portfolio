@@ -67,7 +67,7 @@ export default function Intro() {
         <h1 className="mb-6 mt-6 px-2 text-4xl font-extrabold tracking-tight !leading-[1.15] sm:text-5xl text-zinc-900 dark:text-zinc-50">
           Building Scalable Distributed Systems & High-Performance Platforms
         </h1>
-        <p className="mb-10 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-[42rem] mx-auto">
+        <p className="mb-10 text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 max-w-[42rem] mx-auto">
           Associate Principal Engineer specializing in micro-frontend architectures, performance engineering, and robust event-driven workflows. Proven record of driving latency down by 30% and API overhead by 60% across millions of users.
         </p>
       </motion.div>
@@ -134,7 +134,7 @@ export default function Intro() {
             <span className="text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 block mb-1 tracking-tight">
               {stat.value}
             </span>
-            <span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 font-medium">
+            <span className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-medium">
               {stat.label}
             </span>
           </div>

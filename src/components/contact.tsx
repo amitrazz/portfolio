@@ -30,7 +30,7 @@ export default function Contact() {
     >
       <SectionHeading>Get In Touch</SectionHeading>
 
-      <p className="text-zinc-600 dark:text-zinc-400 mt-2 mb-8 leading-relaxed">
+      <p className="text-zinc-700 dark:text-zinc-300 mt-2 mb-8 leading-relaxed">
         Let&apos;s discuss distributed system design, frontend performance optimization, platform engineering, or engineering leadership. Reach out via the form below or directly through my links.
       </p>
 
@@ -68,7 +68,7 @@ export default function Contact() {
           className="premium-card p-6 md:p-8 flex flex-col gap-4 bg-white/50 dark:bg-zinc-950/50"
         >
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="contact-email" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+            <label htmlFor="contact-email" className="text-xs font-bold uppercase tracking-wider text-zinc-650 dark:text-zinc-400">
               Your Email Address
             </label>
             <input
@@ -82,7 +82,7 @@ export default function Contact() {
           </div>
 
           <div className="flex flex-col gap-1.5">
-            <label htmlFor="contact-message" className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+            <label htmlFor="contact-message" className="text-xs font-bold uppercase tracking-wider text-zinc-650 dark:text-zinc-400">
               Your Message
             </label>
             <textarea
