@@ -1,3 +1,17 @@
+# [1.4.0](https://github.com/amitrazz/portfolio/compare/v1.3.2...v1.4.0) (2026-07-09)
+
+
+### Bug Fixes
+
+* resolve Next.js favicon ENOENT build error by moving favicon.ico to public/ folder ([a86011d](https://github.com/amitrazz/portfolio/commit/a86011ddabea3ee9295f834f9b5b64b287695dab))
+
+
+### Features
+
+* design and add premium layered SVG logo component ([0719aeb](https://github.com/amitrazz/portfolio/commit/0719aebb5dbfdaaa93f9c84370460a0d4aa96b61))
+* implement modern entrance animation for summary stats box utilizing framer-motion ([af47ff9](https://github.com/amitrazz/portfolio/commit/af47ff9878e1209849aec4b682d25240020e143e))
+* implement reusable shimmer and layout skeletons with demo page ([5cd25ad](https://github.com/amitrazz/portfolio/commit/5cd25adc244531fab09f1d821260cbdb513a9f99))
+
 ## [1.3.2](https://github.com/amitrazz/portfolio/compare/v1.3.1...v1.3.2) (2026-07-09)
 
 
