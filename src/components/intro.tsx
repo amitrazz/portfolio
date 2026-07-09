@@ -1,7 +1,7 @@
 "use client";
 
 import { useSectionInView } from '@/lib/hooks';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { LuArrowRight, LuDownload, LuGithub, LuLinkedin } from 'react-icons/lu';
 import { useActiveSectionContext } from '@/context/active-section-context';
@@ -9,6 +9,7 @@ import { useActiveSectionContext } from '@/context/active-section-context';
 export default function Intro() {
   const { ref } = useSectionInView('Home', 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
+  const shouldReduceMotion = useReducedMotion();
 
   const stats = [
     { value: "9+", label: "Years Experience" },
@@ -122,9 +123,13 @@ export default function Intro() {
       {/* Stats Badges */}
       <motion.div
         className="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 max-w-[48rem] mx-auto"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2, duration: 0.4 }}
+        initial={shouldReduceMotion ? {} : { opacity: 0, y: 30, scale: 0.95 }}
+        animate={shouldReduceMotion ? {} : { opacity: 1, y: 0, scale: 1 }}
+        transition={{ 
+          duration: 0.7, 
+          ease: [0.22, 1, 0.36, 1],
+          delay: 0.2
+        }}
       >
         {stats.map((stat, index) => (
           <div
