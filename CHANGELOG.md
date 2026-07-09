@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/amitrazz/portfolio/compare/v1.4.0...v1.4.1) (2026-07-09)
+
+
+### Bug Fixes
+
+* light theme fixes ([2be1a81](https://github.com/amitrazz/portfolio/commit/2be1a81ab039de0a57d49c184f50e9aa285467c7))
+
 # [1.4.0](https://github.com/amitrazz/portfolio/compare/v1.3.2...v1.4.0) (2026-07-09)
 
 
