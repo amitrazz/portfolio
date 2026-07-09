@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
@@ -10,42 +10,47 @@ export default function About() {
   return (
     <motion.section
       ref={ref}
-      className="mb-28 max-w-[45rem] text-center leading-8 sm:mb-40 scroll-mt-28"
+      className="mb-28 max-w-[48rem] text-center leading-8 sm:mb-40 scroll-mt-28"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}
       id="about"
     >
-      <SectionHeading>About me</SectionHeading>
-      <p className="mb-3">
-        I&apos;m an{' '}
-        <span className="font-medium">experienced and impact-driven Senior Software Engineer</span>{' '}
-        with over <span className="font-medium">9 years</span> of expertise in building scalable,
-        cloud-native, and high-performance software solutions. I specialize in{' '}
-        <span className="font-medium">full-stack JavaScript development</span> using{' '}
-        <span className="font-medium">React, React Native, Node.js, and TypeScript</span>, along
-        with deep proficiency in{' '}
-        <span className="font-medium">AWS infrastructure and serverless architecture</span>.
+      <SectionHeading>About Me</SectionHeading>
+      
+      <p className="mb-6 text-lg text-zinc-600 dark:text-zinc-400">
+        I am an <span className="font-semibold text-zinc-950 dark:text-zinc-50">Associate Principal Engineer</span> with a deep passion for building robust frontend platforms, optimizing runtime performance, and designing distributed architecture patterns. I bridge the gap between high-level architectural designs and clean, high-performance UI engineering.
       </p>
 
-      <p className="mb-3">
-        I’m a systems thinker focused on{' '}
-        <span className="font-medium">scalability, reliability, and developer velocity</span>.
-        I&apos;ve led monolith-to-microservices migrations, built event-driven architectures,
-        implemented CI/CD pipelines, and delivered mission-critical features with{' '}
-        <span className="font-medium">99.99% uptime guarantees</span>.
-      </p>
+      <div className="grid md:grid-cols-2 gap-6 text-left mt-10">
+        <div className="premium-card p-6">
+          <h3 className="font-bold text-zinc-900 dark:text-zinc-50 mb-3 text-lg">Specialties</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Micro-frontend ecosystems, performance auditing & Core Web Vitals profiling, global content delivery optimization, enterprise design systems, API schema design, and serverless background orchestration.
+          </p>
+        </div>
 
-      <p className="mb-3">
-        I&apos;m an{' '}
-        <span className="font-medium">
-          AWS Certified Solutions Architect, DevOps Engineer, and Developer
-        </span>{' '}
-        with proven experience across{' '}
-        <span className="font-medium">Lambda, API Gateway, DynamoDB, S3, and CloudFormation</span>.
-        Beyond coding, I mentor teams, improve engineering culture, and deliver business value
-        through design-first thinking.
-      </p>
+        <div className="premium-card p-6">
+          <h3 className="font-bold text-zinc-900 dark:text-zinc-50 mb-3 text-lg">Engineering Philosophy</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            I believe that software systems should be designed for scale, event-first, and API-first. I focus on optimizing developer speed by building clean tooling pipelines, and ensuring production platforms have top-tier observability and fault-tolerance.
+          </p>
+        </div>
+
+        <div className="premium-card p-6">
+          <h3 className="font-bold text-zinc-900 dark:text-zinc-50 mb-3 text-lg">Leadership & Culture</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Experienced at scaling platforms across distributed cross-functional teams. I focus on developer velocity, technical mentorship, setting design-first engineering guidelines, and driving modular, decoupled team boundaries.
+          </p>
+        </div>
+
+        <div className="premium-card p-6">
+          <h3 className="font-bold text-zinc-900 dark:text-zinc-50 mb-3 text-lg">Key Verticals</h3>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            Proven track record of designing high-impact platforms in domains like OTT Streaming (Discovery), Webinar Collaboration Platforms (Airmeet), Enterprise Commerce Solutions (Aptos), and retail e-commerce ecosystems.
+          </p>
+        </div>
+      </div>
     </motion.section>
   );
 }

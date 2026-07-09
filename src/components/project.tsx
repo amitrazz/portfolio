@@ -1,71 +1,134 @@
 "use client";
 
-import { useRef } from "react";
-import { projectsData } from "@/lib/data";
-import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { LuChevronDown, LuChevronUp, LuLayers, LuCpu, LuShieldAlert, LuAward } from "react-icons/lu";
 
-type ProjectProps = (typeof projectsData)[number];
+type ProjectProps = {
+  title: string;
+  subtitle: string;
+  problem: string;
+  solution: string;
+  architecture: string;
+  technologies: readonly string[];
+  businessImpact: string;
+  challenges: string;
+  results: string;
+};
 
 export default function Project({
   title,
-  description,
-  tags,
-  imageUrl,
+  subtitle,
+  problem,
+  solution,
+  architecture,
+  technologies,
+  businessImpact,
+  challenges,
+  results,
 }: ProjectProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["0 1", "1.33 1"],
-  });
-  const scaleProgess = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
-  const opacityProgess = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <motion.div
-      ref={ref}
-      style={{
-        scale: scaleProgess,
-        opacity: opacityProgess,
-      }}
-      className="group mb-3 sm:mb-8 last:mb-0"
-    >
-      <section className="bg-gray-100 max-w-[42rem] border border-black/5 rounded-lg overflow-hidden sm:pr-8 relative sm:h-[20rem] hover:bg-gray-200 transition sm:group-even:pl-8 dark:text-white dark:bg-white/10 dark:hover:bg-white/20">
-        <div className="pt-4 pb-7 px-5 sm:pl-10 sm:pr-2 sm:pt-10 sm:max-w-[50%] flex flex-col h-full sm:group-even:ml-[18rem]">
-          <h3 className="text-2xl font-semibold">{title}</h3>
-          <p className="mt-2 leading-relaxed text-gray-700 dark:text-white/70">
-            {description}
-          </p>
-          <ul className="flex flex-wrap mt-4 gap-2 sm:mt-auto">
-            {tags.map((tag, index) => (
-              <li
-                className="bg-black/[0.7] px-3 py-1 text-[0.7rem] uppercase tracking-wider text-white rounded-full dark:text-white/70"
-                key={index}
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
+    <div className="premium-card p-6 md:p-8 mb-6 last:mb-0 transition-all duration-300">
+      <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-4">
+        <div>
+          <span className="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+            {subtitle}
+          </span>
+          <h3 className="text-2xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight mt-1">
+            {title}
+          </h3>
         </div>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-xs font-bold px-4 py-2 bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-xl flex items-center gap-2 border border-zinc-200/50 dark:border-zinc-800/80 transition cursor-pointer"
+        >
+          {isExpanded ? "Collapse Case Study" : "View Case Study"}
+          {isExpanded ? <LuChevronUp size={14} /> : <LuChevronDown size={14} />}
+        </button>
+      </div>
 
-        <Image
-          src={imageUrl}
-          alt="Project I worked on"
-          quality={95}
-          className="absolute hidden sm:block top-8 -right-40 w-[28.25rem] rounded-t-lg shadow-2xl
-        transition 
-        group-hover:scale-[1.04]
-        group-hover:-translate-x-3
-        group-hover:translate-y-3
-        group-hover:-rotate-2
+      <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed mb-4">
+        <span className="font-semibold text-zinc-800 dark:text-zinc-200">Business Impact:</span> {businessImpact}
+      </p>
 
-        group-even:group-hover:translate-x-3
-        group-even:group-hover:translate-y-3
-        group-even:group-hover:rotate-2
+      {/* Main Badges */}
+      <div className="flex flex-wrap gap-1.5 mb-2">
+        {technologies.map((tag, index) => (
+          <span
+            key={index}
+            className="bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 text-xs px-2.5 py-1 rounded-md font-medium"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
 
-        group-even:right-[initial] group-even:-left-40"
-        />
-      </section>
-    </motion.div>
+      {/* Expandable Case Study Details */}
+      <AnimatePresence>
+        {isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden mt-6 pt-6 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-col gap-6"
+          >
+            {/* Grid of Sections */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
+                  <LuShieldAlert className="text-indigo-500" /> The Problem
+                </h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {problem}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
+                  <LuCpu className="text-indigo-500" /> The Solution
+                </h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {solution}
+                </p>
+              </div>
+            </div>
+
+            {/* Architecture Details */}
+            <div className="bg-zinc-50 dark:bg-zinc-900/50 p-5 rounded-xl border border-zinc-100 dark:border-zinc-800/50">
+              <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
+                <LuLayers className="text-indigo-500" /> System Architecture
+              </h4>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 font-mono leading-relaxed bg-white dark:bg-zinc-900 p-3.5 rounded-lg border border-zinc-200/40 dark:border-zinc-800/80">
+                {architecture}
+              </p>
+            </div>
+
+            {/* Challenges & Results */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2">
+                  Key Technical Challenges
+                </h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {challenges}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
+                  <LuAward className="text-amber-500" /> Outcomes & Results
+                </h4>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                  {results}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
