@@ -29,7 +29,7 @@ Shimmer.displayName = "Shimmer";
 // 2. Summary Card Skeleton (Stats cards / Principle items)
 export const SummaryCardSkeleton = memo(() => {
   return (
-    <div className="premium-card p-6 flex flex-col justify-between w-full h-[140px] animate-pulse">
+    <div className="premium-card p-6 flex flex-col justify-between w-full h-[140px]">
       <div className="flex items-center justify-between mb-4">
         <Shimmer className="h-4 w-24 rounded-md" />
         <Shimmer className="h-5 w-5 rounded-full" />
@@ -47,7 +47,7 @@ SummaryCardSkeleton.displayName = "SummaryCardSkeleton";
 // 3. Profile / Hero Skeleton (matching intro.tsx)
 export const ProfileSkeleton = memo(() => {
   return (
-    <div className="flex flex-col items-center max-w-[54rem] mx-auto w-full pt-12 animate-pulse text-center">
+    <div className="flex flex-col items-center max-w-[54rem] mx-auto w-full pt-12 text-center">
       {/* Avatar Circle */}
       <Shimmer className="h-24 w-24 rounded-full mb-6" />
       
@@ -91,7 +91,7 @@ ProfileSkeleton.displayName = "ProfileSkeleton";
 // 4. Project Card Case Study Skeleton (matching project.tsx)
 export const ProjectCardSkeleton = memo(() => {
   return (
-    <div className="premium-card p-6 md:p-8 mb-6 w-full animate-pulse">
+    <div className="premium-card p-6 md:p-8 mb-6 w-full">
       <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-6">
         <div className="w-full">
           <Shimmer className="h-4 w-28 rounded-md mb-2" />
@@ -122,7 +122,7 @@ ProjectCardSkeleton.displayName = "ProjectCardSkeleton";
 // 5. Experience Timeline Card Skeleton (matching experience.tsx)
 export const ExperienceSkeleton = memo(() => {
   return (
-    <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-4 md:ml-6 pl-6 sm:pl-8 py-2 w-full max-w-[48rem] mx-auto animate-pulse">
+    <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-4 md:ml-6 pl-6 sm:pl-8 py-2 w-full max-w-[48rem] mx-auto">
       <div className="relative mb-12">
         {/* Timeline Bubble node */}
         <span className="absolute -left-[43px] md:-left-[51px] top-1.5 w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-800" />
