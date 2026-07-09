@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/amitrazz/portfolio/compare/v1.3.0...v1.3.1) (2026-07-09)
+
+
+### Bug Fixes
+
+* CV updated ([a579ffc](https://github.com/amitrazz/portfolio/commit/a579ffc87b7b36f5710011b9d2c5940c42005c1e))
+
 # [1.3.0](https://github.com/amitrazz/portfolio/compare/v1.2.5...v1.3.0) (2026-07-09)
 
 
