@@ -8,6 +8,8 @@ import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 
+import Logo from "./logo";
+
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,9 +33,9 @@ export default function Header() {
             setTimeOfLastClick(Date.now());
             setIsMobileMenuOpen(false);
           }}
-          className="text-lg font-bold tracking-tight text-zinc-900 dark:text-zinc-50 hover:opacity-80 transition"
+          className="hover:opacity-90 transition"
         >
-          amit<span className="text-indigo-500 font-extrabold">.</span>kumar
+          <Logo />
         </Link>
 
         {/* Desktop Navigation Links */}
