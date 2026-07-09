@@ -122,13 +122,13 @@ ProjectCardSkeleton.displayName = "ProjectCardSkeleton";
 // 5. Experience Timeline Card Skeleton (matching experience.tsx)
 export const ExperienceSkeleton = memo(() => {
   return (
-    <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-4 md:ml-6 pl-6 sm:pl-8 py-2 w-full max-w-[48rem] mx-auto">
+    <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-3 sm:ml-6 pl-5 sm:pl-8 py-2 w-full max-w-[48rem] mx-auto">
       <div className="relative mb-12">
         {/* Timeline Bubble node */}
-        <span className="absolute -left-[43px] md:-left-[51px] top-1.5 w-8 h-8 rounded-full bg-zinc-200 dark:bg-zinc-800" />
+        <span className="absolute -left-[29px] sm:-left-[41px] md:-left-[49px] top-1.5 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-zinc-200 dark:bg-zinc-800" />
         
         {/* Card */}
-        <div className="premium-card p-6 md:p-8">
+        <div className="premium-card p-4 sm:p-6 md:p-8">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div className="space-y-2">
               <Shimmer className="h-6 w-48 rounded-md" />

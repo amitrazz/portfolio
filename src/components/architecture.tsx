@@ -13,11 +13,11 @@ export default function Architecture() {
     <section
       ref={ref}
       id="architecture"
-      className="mb-28 max-w-[58rem] scroll-mt-28 sm:mb-40"
+      className="mb-16 sm:mb-28 max-w-[58rem] scroll-mt-28 mx-auto px-4 w-full"
     >
       <SectionHeading>Architecture Expertise</SectionHeading>
       
-      <p className="mb-12 text-center text-zinc-700 dark:text-zinc-300 max-w-[38rem] mx-auto text-lg leading-relaxed">
+      <p className="mb-12 text-center text-zinc-700 dark:text-zinc-300 max-w-[38rem] mx-auto text-base sm:text-lg leading-relaxed">
         Designing modular, reliable, and high-performance system topologies that scale with business growth and organizational structure.
       </p>
 
@@ -25,7 +25,7 @@ export default function Architecture() {
         {architectureExpertise.map((item, index) => (
           <motion.div
             key={item.title}
-            className="premium-card p-6 flex flex-col items-start"
+            className="premium-card p-4 sm:p-6 flex flex-col items-start"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -39,7 +39,7 @@ export default function Architecture() {
               {item.title}
             </h3>
             
-            <p className="text-sm text-zinc-800 dark:text-zinc-400 leading-relaxed">
+            <p className="text-base text-zinc-800 dark:text-zinc-400 leading-relaxed">
               {item.description}
             </p>
           </motion.div>

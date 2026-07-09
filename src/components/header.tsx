@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
@@ -13,6 +13,18 @@ import Logo from "./logo";
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Lock body scroll when mobile menu is open to prevent background scrolling
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <header className="z-[999] relative">
@@ -76,9 +88,9 @@ export default function Header() {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - min 44x44px touch target */}
         <button
-          className="sm:hidden flex items-center justify-center p-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors focus:outline-none"
+          className="sm:hidden flex items-center justify-center w-11 h-11 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Navigation Menu"
         >
@@ -86,40 +98,75 @@ export default function Header() {
         </button>
       </nav>
 
-      {/* Mobile Links Overlay Panel */}
+      {/* Mobile Links Side Drawer & Backdrop Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -15 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.18, ease: "easeInOut" }}
-            className="fixed top-[4.5rem] left-0 w-full bg-white/95 dark:bg-zinc-950/95 backdrop-blur-lg border-b border-zinc-200 dark:border-zinc-800/60 z-[998] shadow-md flex flex-col py-6 px-6 sm:hidden"
-          >
-            <ul className="flex flex-col gap-3 text-sm font-medium text-zinc-700 dark:text-zinc-300">
-              {links.map((link) => (
-                <li key={link.hash}>
-                  <Link
-                    href={link.hash}
-                    onClick={() => {
-                      setActiveSection(link.name);
-                      setTimeOfLastClick(Date.now());
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className={clsx(
-                      "block py-2 px-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors",
-                      {
-                        "bg-zinc-100 dark:bg-zinc-900 text-indigo-600 dark:text-indigo-400 font-semibold border-l-3 border-indigo-500 rounded-l-none pl-3":
-                          activeSection === link.name,
-                      }
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          <>
+            {/* Backdrop Blur Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-[997] sm:hidden"
+            />
+
+            {/* Collapsible Slide-Out Drawer */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 350, damping: 32 }}
+              className="fixed top-0 right-0 h-full w-[280px] max-w-[85vw] bg-white dark:bg-zinc-950 border-l border-zinc-200 dark:border-zinc-800/60 z-[998] shadow-2xl flex flex-col p-6 sm:hidden"
+            >
+              {/* Drawer Header */}
+              <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-100 dark:border-zinc-900">
+                <Link
+                  href="#home"
+                  onClick={() => {
+                    setActiveSection("Home");
+                    setTimeOfLastClick(Date.now());
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="hover:opacity-90 transition"
+                >
+                  <Logo />
+                </Link>
+                {/* Close Button - min 44x44px touch target */}
+                <button
+                  className="w-11 h-11 flex items-center justify-center rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Close Navigation Menu"
+                >
+                  <HiX size={22} />
+                </button>
+              </div>
+
+              {/* Drawer Links */}
+              <ul className="flex flex-col gap-2">
+                {links.map((link) => (
+                  <li key={link.hash}>
+                    <Link
+                      href={link.hash}
+                      onClick={() => {
+                        setActiveSection(link.name);
+                        setTimeOfLastClick(Date.now());
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className={clsx(
+                        "flex items-center h-12 px-4 rounded-xl text-sm font-semibold transition-colors duration-200",
+                        activeSection === link.name
+                          ? "bg-indigo-50/80 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border-l-4 border-indigo-500 rounded-l-none pl-3"
+                          : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 hover:text-zinc-950 dark:hover:text-zinc-100"
+                      )}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
