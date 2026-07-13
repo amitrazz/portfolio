@@ -47,6 +47,8 @@ export default function Contact() {
           <a
             href="https://www.linkedin.com/in/amitrazz"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Connect on LinkedIn (opens in a new tab)"
             className="premium-card p-4 flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition min-h-[44px]"
           >
             <LuLinkedin size={18} className="shrink-0" />
@@ -55,6 +57,8 @@ export default function Contact() {
           <a
             href="https://github.com/amitrazz"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View GitHub profile (opens in a new tab)"
             className="premium-card p-4 flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition min-h-[44px]"
           >
             <LuGithub size={18} className="shrink-0" />

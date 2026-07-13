@@ -146,3 +146,21 @@ html:not(.dark) .shimmer-box::after {
     @apply bg-zinc-200 dark:bg-zinc-800;
   }
 }
+
+/* Accessibility Focus Rings */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid #6366f1 !important;
+  outline-offset: 2px !important;
+}
+
+html.dark a:focus-visible,
+html.dark button:focus-visible,
+html.dark input:focus-visible,
+html.dark textarea:focus-visible,
+html.dark [tabindex="0"]:focus-visible {
+  outline: 2px solid #818cf8 !important;
+}

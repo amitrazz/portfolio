@@ -11,7 +11,7 @@ import Contact from "@/components/contact";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center px-4 w-full">
+    <main id="main-content" tabIndex={-1} className="flex flex-col items-center px-4 w-full outline-none">
       <Intro />
       <SectionDivider />
       <About />

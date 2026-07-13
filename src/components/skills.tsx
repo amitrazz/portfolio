@@ -24,20 +24,22 @@ export default function Skills() {
     >
       <SectionHeading>Technical Skills</SectionHeading>
       
-      <p className="mb-12 text-zinc-600 dark:text-zinc-400 max-w-[36rem] mx-auto text-lg leading-relaxed">
+      <p className="mb-12 text-zinc-700 dark:text-zinc-400 max-w-[36rem] mx-auto text-lg leading-relaxed">
         Structured engineering capabilities, runtime platforms, and development standards.
       </p>
 
       {/* Category Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 mb-10">
+      <div role="tablist" aria-label="Skills categorization" className="flex flex-wrap justify-center gap-2 mb-10">
         {categories.map((cat) => (
           <button
             key={cat}
+            role="tab"
+            aria-selected={activeCategory === cat}
             onClick={() => setActiveCategory(cat)}
             className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold border transition cursor-pointer ${
               activeCategory === cat
                 ? 'bg-zinc-900 border-zinc-900 text-zinc-50 dark:bg-zinc-50 dark:border-zinc-50 dark:text-zinc-950 shadow-sm'
-                : 'bg-white border-zinc-200 text-zinc-600 hover:text-zinc-900 dark:bg-zinc-900/50 dark:border-zinc-800/80 dark:text-zinc-400 dark:hover:text-zinc-100'
+                : 'bg-white border-zinc-200 text-zinc-700 hover:text-zinc-950 dark:bg-zinc-900/50 dark:border-zinc-800/80 dark:text-zinc-400 dark:hover:text-zinc-100'
             }`}
           >
             {cat}

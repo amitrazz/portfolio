@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
@@ -14,6 +14,9 @@ export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+
   // Lock body scroll when mobile menu is open to prevent background scrolling
   useEffect(() => {
     if (isMobileMenuOpen) {
@@ -25,6 +28,63 @@ export default function Header() {
       document.body.style.overflow = "";
     };
   }, [isMobileMenuOpen]);
+
+  // Focus trapping and Esc key listener for mobile side drawer
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+
+      if (e.key === "Tab" && drawerRef.current) {
+        const focusableElements = drawerRef.current.querySelectorAll(
+          'a[href], button:not([disabled])'
+        );
+        if (focusableElements.length === 0) return;
+        const firstElement = focusableElements[0] as HTMLElement;
+        const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            lastElement.focus();
+            e.preventDefault();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            firstElement.focus();
+            e.preventDefault();
+          }
+        }
+      }
+    };
+
+    // Auto-focus the close button inside drawer
+    const focusTimeout = setTimeout(() => {
+      const closeBtn = drawerRef.current?.querySelector('button[aria-label="Close Navigation Menu"]');
+      if (closeBtn) {
+        (closeBtn as HTMLElement).focus();
+      }
+    }, 50);
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      clearTimeout(focusTimeout);
+    };
+  }, [isMobileMenuOpen]);
+
+  // Restore focus to the trigger button when mobile menu is closed
+  const [wasMobileMenuOpen, setWasMobileMenuOpen] = useState(false);
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      setWasMobileMenuOpen(true);
+    } else if (wasMobileMenuOpen) {
+      triggerRef.current?.focus();
+      setWasMobileMenuOpen(false);
+    }
+  }, [isMobileMenuOpen, wasMobileMenuOpen]);
 
   return (
     <header className="z-[999] relative">
@@ -51,7 +111,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation Links */}
-        <ul className="hidden sm:flex items-center gap-1.5 text-[0.82rem] font-medium text-zinc-600 dark:text-zinc-400">
+        <ul className="hidden sm:flex items-center gap-1.5 text-[0.82rem] font-medium text-zinc-700 dark:text-zinc-400">
           {links.map((link) => (
             <li
               className="relative h-full flex items-center justify-center"
@@ -69,6 +129,7 @@ export default function Header() {
                   setActiveSection(link.name);
                   setTimeOfLastClick(Date.now());
                 }}
+                aria-current={activeSection === link.name ? "page" : undefined}
               >
                 {link.name}
 
@@ -90,9 +151,11 @@ export default function Header() {
 
         {/* Mobile Menu Button - min 44x44px touch target */}
         <button
-          className="sm:hidden flex items-center justify-center w-11 h-11 text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg"
+          ref={triggerRef}
+          className="sm:hidden flex items-center justify-center w-11 h-11 text-zinc-700 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded-lg"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle Navigation Menu"
+          aria-expanded={isMobileMenuOpen}
         >
           {isMobileMenuOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
         </button>
@@ -113,6 +176,10 @@ export default function Header() {
 
             {/* Collapsible Slide-Out Drawer */}
             <motion.div
+              ref={drawerRef}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation menu"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -134,7 +201,7 @@ export default function Header() {
                 </Link>
                 {/* Close Button - min 44x44px touch target */}
                 <button
-                  className="w-11 h-11 flex items-center justify-center rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-11 h-11 flex items-center justify-center rounded-lg text-zinc-700 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
                   onClick={() => setIsMobileMenuOpen(false)}
                   aria-label="Close Navigation Menu"
                 >
@@ -157,8 +224,9 @@ export default function Header() {
                         "flex items-center h-12 px-4 rounded-xl text-sm font-semibold transition-colors duration-200",
                         activeSection === link.name
                           ? "bg-indigo-50/80 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border-l-4 border-indigo-500 rounded-l-none pl-3"
-                          : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 hover:text-zinc-950 dark:hover:text-zinc-100"
+                          : "text-zinc-700 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900/50 hover:text-zinc-950 dark:hover:text-zinc-100"
                       )}
+                      aria-current={activeSection === link.name ? "page" : undefined}
                     >
                       {link.name}
                     </Link>

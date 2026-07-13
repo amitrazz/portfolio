@@ -29,6 +29,8 @@ export default function Project({
 }: ProjectProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const detailsId = `details-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
   return (
     <div className="premium-card p-4 sm:p-6 md:p-8 mb-6 last:mb-0 transition-all duration-300">
       <div className="flex flex-col md:flex-row justify-between items-stretch md:items-start gap-4 mb-4">
@@ -42,6 +44,8 @@ export default function Project({
         </div>
         <button
           onClick={() => setIsExpanded(!isExpanded)}
+          aria-expanded={isExpanded}
+          aria-controls={detailsId}
           className="w-full md:w-auto h-11 px-4 text-xs font-bold bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-800 text-zinc-800 dark:text-zinc-200 rounded-xl flex items-center justify-center gap-2 border border-zinc-200/50 dark:border-zinc-800/80 transition cursor-pointer shrink-0"
         >
           {isExpanded ? "Collapse Case Study" : "View Case Study"}
@@ -69,6 +73,9 @@ export default function Project({
       <AnimatePresence>
         {isExpanded && (
           <motion.div
+            id={detailsId}
+            role="region"
+            aria-label={`Case study details for ${title}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}

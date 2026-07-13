@@ -52,7 +52,7 @@ export default function Intro() {
               duration: 0.7,
             }}
           >
-            ⚡
+            <span role="img" aria-label="lightning bolt">⚡</span>
           </motion.span>
         </div>
       </div>
@@ -104,7 +104,8 @@ export default function Intro() {
             className="bg-white/80 h-12 w-12 flex-1 sm:flex-none flex items-center justify-center text-zinc-700 hover:text-zinc-950 dark:bg-zinc-900/60 dark:text-zinc-300 dark:hover:text-zinc-50 border border-zinc-200 dark:border-zinc-800/80 rounded-xl hover:scale-110 active:scale-95 transition shadow-sm cursor-pointer backdrop-blur-sm"
             href="https://www.linkedin.com/in/amitrazz"
             target="_blank"
-            aria-label="LinkedIn"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn profile (opens in a new tab)"
           >
             <LuLinkedin size={18} />
           </a>
@@ -113,7 +114,8 @@ export default function Intro() {
             className="bg-white/80 h-12 w-12 flex-1 sm:flex-none flex items-center justify-center text-zinc-700 hover:text-zinc-950 dark:bg-zinc-900/60 dark:text-zinc-300 dark:hover:text-zinc-50 border border-zinc-200 dark:border-zinc-800/80 rounded-xl hover:scale-110 active:scale-95 transition shadow-sm cursor-pointer backdrop-blur-sm"
             href="https://github.com/amitrazz"
             target="_blank"
-            aria-label="GitHub"
+            rel="noopener noreferrer"
+            aria-label="GitHub profile (opens in a new tab)"
           >
             <LuGithub size={18} />
           </a>
@@ -139,7 +141,7 @@ export default function Intro() {
             <span className="text-2xl xs:text-3xl sm:text-4xl font-extrabold text-zinc-900 dark:text-zinc-50 block mb-1 tracking-tight">
               {stat.value}
             </span>
-            <span className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 font-medium">
+            <span className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400 font-medium">
               {stat.label}
             </span>
           </div>
