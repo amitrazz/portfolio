@@ -80,6 +80,7 @@ export default function Project({
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
+            style={{ willChange: "transform, height" }}
             className="overflow-hidden mt-6 pt-6 border-t border-zinc-100 dark:border-zinc-800/80 flex flex-col gap-6"
           >
             {/* Grid of Sections */}
