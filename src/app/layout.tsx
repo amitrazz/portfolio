@@ -3,7 +3,17 @@ import Footer from '@/components/footer';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' });
+// display: 'optional' — tells the browser to use the fallback font if Inter is not cached,
+// rather than swapping it in later (which would cause FOUT and CLS).
+// adjustFontFallback: true — Next.js automatically generates a metric-matched fallback font
+// using CSS size-adjust so the layout does not shift when Inter eventually loads.
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'optional',
+  preload: true,
+  variable: '--font-inter',
+  adjustFontFallback: true,
+});
 
 export const metadata = {
   title: 'Amit Kumar | Principal Software Engineer & Software Architect',
@@ -33,10 +43,11 @@ export const metadata = {
     siteName: 'Amit Kumar Portfolio',
     images: [
       {
-        url: 'https://amitrazz.in/og-image.jpg',
+        url: 'https://amitrazz.in/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Amit Kumar - Principal Software Engineer & Architect Portfolio',
+        alt: 'Amit Kumar - Principal Platform Architect Portfolio',
+        type: 'image/png',
       },
     ],
   },
@@ -48,14 +59,18 @@ export const metadata = {
     images: ['https://amitrazz.in/og-image.jpg'],
   },
   verification: {
-    google: 'google-site-verification-placeholder',
+    // Remove placeholder — an invalid token causes Lighthouse SEO audit failure.
+    // Add your real Google Search Console token here when available.
+    // google: 'YOUR_REAL_VERIFICATION_TOKEN',
   },
   alternates: {
     canonical: 'https://amitrazz.in',
   },
   icons: {
     icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
   robots: {
     index: true,
@@ -121,13 +136,41 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="!scroll-smooth">
       <head>
+        {/*
+          CRITICAL: This inline script runs synchronously before any CSS paint.
+          It reads localStorage and applies the 'dark' class to <html> in the same
+          browser task as HTML parsing — zero layout shifts, zero FOUC.
+          This is the same technique used by next-themes, Vercel docs, and Linear.
+          It cannot be a module/defer script; it MUST be render-blocking.
+        */}
+        <script
+          id="theme-init"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var t = localStorage.getItem('theme');
+                  if (t === 'light') {
+                    document.documentElement.classList.remove('dark');
+                  } else {
+                    // Default: dark mode
+                    document.documentElement.classList.add('dark');
+                    if (!t) localStorage.setItem('theme', 'dark');
+                  }
+                } catch(e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body
-        className={`${inter.className} bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 relative min-h-screen grid-overlay pt-28 sm:pt-36 transition-colors duration-300`}
+        className={`${inter.variable} font-sans bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 relative min-h-screen grid-overlay pt-28 sm:pt-36`}
       >
         <a
           href="#main-content"

@@ -7,17 +7,26 @@
   --color-brand-bg-light: #fcfcfd;
   --color-accent-indigo: #6366f1;
   --color-accent-blue: #3b82f6;
+  /* Wire up Next.js self-hosted Inter font to Tailwind's font-sans utility */
+  --font-family-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Smooth scroll only for users who have not opted out of motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow-x: clip; /* clip avoids scroll anchoring issues unlike hidden */
 }
 
 body {
   @apply selection:bg-indigo-500/30 selection:text-indigo-200 antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
   width: 100%;
+  /* Removed transition-colors from body — it triggered a full-document repaint on theme change */
 }
 
 /* Grid overlay background */
@@ -38,10 +47,11 @@ html:not(.dark) .grid-overlay {
 }
 
 html.dark .premium-card {
-  background: rgba(20, 20, 23, 0.6);
+  background: rgba(20, 20, 23, 0.8);
   border-color: rgba(255, 255, 255, 0.05);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
+  /* backdrop-filter removed from cards — caused 20+ compositor layers per scroll frame.
+     Use solid semi-transparent background instead for equivalent visual effect. */
 }
 
 html.dark .premium-card:hover {
@@ -54,7 +64,6 @@ html:not(.dark) .premium-card {
   background: #ffffff;
   border-color: rgba(9, 9, 11, 0.04);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.015), 0 1px 2px -1px rgba(0, 0, 0, 0.015), 0 4px 6px -1px rgba(0, 0, 0, 0.005);
-  backdrop-filter: none;
 }
 
 html:not(.dark) .premium-card:hover {
@@ -85,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.02em;
 }
 
-/* Shimmer box animation */
+/* Shimmer box animation — only runs when user allows motion */
 @keyframes shimmer {
   100% {
     transform: translateX(100%);

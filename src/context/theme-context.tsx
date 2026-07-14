@@ -31,21 +31,15 @@ export default function ThemeContextProvider({ children }: ThemeContextProviderP
   };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem('theme') as Theme | null;
-
-    if (localTheme) {
-      setTheme(localTheme);
-
-      if (localTheme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    } else {
-      // Default to dark mode by default
+    // The blocking inline script in layout.tsx already applied the 'dark' class
+    // before the first paint. Here we only sync the React state to match the DOM.
+    // Avoid re-calling classList.add/remove here — that would cause a second style
+    // recalculation and a potential CLS-inducing repaint.
+    try {
+      const localTheme = window.localStorage.getItem('theme') as Theme | null;
+      setTheme(localTheme === 'light' ? 'light' : 'dark');
+    } catch {
       setTheme('dark');
-      document.documentElement.classList.add('dark');
-      window.localStorage.setItem('theme', 'dark');
     }
   }, []);
 
