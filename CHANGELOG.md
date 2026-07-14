@@ -1,3 +1,11 @@
+## [1.4.8](https://github.com/amitrazz/portfolio/compare/v1.4.7...v1.4.8) (2026-07-14)
+
+
+### Performance Improvements
+
+* add .browserslistrc for modern browser targets ([71e546e](https://github.com/amitrazz/portfolio/commit/71e546eab99a8709e237aaeb31b088dfbac911d4))
+* target modern browsers in .browserslistrc and upgrade tsconfig target to ES2022 to eliminate legacy polyfills ([a0626ab](https://github.com/amitrazz/portfolio/commit/a0626abeee0cd33e553ef91928dcf52bab19421e))
+
 ## [1.4.7](https://github.com/amitrazz/portfolio/compare/v1.4.6...v1.4.7) (2026-07-14)
 
 
