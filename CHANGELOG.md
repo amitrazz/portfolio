@@ -1,3 +1,10 @@
+## [1.4.7](https://github.com/amitrazz/portfolio/compare/v1.4.6...v1.4.7) (2026-07-14)
+
+
+### Performance Improvements
+
+* remove framer-motion FLIP layoutId, replace with pure CSS transitions and animations in header and skills components ([b43d6a2](https://github.com/amitrazz/portfolio/commit/b43d6a24b142dbfce4fd156b90c341fef2888af1))
+
 ## [1.4.6](https://github.com/amitrazz/portfolio/compare/v1.4.5...v1.4.6) (2026-07-14)
 
 
