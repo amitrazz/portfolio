@@ -34,22 +34,26 @@ export default function Intro() {
               height="110"
               quality="80"
               priority={true}
+              fetchPriority="high"
               className="h-24 w-24 rounded-full object-cover border-[0.25rem] border-white shadow-xl dark:border-zinc-900"
             />
           </div>
-          <motion.span
-            className="absolute bottom-0 right-0 text-3xl"
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{
-              type: 'spring',
-              stiffness: 125,
-              delay: 0.1,
-              duration: 0.7,
-            }}
-          >
-            <span role="img" aria-label="lightning bolt">⚡</span>
-          </motion.span>
+          {/* Keep only this one spring animation — it's the brand personality detail */}
+          {!shouldReduceMotion && (
+            <motion.span
+              className="absolute bottom-0 right-0 text-3xl"
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 125,
+                delay: 0.1,
+                duration: 0.7,
+              }}
+            >
+              <span role="img" aria-label="lightning bolt">⚡</span>
+            </motion.span>
+          )}
         </div>
       </div>
 
@@ -58,20 +62,15 @@ export default function Intro() {
           Principal Platform Architect
         </span>
         <h1 className="mb-6 mt-6 px-2 text-3xl xs:text-4xl sm:text-5xl font-extrabold tracking-tight !leading-[1.15] text-zinc-900 dark:text-zinc-50">
-          Engineering Resilient Distributed Platforms & Micro-Frontend Systems at Scale
+          Engineering Resilient Distributed Platforms &amp; Micro-Frontend Systems at Scale
         </h1>
         <p className="mb-10 text-base sm:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 max-w-[42rem] mx-auto">
           Associate Principal Engineer specializing in high-performance platform systems, dynamic runtime orchestration, and event-driven architectures. Designing scalable boundaries, developer tools, and data-caching policies that empower cross-functional squads and million-user products.
         </p>
       </div>
 
-      {/* Actions */}
-      <motion.div
-        className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 text-sm font-medium mb-16 w-full max-w-[36rem] sm:max-w-none mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1, duration: 0.4 }}
-      >
+      {/* Actions — CSS animation replaces motion.div, eliminating extra framer orchestration */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-3 px-4 text-sm font-medium mb-16 w-full max-w-[36rem] sm:max-w-none mx-auto animate-fade-in-up">
         <a
           href="#contact"
           onClick={() => {
@@ -112,19 +111,10 @@ export default function Intro() {
             <LuGithub size={18} />
           </a>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Stats Badges */}
-      <motion.div
-        className="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 max-w-[48rem] mx-auto"
-        initial={shouldReduceMotion ? {} : { opacity: 0, y: 30, scale: 0.95 }}
-        animate={shouldReduceMotion ? {} : { opacity: 1, y: 0, scale: 1 }}
-        transition={{ 
-          duration: 0.7, 
-          ease: [0.22, 1, 0.36, 1],
-          delay: 0.2
-        }}
-      >
+      {/* Stats Badges — CSS animation replaces motion.div */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 max-w-[48rem] mx-auto animate-fade-in-up" style={{ animationDelay: '200ms' }}>
         {stats.map((stat, index) => (
           <div
             key={index}
@@ -138,7 +128,7 @@ export default function Intro() {
             </span>
           </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }

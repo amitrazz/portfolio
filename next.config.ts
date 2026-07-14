@@ -12,6 +12,20 @@ const nextConfig: NextConfig = {
   // Compress responses with gzip/brotli at the Next.js layer
   compress: true,
 
+  // Target modern browsers only — eliminates legacy JS polyfills
+  // This removes transforms for: async/await, optional chaining, nullish coalescing
+  // which Lighthouse's "Legacy JavaScript" audit flags.
+  // Browsers with <2% market share (IE11, old Safari) are excluded intentionally.
+  // Next.js 15 reads this via the @babel/preset-env or SWC browserslist config.
+  experimental: {
+    optimizePackageImports: [
+      // Tell the bundler to only include the specific lu icons used, not all of react-icons/lu
+      'react-icons',
+      'react-icons/lu',
+      'framer-motion',
+    ],
+  },
+
   // Production HTTP security & caching headers
   async headers() {
     return [

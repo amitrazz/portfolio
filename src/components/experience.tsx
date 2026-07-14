@@ -1,43 +1,68 @@
-"use client";
-
+// Server Component — static data, no framer-motion, no 'use client'
+// Timeline entry animations use CSS @keyframes + scroll-timeline
 import React from 'react';
 import SectionHeading from './section-heading';
 import { experiencesData } from '@/lib/data';
-import { useSectionInView } from '@/lib/hooks';
-import { motion } from 'framer-motion';
-import { LuCpu, LuNetwork, LuServer, LuLayers } from 'react-icons/lu';
 
-const getExperienceIcon = (iconName: string) => {
+// Inline SVG icons — eliminates react-icons import from this chunk entirely
+function IconCpu() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/>
+      <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+      <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+      <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+      <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+    </svg>
+  );
+}
+function IconNetwork() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="6" height="6" rx="1"/><rect x="16" y="2" width="6" height="6" rx="1"/>
+      <rect x="9" y="16" width="6" height="6" rx="1"/>
+      <path d="M5 8v4c0 1 .5 2 2 2h10c1.5 0 2-1 2-2V8"/><line x1="12" y1="12" x2="12" y2="16"/>
+    </svg>
+  );
+}
+function IconServer() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/>
+      <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+    </svg>
+  );
+}
+function IconLayers() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+      <polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/>
+    </svg>
+  );
+}
+
+function getExperienceIcon(iconName: string) {
   switch (iconName) {
-    case 'cpu':
-      return <LuCpu size={16} />;
-    case 'network':
-      return <LuNetwork size={16} />;
-    case 'server':
-      return <LuServer size={16} />;
-    case 'layers':
-      return <LuLayers size={16} />;
-    default:
-      return null;
+    case 'cpu': return <IconCpu />;
+    case 'network': return <IconNetwork />;
+    case 'server': return <IconServer />;
+    case 'layers': return <IconLayers />;
+    default: return null;
   }
-};
+}
 
 export default function Experience() {
-  const { ref } = useSectionInView('Experience', 0.3);
-
   return (
-    <section ref={ref} className="mb-16 sm:mb-28 max-w-[48rem] mx-auto px-4 w-full">
+    <section id="experience" className="mb-16 sm:mb-28 max-w-[48rem] mx-auto px-4 w-full scroll-mt-28">
       <SectionHeading>Professional Experience</SectionHeading>
       
       <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-3 sm:ml-6 pl-5 sm:pl-8 py-2 flex flex-col gap-10 sm:gap-12">
         {experiencesData.map((item, index) => (
-          <motion.div
+          <div
             key={index}
-            className="relative"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
+            className="relative animate-slide-in-left"
+            style={{ animationDelay: `${index * 80}ms` }}
           >
             {/* Timeline Bubble Node */}
             <span className="absolute -left-[29px] sm:-left-[41px] md:-left-[49px] top-1.5 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-400 shadow-sm">
@@ -87,7 +112,7 @@ export default function Experience() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

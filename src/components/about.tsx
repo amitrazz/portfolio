@@ -1,20 +1,12 @@
-"use client";
-
-import { useSectionInView } from '@/lib/hooks';
-import { motion } from 'framer-motion';
+// Server Component — static content, no framer-motion, no 'use client'
+// Entry animation uses CSS @keyframes (transform+opacity only — GPU composited)
 import SectionHeading from './section-heading';
 
 export default function About() {
-  const { ref } = useSectionInView('About');
-
   return (
-    <motion.section
-      ref={ref}
-      className="mb-16 sm:mb-28 max-w-[48rem] text-center leading-8 scroll-mt-28 mx-auto px-4 w-full"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.175 }}
+    <section
       id="about"
+      className="mb-16 sm:mb-28 max-w-[48rem] text-center leading-8 scroll-mt-28 mx-auto px-4 w-full animate-fade-in-up"
     >
       <SectionHeading>About Me</SectionHeading>
       
@@ -26,7 +18,7 @@ export default function About() {
         <div className="premium-card p-4 sm:p-6">
           <h3 className="font-bold text-zinc-900 dark:text-zinc-50 mb-3 text-base sm:text-lg">Specialties</h3>
           <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
-            Micro-frontend ecosystems, performance auditing & Core Web Vitals profiling, global content delivery optimization, enterprise design systems, API schema design, and serverless background orchestration.
+            Micro-frontend ecosystems, performance auditing &amp; Core Web Vitals profiling, global content delivery optimization, enterprise design systems, API schema design, and serverless background orchestration.
           </p>
         </div>
 
@@ -38,7 +30,7 @@ export default function About() {
         </div>
 
         <div className="premium-card p-4 sm:p-6">
-          <h3 className="font-bold text-zinc-900 dark:text-zinc-50 mb-3 text-base sm:text-lg">Leadership & Culture</h3>
+          <h3 className="font-bold text-zinc-900 dark:text-zinc-50 mb-3 text-base sm:text-lg">Leadership &amp; Culture</h3>
           <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
             Experienced at scaling platforms across distributed cross-functional teams. I focus on developer velocity, technical mentorship, setting design-first engineering guidelines, and driving modular, decoupled team boundaries.
           </p>
@@ -51,6 +43,6 @@ export default function About() {
           </p>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
