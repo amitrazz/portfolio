@@ -19,7 +19,7 @@ export const Shimmer = memo(({ width, height, borderRadius, className = "" }: Sh
   return (
     <div
       style={style}
-      className={`animate-shimmer bg-gradient-to-r from-zinc-200 via-zinc-100 to-zinc-200 dark:from-zinc-800 dark:via-zinc-700 dark:to-zinc-800 bg-[length:200%_100%] motion-reduce:animate-none ${className}`}
+      className={`shimmer-box ${className}`}
     />
   );
 });
