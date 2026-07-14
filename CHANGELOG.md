@@ -1,3 +1,10 @@
+## [1.4.5](https://github.com/amitrazz/portfolio/compare/v1.4.4...v1.4.5) (2026-07-14)
+
+
+### Bug Fixes
+
+*  Performance Optimizations ([c398507](https://github.com/amitrazz/portfolio/commit/c39850742663a34332466a5eedeb13f9adf9f4a5))
+
 ## [1.4.4](https://github.com/amitrazz/portfolio/compare/v1.4.3...v1.4.4) (2026-07-14)
 
 
