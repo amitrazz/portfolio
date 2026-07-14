@@ -127,15 +127,37 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Navbar slide-down — replaces framer-motion spring on the header.
+   Uses only transform+opacity. Runs once on page load, then GPU layer is freed. */
+@keyframes navSlideDown {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .animate-fade-in-up {
     animation: fadeInUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
-    will-change: transform, opacity;
+    /*
+     * will-change is intentionally ABSENT here.
+     * will-change on one-shot animations (run once, then done) promotes GPU layers
+     * that are never demoted — permanently wasting GPU memory.
+     * Only use will-change for elements that CONTINUOUSLY animate (infinite loops).
+     * The CSS animation already runs on the compositor without will-change.
+     */
   }
 
   .animate-slide-in-left {
     animation: slideInLeft 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
-    will-change: transform, opacity;
+  }
+
+  .animate-nav-slide-down {
+    animation: navSlideDown 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 }
 

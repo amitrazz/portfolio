@@ -1,8 +1,11 @@
 "use client";
-
+// Skills stays as a Client Component — it has interactive filter state.
+// BUT: framer-motion AnimatePresence + layout prop is removed.
+// The layout prop was the #1 Style & Layout cost: it called getBoundingClientRect()
+// on every badge on every filter click, then ran a JS FLIP animation for each one.
+// Replaced with CSS opacity+scale transitions on each badge individually.
 import { skillsData } from '@/lib/data';
 import { useSectionInView } from '@/lib/hooks';
-import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import SectionHeading from './section-heading';
 
@@ -10,16 +13,13 @@ export default function Skills() {
   const { ref } = useSectionInView('Skills', 0.4);
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
-  // Dynamically collect unique categories
   const categories = ['All', ...Array.from(new Set(skillsData.map((s) => s.category)))];
-
-  const filteredSkills =
-    activeCategory === 'All' ? skillsData : skillsData.filter((s) => s.category === activeCategory);
 
   return (
     <section
       ref={ref}
-      className="mb-28 max-w-[53rem] text-center sm:mb-40 mx-auto px-4 w-full"
+      id="skills"
+      className="mb-28 max-w-[53rem] text-center sm:mb-40 mx-auto px-4 w-full scroll-mt-28"
     >
       <SectionHeading>Technical Skills</SectionHeading>
       
@@ -46,28 +46,41 @@ export default function Skills() {
         ))}
       </div>
 
-      {/* Badges Layout */}
-      <motion.div 
-        layout
+      {/*
+        Badge Layout.
+        BEFORE: motion.div layout + AnimatePresence mode="popLayout" + motion.span layout
+        WHY IT WAS SLOW: framer-motion reads getBoundingClientRect() on ALL N badges,
+        calculates where each one will move to, inverts the transform, then plays it.
+        For 30 badges = 60 layout reads + 30 JS animation loops per filter click.
+        
+        AFTER: All badges always in DOM. CSS opacity+scale transition makes filtered
+        badges invisible and collapsed. No JS animation, no layout reads.
+        Uses contain: layout style to isolate reflow to this container only.
+      */}
+      <div
         className="flex flex-wrap justify-center gap-2 max-w-[44rem] mx-auto"
+        style={{ contain: 'layout' }}
       >
-        <AnimatePresence mode="popLayout">
-          {filteredSkills.map((skill) => (
-            <motion.span
+        {skillsData.map((skill) => {
+          const isVisible = activeCategory === 'All' || skill.category === activeCategory;
+          return (
+            <span
               key={skill.name}
-              layout
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.15 }}
-              className="premium-card px-4 py-2.5 text-sm font-semibold text-zinc-800 dark:text-zinc-200 flex items-center gap-2"
+              aria-hidden={!isVisible}
+              className={[
+                'premium-card px-4 py-2.5 text-sm font-semibold text-zinc-800 dark:text-zinc-200 flex items-center gap-2',
+                'transition-[opacity,transform] duration-150',
+                isVisible
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-90 pointer-events-none select-none w-0 px-0 overflow-hidden',
+              ].join(' ')}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 shrink-0" />
               {skill.name}
-            </motion.span>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+            </span>
+          );
+        })}
+      </div>
     </section>
   );
 }

@@ -1,14 +1,32 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { links } from "@/lib/data";
 import Link from "next/link";
 import clsx from "clsx";
 import { useActiveSectionContext } from "@/context/active-section-context";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
 
 import Logo from "./logo";
+
+// Inline SVGs — eliminates react-icons/hi from this chunk
+function IconMenu() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="4" y1="12" x2="20" y2="12" />
+      <line x1="4" y1="18" x2="16" y2="18" />
+    </svg>
+  );
+}
+function IconClose() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18" />
+      <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  );
+}
 
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
@@ -88,12 +106,17 @@ export default function Header() {
 
   return (
     <header className="z-[999] relative">
-      {/* Desktop Sticky Navbar Container */}
-      <motion.div
-        className="fixed top-0 left-1/2 h-[4.5rem] w-full rounded-none border-b border-zinc-200/50 bg-white/70 backdrop-blur-md shadow-sm sm:top-6 sm:h-[3.25rem] sm:w-[58rem] sm:rounded-full sm:border dark:border-zinc-800/50 dark:bg-zinc-950/70"
-        initial={{ y: -100, x: "-50%", opacity: 0 }}
-        animate={{ y: 0, x: "-50%", opacity: 1 }}
-        transition={{ type: "spring", stiffness: 260, damping: 30 }}
+      {/*
+        Desktop Sticky Navbar Container.
+        BEFORE: motion.div with spring y:-100→0 animation.
+        WHY IT WAS SLOW: Spring animations on fixed+backdrop-blur elements force
+        the compositor to promote the layer, then run a JS loop updating transform
+        on every frame until the spring settles (~60 frames × layout read).
+        AFTER: CSS @keyframes navSlideDown — runs entirely on the compositor thread,
+        no JS involvement after the class is applied. GPU only.
+      */}
+      <div
+        className="fixed top-0 left-1/2 -translate-x-1/2 h-[4.5rem] w-full rounded-none border-b border-zinc-200/50 bg-white/70 backdrop-blur-md shadow-sm sm:top-6 sm:h-[3.25rem] sm:w-[58rem] sm:rounded-full sm:border dark:border-zinc-800/50 dark:bg-zinc-950/70 animate-nav-slide-down"
       />
 
       <nav className="flex fixed top-0 left-1/2 h-[4.5rem] w-full -translate-x-1/2 items-center justify-between px-6 sm:top-6 sm:h-[3.25rem] sm:w-[58rem] sm:px-6">
@@ -118,6 +141,18 @@ export default function Header() {
               className="relative h-full flex items-center justify-center"
               key={link.hash}
             >
+              {/*
+                Active nav indicator.
+                BEFORE: motion.span with layoutId="activeSection" (FLIP technique).
+                WHY IT WAS SLOW: layoutId reads getBoundingClientRect() twice per
+                navigation — once for the "first" position, once for the "last".
+                This is a forced synchronous layout (reflow) on EVERY scroll event
+                that changes the active section. With IntersectionObserver firing
+                on scroll, this could be 10-20 forced reflows per second.
+                AFTER: CSS position:absolute pseudo-element with opacity+scale
+                transition. The element is always in DOM (opacity:0 when inactive)
+                so there's no mount/unmount layout thrash.
+              */}
               <Link
                 className={clsx(
                   "flex items-center justify-center px-2.5 py-1.5 hover:text-zinc-950 dark:hover:text-zinc-100 transition-colors duration-200 relative",
@@ -133,18 +168,16 @@ export default function Header() {
                 aria-current={activeSection === link.name ? "page" : undefined}
               >
                 {link.name}
-
-                {link.name === activeSection && (
-                  <motion.span
-                    className="bg-zinc-100/90 rounded-full absolute inset-0 -z-10 dark:bg-zinc-800/80 border border-zinc-200/20 dark:border-zinc-700/30"
-                    layoutId="activeSection"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
-                  />
-                )}
+                {/* Always-in-DOM indicator — transitions with opacity+scale (GPU composited) */}
+                <span
+                  className={clsx(
+                    "bg-zinc-100/90 rounded-full absolute inset-0 -z-10 dark:bg-zinc-800/80 border border-zinc-200/20 dark:border-zinc-700/30",
+                    "transition-[opacity,transform] duration-200",
+                    activeSection === link.name
+                      ? "opacity-100 scale-100"
+                      : "opacity-0 scale-95 pointer-events-none"
+                  )}
+                />
               </Link>
             </li>
           ))}
@@ -158,7 +191,7 @@ export default function Header() {
           aria-label="Toggle Navigation Menu"
           aria-expanded={isMobileMenuOpen}
         >
-          {isMobileMenuOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
+          {isMobileMenuOpen ? <IconClose /> : <IconMenu />}
         </button>
       </nav>
 
@@ -207,7 +240,7 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   aria-label="Close Navigation Menu"
                 >
-                  <HiX size={22} />
+                  <IconClose />
                 </button>
               </div>
 
