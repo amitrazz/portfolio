@@ -1,3 +1,10 @@
+## [1.4.9](https://github.com/amitrazz/portfolio/compare/v1.4.8...v1.4.9) (2026-07-14)
+
+
+### Performance Improvements
+
+* eliminate 74 non-composited animations by replacing background-position shimmers with transform: translateX shimmers ([d827797](https://github.com/amitrazz/portfolio/commit/d827797e89f7e7df3335bce548b8ff406bf6b329))
+
 ## [1.4.8](https://github.com/amitrazz/portfolio/compare/v1.4.7...v1.4.8) (2026-07-14)
 
 
