@@ -26,11 +26,7 @@ export default function Intro() {
     >
       <div className="flex items-center justify-center mb-6">
         <div className="relative">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 125, duration: 0.3 }}
-          >
+          <div>
             <Image
               src="/amit.jpg"
               alt="Amit Kumar Portrait"
@@ -40,7 +36,7 @@ export default function Intro() {
               priority={true}
               className="h-24 w-24 rounded-full object-cover border-[0.25rem] border-white shadow-xl dark:border-zinc-900"
             />
-          </motion.div>
+          </div>
           <motion.span
             className="absolute bottom-0 right-0 text-3xl"
             initial={{ opacity: 0, scale: 0 }}
@@ -57,11 +53,7 @@ export default function Intro() {
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-      >
+      <div>
         <span className="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 rounded-full">
           Principal Frontend Platform Architect
         </span>
@@ -71,7 +63,7 @@ export default function Intro() {
         <p className="mb-10 text-base sm:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 max-w-[42rem] mx-auto">
           Associate Principal Engineer specializing in micro-frontend architectures, performance engineering, and robust event-driven workflows. Proven record of driving latency down by 30% and API overhead by 60% across millions of users.
         </p>
-      </motion.div>
+      </div>
 
       {/* Actions */}
       <motion.div

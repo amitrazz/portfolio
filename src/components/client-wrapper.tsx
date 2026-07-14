@@ -1,11 +1,20 @@
 'use client';
 
-import Footer from '@/components/footer';
 import Header from '@/components/header';
-import ThemeSwitch from '@/components/theme-switch';
 import ActiveSectionContextProvider from '@/context/active-section-context';
 import ThemeContextProvider from '@/context/theme-context';
-import { Toaster } from 'react-hot-toast';
+import dynamic from 'next/dynamic';
+
+const ThemeSwitch = dynamic(() => import('@/components/theme-switch'), {
+  ssr: false,
+});
+
+const Toaster = dynamic(
+  () => import('react-hot-toast').then((mod) => mod.Toaster),
+  {
+    ssr: false,
+  }
+);
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -13,7 +22,6 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
       <ActiveSectionContextProvider>
         <Header />
         {children}
-        <Footer />
         <ThemeSwitch />
         <Toaster position="top-right" />
       </ActiveSectionContextProvider>

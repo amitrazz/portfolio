@@ -2,6 +2,7 @@ import About from "@/components/about";
 import Intro from "@/components/intro";
 import SectionDivider from "@/components/section-divider";
 import dynamic from "next/dynamic";
+import LazySection from "@/components/lazy-section";
 
 const Skeleton = () => (
   <div className="h-40 w-full animate-pulse bg-zinc-100 dark:bg-zinc-900 rounded-2xl max-w-[48rem] mx-auto my-12" />
@@ -42,19 +43,40 @@ export default function Home() {
       <SectionDivider />
       <About />
       <SectionDivider />
-      <Architecture />
+      
+      <LazySection id="architecture" fallback={<Skeleton />}>
+        <Architecture />
+      </LazySection>
       <SectionDivider />
-      <Experience />
+      
+      <LazySection id="experience" fallback={<Skeleton />}>
+        <Experience />
+      </LazySection>
       <SectionDivider />
-      <Projects />
+      
+      <LazySection id="projects" fallback={<Skeleton />}>
+        <Projects />
+      </LazySection>
       <SectionDivider />
-      <Skills />
+      
+      <LazySection id="skills" fallback={<Skeleton />}>
+        <Skills />
+      </LazySection>
       <SectionDivider />
-      <Achievements />
+      
+      <LazySection id="achievements" fallback={<Skeleton />}>
+        <Achievements />
+      </LazySection>
       <SectionDivider />
-      <Principles />
+      
+      <LazySection id="principles" fallback={<Skeleton />}>
+        <Principles />
+      </LazySection>
       <SectionDivider />
-      <Contact />
+      
+      <LazySection id="contact" fallback={<Skeleton />}>
+        <Contact />
+      </LazySection>
     </main>
   );
 }

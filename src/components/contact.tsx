@@ -25,8 +25,7 @@ export default function Contact() {
   return (
     <section
       ref={ref}
-      id="contact"
-      className="mb-16 sm:mb-28 max-w-[42rem] text-center scroll-mt-28 mx-auto px-4 w-full"
+      className="mb-16 sm:mb-28 max-w-[42rem] text-center mx-auto px-4 w-full"
     >
       <SectionHeading>Get In Touch</SectionHeading>
 

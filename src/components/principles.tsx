@@ -5,6 +5,26 @@ import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
 import SectionHeading from './section-heading';
 import { engineeringPrinciples } from '@/lib/data';
+import { LuCompass, LuTerminal, LuFlame, LuSparkles, LuShield, LuActivity } from 'react-icons/lu';
+
+const getPrincipleIcon = (iconName: string) => {
+  switch (iconName) {
+    case 'compass':
+      return <LuCompass size={20} />;
+    case 'terminal':
+      return <LuTerminal size={20} />;
+    case 'flame':
+      return <LuFlame size={20} />;
+    case 'sparkles':
+      return <LuSparkles size={20} />;
+    case 'shield':
+      return <LuShield size={20} />;
+    case 'activity':
+      return <LuActivity size={20} />;
+    default:
+      return null;
+  }
+};
 
 export default function Principles() {
   const { ref } = useSectionInView('Principles', 0.4);
@@ -12,8 +32,7 @@ export default function Principles() {
   return (
     <section
       ref={ref}
-      id="principles"
-      className="mb-16 sm:mb-28 max-w-[58rem] scroll-mt-28 mx-auto px-4 w-full"
+      className="mb-16 sm:mb-28 max-w-[58rem] mx-auto px-4 w-full"
     >
       <SectionHeading>Engineering Principles</SectionHeading>
 
@@ -32,7 +51,7 @@ export default function Principles() {
             transition={{ delay: index * 0.05, duration: 0.3 }}
           >
             <div className="p-3 bg-zinc-100 dark:bg-zinc-900 rounded-xl text-zinc-800 dark:text-zinc-200 mb-4 border border-zinc-200/30 dark:border-zinc-800/30">
-              {item.icon}
+              {getPrincipleIcon(item.icon)}
             </div>
 
             <h3 className="font-bold text-lg text-zinc-900 dark:text-zinc-50 mb-2">

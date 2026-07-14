@@ -1,18 +1,5 @@
-import React from "react";
-import { 
-  LuServer, 
-  LuCpu, 
-  LuLayers, 
-  LuNetwork, 
-  LuFlame, 
-  LuShield,
-  LuCompass,
-  LuTerminal,
-  LuSparkles,
-  LuActivity
-} from "react-icons/lu";
-import { FaAws } from "react-icons/fa";
-import { SiGraphql } from "react-icons/si";
+// This file contains static data for the portfolio. It is purely static data with no React components
+// or icon imports, allowing for optimal tree shaking and preventing transitively bloating layouts.
 
 export const links = [
   {
@@ -59,7 +46,7 @@ export const experiencesData = [
     company: "Aptos India Pvt. Ltd.",
     location: "Bangalore, India",
     date: "May 2023 – Present",
-    icon: React.createElement(LuCpu),
+    icon: "cpu",
     responsibilities: [
       "Led development of a scalable micro-frontend platform, enabling independent deployments across teams and reducing cross-team coupling.",
       "Designed and evolved a shared component system and design system, improving UI consistency and development velocity.",
@@ -75,7 +62,7 @@ export const experiencesData = [
     company: "Valuebound Consulting Services (Client: Airmeet Inc.)",
     location: "Bangalore, India",
     date: "Jul 2021 – May 2023",
-    icon: React.createElement(LuNetwork),
+    icon: "network",
     responsibilities: [
       "Led frontend architecture for enterprise applications using React, Next.js, and TypeScript.",
       "Drove adoption of GraphQL, reducing redundant data transfer by 60%.",
@@ -90,7 +77,7 @@ export const experiencesData = [
     company: "Robosoft Technologies (Client: Discovery, Inc.)",
     location: "Bangalore, India",
     date: "Mar 2021 – Jul 2021",
-    icon: React.createElement(LuServer),
+    icon: "server",
     responsibilities: [
       "Developed performance-sensitive features for OTT platforms using React, Next.js, and TypeScript.",
       "Reduced bundle size by 35% through code-splitting and dependency optimization.",
@@ -103,7 +90,7 @@ export const experiencesData = [
     company: "Creatise",
     location: "Bangalore, India",
     date: "Jun 2017 – Feb 2021",
-    icon: React.createElement(LuLayers),
+    icon: "layers",
     responsibilities: [
       "Built scalable frontend applications for OTT and e-commerce platforms using React.",
       "Improved performance via SSR, caching, and lazy loading strategies.",
@@ -164,32 +151,32 @@ export const architectureExpertise = [
   {
     title: "Distributed Systems & Scalability",
     description: "Designing decoupled asynchronous workflows, event-driven architectures, and implementing reliability patterns like circuit breakers, retries, idempotency, and eventual consistency.",
-    icon: React.createElement(LuNetwork),
+    icon: "network",
   },
   {
     title: "Micro-Frontend (MFE) Platforms",
     description: "Orchestrating micro-frontends using Module Federation. Defining strict boundaries, runtime state sync, independent CI/CD pipelines, and shared system registries.",
-    icon: React.createElement(LuCpu),
+    icon: "cpu",
   },
   {
     title: "Performance Engineering",
     description: "Maximizing Core Web Vitals (LCP, INP, CLS, TTFB). Implementing route-based code-splitting, tree-shaking, smart prefetching, CDN edge caching, and bundle optimization.",
-    icon: React.createElement(LuActivity),
+    icon: "activity",
   },
   {
     title: "Cloud Infrastructure & Serverless",
     description: "Building production systems on AWS using Lambda, API Gateway, DynamoDB, ECS, CloudFront, Docker, and defining Infrastructure as Code (IaC) via CloudFormation.",
-    icon: React.createElement(FaAws),
+    icon: "aws",
   },
   {
     title: "API Design & Schema Federation",
     description: "Structuring high-throughput APIs using GraphQL (Apollo/Federation) and REST. Preventing over-fetching, ensuring schema safety, and managing client-side caching.",
-    icon: React.createElement(SiGraphql),
+    icon: "graphql",
   },
   {
     title: "Enterprise Component Architecture",
     description: "Engineering headless, accessible, and multi-themed design systems. Enforcing design tokens, modular UI libraries, and high developer velocity workflows.",
-    icon: React.createElement(LuLayers),
+    icon: "layers",
   }
 ] as const;
 
@@ -197,32 +184,32 @@ export const engineeringPrinciples = [
   {
     title: "Design for Scale",
     description: "Every module, pipeline, or API is architected under the assumption that load, team size, and codebase complexity will double. Scale is built in, not bolted on.",
-    icon: React.createElement(LuCompass)
+    icon: "compass"
   },
   {
     title: "API & Contract First",
     description: "Defining strict schemas (GraphQL, TypeScript, OpenAPI) before writing any logic. Enables parallel frontend/backend development and ensures system safety.",
-    icon: React.createElement(LuTerminal)
+    icon: "terminal"
   },
   {
     title: "Performance is a Feature",
     description: "Latency directly correlates to user retention and business conversion. Every millisecond counts, from edge server response to final browser render.",
-    icon: React.createElement(LuFlame)
+    icon: "flame"
   },
   {
     title: "Exceptional Developer Experience",
     description: "Tooling, build times, and pipelines are the leverage of engineering organizations. Fast feedback loops directly translate to high product quality and velocity.",
-    icon: React.createElement(LuSparkles)
+    icon: "sparkles"
   },
   {
     title: "Observability & Fault Tolerance",
     description: "Systems must fail gracefully. Designing with proper telemetry, active monitoring, retries, and fallback states to deliver robust 99.99% availability.",
-    icon: React.createElement(LuShield)
+    icon: "shield"
   },
   {
     title: "Automation Over Manual Operations",
     description: "All environments, testing, styling enforcement, and deployment releases should be automated. If it has to be run manually twice, it deserves a pipeline.",
-    icon: React.createElement(LuActivity)
+    icon: "activity"
   }
 ] as const;
 

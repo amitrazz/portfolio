@@ -5,6 +5,28 @@ import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
 import SectionHeading from './section-heading';
 import { architectureExpertise } from '@/lib/data';
+import { LuNetwork, LuCpu, LuActivity, LuLayers } from 'react-icons/lu';
+import { FaAws } from 'react-icons/fa';
+import { SiGraphql } from 'react-icons/si';
+
+const getArchitectureIcon = (iconName: string) => {
+  switch (iconName) {
+    case 'network':
+      return <LuNetwork size={20} />;
+    case 'cpu':
+      return <LuCpu size={20} />;
+    case 'activity':
+      return <LuActivity size={20} />;
+    case 'aws':
+      return <FaAws size={20} />;
+    case 'graphql':
+      return <SiGraphql size={20} />;
+    case 'layers':
+      return <LuLayers size={20} />;
+    default:
+      return null;
+  }
+};
 
 export default function Architecture() {
   const { ref } = useSectionInView('Architecture', 0.4);
@@ -12,8 +34,7 @@ export default function Architecture() {
   return (
     <section
       ref={ref}
-      id="architecture"
-      className="mb-16 sm:mb-28 max-w-[58rem] scroll-mt-28 mx-auto px-4 w-full"
+      className="mb-16 sm:mb-28 max-w-[58rem] mx-auto px-4 w-full"
     >
       <SectionHeading>Architecture Expertise</SectionHeading>
       
@@ -32,7 +53,7 @@ export default function Architecture() {
             transition={{ delay: index * 0.05, duration: 0.3 }}
           >
             <div className="p-3 bg-indigo-500/10 rounded-xl text-indigo-600 dark:text-indigo-400 mb-4">
-              {item.icon}
+              {getArchitectureIcon(item.icon)}
             </div>
             
             <h3 className="font-bold text-lg text-zinc-900 dark:text-zinc-50 mb-2">

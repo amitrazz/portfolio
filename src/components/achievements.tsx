@@ -13,8 +13,7 @@ export default function Achievements() {
   return (
     <section
       ref={ref}
-      id="achievements"
-      className="mb-16 sm:mb-28 max-w-[58rem] scroll-mt-28 mx-auto px-4 w-full"
+      className="mb-16 sm:mb-28 max-w-[58rem] mx-auto px-4 w-full"
     >
       <SectionHeading>Measurable Achievements</SectionHeading>
 

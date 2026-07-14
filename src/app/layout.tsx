@@ -1,4 +1,5 @@
 import ClientWrapper from '@/components/client-wrapper';
+import Footer from '@/components/footer';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
@@ -138,6 +139,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="absolute top-[-5rem] -z-10 left-[10%] h-[30rem] w-[30rem] rounded-full blur-[10rem] bg-blue-500/[0.02] dark:bg-blue-500/5"></div>
 
         <ClientWrapper>{children}</ClientWrapper>
+        <Footer />
       </body>
     </html>
   );

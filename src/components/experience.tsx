@@ -5,12 +5,28 @@ import SectionHeading from './section-heading';
 import { experiencesData } from '@/lib/data';
 import { useSectionInView } from '@/lib/hooks';
 import { motion } from 'framer-motion';
+import { LuCpu, LuNetwork, LuServer, LuLayers } from 'react-icons/lu';
+
+const getExperienceIcon = (iconName: string) => {
+  switch (iconName) {
+    case 'cpu':
+      return <LuCpu size={16} />;
+    case 'network':
+      return <LuNetwork size={16} />;
+    case 'server':
+      return <LuServer size={16} />;
+    case 'layers':
+      return <LuLayers size={16} />;
+    default:
+      return null;
+  }
+};
 
 export default function Experience() {
   const { ref } = useSectionInView('Experience', 0.3);
 
   return (
-    <section id="experience" ref={ref} className="scroll-mt-28 mb-16 sm:mb-28 max-w-[48rem] mx-auto px-4 w-full">
+    <section ref={ref} className="mb-16 sm:mb-28 max-w-[48rem] mx-auto px-4 w-full">
       <SectionHeading>Professional Experience</SectionHeading>
       
       <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-3 sm:ml-6 pl-5 sm:pl-8 py-2 flex flex-col gap-10 sm:gap-12">
@@ -25,7 +41,7 @@ export default function Experience() {
           >
             {/* Timeline Bubble Node */}
             <span className="absolute -left-[29px] sm:-left-[41px] md:-left-[49px] top-1.5 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-400 shadow-sm">
-              {item.icon}
+              {getExperienceIcon(item.icon)}
             </span>
 
             {/* Content Card */}
