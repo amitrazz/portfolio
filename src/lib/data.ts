@@ -48,12 +48,12 @@ export const experiencesData = [
     date: "May 2023 – Present",
     icon: "cpu",
     responsibilities: [
-      "Led development of a scalable micro-frontend platform, enabling independent deployments across teams and reducing cross-team coupling.",
-      "Designed and evolved a shared component system and design system, improving UI consistency and development velocity.",
-      "Optimized frontend performance across critical user journeys, reducing latency by 30% (2.5s → 1.7s).",
-      "Defined frontend architecture patterns including module boundaries, rendering strategies (SSR/CSR), and data-fetching optimization.",
-      "Improved developer experience through standardized build pipelines, tooling, and deployment workflows.",
-      "Collaborated with backend teams to optimize APIs and reduce over-fetching, improving frontend responsiveness."
+      "Architected and engineered a Federated Micro-Frontend Platform, unblocking 10+ autonomous squads to release updates independently and eliminating weekly release bottlenecks.",
+      "Evolved a multi-theme, WCAG AA Compliant Enterprise Design System, achieving 95%+ component reuse rate across 5 core portals and reducing UI code duplication.",
+      "Led runtime performance auditing and optimization cycles across critical user journeys, reducing P95 latency by 30% (from 2.5s down to 1.7s).",
+      "Established organizational frontend architecture standards, outlining module boundaries, rendering strategies (SSR/CSR), and cache-aside data guidelines.",
+      "Standardized build pipelines, developer tooling, and automated CI/CD workflows, shortening developer cycle times by 40%.",
+      "Collaborated with backend architecture squads to optimize API schema designs, reducing redundant network payload weights by 60%."
     ],
     tech: ["React.js", "Next.js", "TypeScript", "Micro-frontends", "Design Systems", "Web Vitals", "SSR", "CSR", "NPM Registry", "CI/CD"]
   },
@@ -64,11 +64,11 @@ export const experiencesData = [
     date: "Jul 2021 – May 2023",
     icon: "network",
     responsibilities: [
-      "Led frontend architecture for enterprise applications using React, Next.js, and TypeScript.",
-      "Drove adoption of GraphQL, reducing redundant data transfer by 60%.",
-      "Implemented advanced SSR, caching, and rendering strategies, improving P95 latency by 45%.",
-      "Built and maintained a shared design system used across multiple applications.",
-      "Standardized frontend patterns for data fetching, state management, and component architecture."
+      "Led frontend architecture design and technical roadmap execution for enterprise webinar portals supporting millions of active users.",
+      "Drove adoption of a schema-federated GraphQL topology, pruning network payload sizes and data transfer weights by 60%.",
+      "Implemented Incremental Static Regeneration (ISR), Apollo Client caching, and localized CloudFront CDN edge routing, improving P95 dashboard loading times by 45%.",
+      "Built and maintained a unified UI design library, standardizing code boundaries across multiple organizational segments.",
+      "Mentored 12+ developers on performance engineering, API integration guidelines, and scalable state management patterns."
     ],
     tech: ["React.js", "Next.js", "TypeScript", "GraphQL", "SSR", "Caching", "Design Systems", "State Management", "Apollo Client"]
   },
@@ -79,9 +79,9 @@ export const experiencesData = [
     date: "Mar 2021 – Jul 2021",
     icon: "server",
     responsibilities: [
-      "Developed performance-sensitive features for OTT platforms using React, Next.js, and TypeScript.",
-      "Reduced bundle size by 35% through code-splitting and dependency optimization.",
-      "Improved TTFB (~300ms) via SSR tuning and CDN optimization."
+      "Developed high-throughput OTT streaming dashboard interfaces with strict performance budgets using React, Next.js, and TypeScript.",
+      "Pruned bundle weights by 35% through route-based code splitting, dynamic dependency lazy loading, and dependency tree-shaking.",
+      "Optimized Time to First Byte (TTFB) to ~300ms by tuning server-side rendering parameters and configuring edge caching."
     ],
     tech: ["React.js", "Next.js", "TypeScript", "Code Splitting", "Bundle Optimization", "TTFB", "CDN", "Edge Optimization", "OTT"]
   },
@@ -92,9 +92,9 @@ export const experiencesData = [
     date: "Jun 2017 – Feb 2021",
     icon: "layers",
     responsibilities: [
-      "Built scalable frontend applications for OTT and e-commerce platforms using React.",
-      "Improved performance via SSR, caching, and lazy loading strategies.",
-      "Delivered reusable UI components and contributed to frontend architecture decisions."
+      "Built responsive, multi-page frontend platforms for catalog e-commerce and media clients using React.",
+      "Optimized catalog page rendering speeds using static server prerendering, browser image resizing, and cache policies.",
+      "Delivered reusable UI primitives, accelerating team frontend feature execution timelines by 20%."
     ],
     tech: ["React.js", "JavaScript", "SSR", "Caching", "Lazy Loading", "Component Architecture", "E-commerce"]
   }
@@ -104,46 +104,103 @@ export const projectsData = [
   {
     title: "Federated Micro-Frontend Platform",
     subtitle: "Aptos India Pvt. Ltd.",
-    problem: "A large-scale monolithic application created high coupling between 10+ feature teams, resulting in deployment bottlenecks, slow release cycles, and fragile integration tests.",
-    solution: "Designed and engineered a decentralized Micro-Frontend (MFE) orchestration platform. Implemented runtime integration using module federation with clear-cut domain boundaries, enabling autonomous builds and zero-downtime micro-deployments.",
-    architecture: "Webpack Module Federation + Custom Remote Loader + Shared State Sync Engine + Isolated Github Actions Workflows",
+    problem: "A monolithic retail dashboard shared across 10+ engineering teams suffered from deployment bottlenecks, where a failure in one feature blocked weekly release deployments for all teams. Build cycles exceeded 45 minutes, and local runs were fragile.",
+    solution: "Designed and engineered a decentralized Micro-Frontend (MFE) runtime orchestration framework. Implemented runtime component injection using Webpack Module Federation with decoupled domain boundaries, autonomous build pipelines, and dynamic asset manifests.",
+    architecture: `+------------------ User Browser -------------------+
+|                                                   |
+|             [ Host Shell Application ]             |
+|                         │                         |
+|             (Demands Remote Modules)              |
+|                         │                         |
+|                         ▼                         |
+|          [ Custom Remote Module Loader ]          |
+|                         │                         |
+|         ┌───────────────┼───────────────┐         |
+|         ▼               ▼               ▼         |
+|     [ MFE 1 ]       [ MFE 2 ]       [ MFE 3 ]     |
+|    (Analytics)     (Checkout)      (Inventory)    |
+|         │               │               │         |
+|         └───── Federated State Sync ────┘         |
++---------------------------------------------------+`,
     technologies: ["React.js", "Next.js", "TypeScript", "Module Federation", "Tailwind CSS", "GitHub Actions", "Docker"],
-    businessImpact: "Reduced cross-team release coupling from bi-weekly synchronization to instant, autonomous deployments. Improved development velocity by 40% and simplified integration test suites.",
-    challenges: "Handling version mismatch of shared dependencies (like React) without inflating runtime bundle sizes, and establishing robust isolation for CSS and global events.",
-    results: "100% decoupled deployments across 10 independent teams, zero shared-dependency clashes, and reduced average deployment time from 45 minutes to under 5 minutes.",
+    businessImpact: "Decoupled deployment cycles for 10 independent squads. Reduced cross-team code integration friction, boosting development velocity and product feature release cycles.",
+    challenges: "Handling major/minor version discrepancies of shared dependencies (e.g. React Core, Framer Motion) without bloating runtime assets, and isolating CSS namespaces under tailwind utility compiles.",
+    results: "100% autonomous deployment boundaries achieved. Build times crashed from 45 minutes to under 5 minutes. Release cycles improved from bi-weekly synchronized deployments to instant, zero-downtime production updates.",
   },
   {
     title: "Enterprise Core Design System",
     subtitle: "Aptos & Airmeet Systems",
-    problem: "Visual inconsistencies across different product portals and duplicated UI efforts across engineering teams, leading to brand decay and high UI refactoring overhead.",
-    solution: "Architected a multi-theme, accessible-first (WCAG AA Compliant) enterprise design system and component library from scratch. Leveraged headless UI primitives to allow flexibility while strictly enforcing tokenized typography, spacing, and brand colors.",
-    architecture: "Design Token Compiler + Headless Radix Primitives + Tailwind Styles + Automated Semantic Versioning and Storybook Documentation",
+    problem: "Severe visual inconsistencies across multiple product suites led to high CSS bloating, layout bugs, and duplicate engineering efforts across frontlines, delaying critical feature delivery by weeks.",
+    solution: "Architected a multi-theme, accessible-first (WCAG AA Compliant) core design library from the ground up. Enforced structural tokens via Style Dictionary, wrapping headless primitives with robust brand-compliant guidelines.",
+    architecture: `+------------------ Figma Tokens -------------------+
+|                        │                          |
+|                        ▼                          |
+|         [ Token Compiler (Style Dict) ]           |
+|            ├── Generate CSS Variables             |
+|            └── Export Theme JSON                      |
+|                        │                          |
+|                        ▼                          |
+|         [ Headless Radix Primitives ]             |
+|                        │                          |
+|                        ▼                          |
+|         [ Custom Accessible UI Library ]          |
++---------------------------------------------------+`,
     technologies: ["React.js", "TypeScript", "Tailwind CSS", "Radix UI", "Storybook", "Lerna / Turborepo", "Semantic Release"],
-    businessImpact: "Created a single source of truth for design, accelerating time-to-market for new feature development by 30% and eliminating duplicate code across 5 enterprise applications.",
-    challenges: "Getting organization-wide adoption and managing backward-compatible breaking changes across downstream teams.",
-    results: "Achieved 95%+ component reuse rate across core portals, with standard accessibility audits passing out-of-the-box for all product pages.",
+    businessImpact: "Created a single source of truth for UX design, accelerating development timelines and aligning corporate branding standards across high-traffic customer interfaces.",
+    challenges: "Securing organization-wide adoption of breaking system transitions and structuring clean semver release version boundaries for downstream platforms.",
+    results: "Achieved 95%+ component reuse rates across core portals, speeding up UI creation times for new features by 30% and guaranteeing out-of-the-box keyboard/screen-reader accessibility.",
   },
   {
-    title: "GraphQL API Caching & Rendering Optimization",
+    title: "GraphQL Caching & Rendering Engine",
     subtitle: "Airmeet Platform",
-    problem: "Heavy redundant REST API payloads, over-fetching on real-time dashboards, and sub-optimal search engine indexing for high-traffic webinar registrations.",
-    solution: "Led the architectural migration to a unified GraphQL schema, combined with hybrid rendering strategies (Next.js Incremental Static Regeneration + Server-Side Rendering) and localized client-side caching.",
-    architecture: "GraphQL Federated Schema + Next.js SSR/ISR + Apollo Client Caching + Edge CDN Route Matching",
+    problem: "Excessive client payloads, over-fetching on real-time dashboards, and poor SEO indexing for webinar register landing pages due to heavy client-side GraphQL query processing.",
+    solution: "Led migration to a schema-federated GraphQL topology. Implemented Next.js Incremental Static Regeneration (ISR) with localized cache-aside strategies, edge routing, and granular cache policies.",
+    architecture: `+----------------- Network Traffic -----------------+
+|                                                   |
+|                 [ Client Browser ]                |
+|                        │                          |
+|                 (Requests Route)                  |
+|                        │                          |
+|                        ▼                          |
+|             [ CloudFront Edge CDN ]               |
+|            (Serves Cached Static HTML)            |
+|                        │                          |
+|                    Cache Miss                     |
+|                        ▼                          |
+|              [ Next.js ISR Render ]               |
+|                        │                          |
+|             (GraphQL Federated Query)             |
+|                        ▼                          |
+|            [ Apollo Gateway Engine ]              |
++---------------------------------------------------+`,
     technologies: ["Next.js", "TypeScript", "GraphQL", "Apollo Client", "GraphQL Codegen", "CloudFront CDN"],
-    businessImpact: "Reduced network overhead and API data payload sizes by 60%. Greatly boosted core web vitals and overall search indexing, driving higher registration conversions.",
-    challenges: "Designing normalized Apollo Cache policies for highly dynamic event schedules and handling edge CDN stale-while-revalidate invalidations.",
-    results: "Improved P95 latency by 45%, cut API request payload weight by 60%, and realized Near-Instant page transitions.",
+    businessImpact: "Reduced server-side query loads and bandwidth consumption while vastly increasing site speed indexing and registration conversions.",
+    challenges: "Resolving complex Apollo client-side cache invalidations for highly dynamic event calendars without introducing stale data reads.",
+    results: "P95 latency thresholds dropped by 45%, network API data payload weights reduced by 60%, and page rendering speeds optimized to near-instant transitions.",
   },
   {
-    title: "High-Performance OTT Video Streaming Engine",
+    title: "High-Performance OTT Video Engine",
     subtitle: "Discovery, Inc. Client Project",
-    problem: "Buffering issues, high latency, and low Core Web Vital scores (poor LCP and TTFB) affecting viewer retention on dynamic media layouts.",
-    solution: "Refactored the application's bundle structure via aggressive route-based code splitting, dynamic dependency lazy loading, and fine-tuned edge caching.",
-    architecture: "CDN Edge Tuning + Progressive Resource Loading + Code Splitting Optimizer + Lazy Player Dynamic Embedding",
+    problem: "Severe playback loading delays and high mobile buffering rates on media dashboard players, leading to user drops and low engagement statistics on video components.",
+    solution: "Overhauled the streaming platform's compilation bundles. Implemented dynamic asset code splitting, route-based dynamic component lazy loading, and fine-tuned preloading scripts.",
+    architecture: `+----------------- Video Playback ------------------+
+|                                                   |
+|                 [ Browser Shell ]                 |
+|                        │                          |
+|             (Dynamic Import of Player)            |
+|                        │                          |
+|                        ▼                          |
+|              [ CloudFront Edge CDN ]              |
+|             (Streams HLS Chunk Blocks)            |
+|                        │                          |
+|                    Cache Miss                     |
+|                        ▼                          |
+|             [ Media Transcode Server ]            |
++---------------------------------------------------+`,
     technologies: ["React.js", "Next.js", "TypeScript", "Webpack", "CloudFront", "Lighthouse", "Web Vitals Optimization"],
-    businessImpact: "Substantially decreased user buffering rates and initial loading times on mobile devices, leading to measurable increases in video watch time.",
-    challenges: "Reducing JS bundles containing heavy third-party media players without compromising playback start latency.",
-    results: "Reduced overall bundle size by 35%, optimized Time to First Byte (TTFB) to ~300ms, and raised Google Lighthouse Performance index above 95.",
+    businessImpact: "Maximized video watch times and mobile engagement metrics by eliminating resource compilation blocks during initial stream playback starts.",
+    challenges: "Shrinking Javascript bundle weights containing heavy media drivers without delaying initial media interaction playback triggers.",
+    results: "Total bundle size reduced by 35%, Time to First Byte (TTFB) optimized to ~300ms, and Google Lighthouse performance index raised to 95+.",
   }
 ] as const;
 

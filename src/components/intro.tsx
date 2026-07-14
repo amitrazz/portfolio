@@ -32,7 +32,7 @@ export default function Intro() {
               alt="Amit Kumar Portrait"
               width="110"
               height="110"
-              quality="95"
+              quality="80"
               priority={true}
               className="h-24 w-24 rounded-full object-cover border-[0.25rem] border-white shadow-xl dark:border-zinc-900"
             />
@@ -55,13 +55,13 @@ export default function Intro() {
 
       <div>
         <span className="px-3 py-1 text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-500/10 rounded-full">
-          Principal Frontend Platform Architect
+          Principal Platform Architect
         </span>
         <h1 className="mb-6 mt-6 px-2 text-3xl xs:text-4xl sm:text-5xl font-extrabold tracking-tight !leading-[1.15] text-zinc-900 dark:text-zinc-50">
-          Building Scalable Distributed Systems & High-Performance Platforms
+          Engineering Resilient Distributed Platforms & Micro-Frontend Systems at Scale
         </h1>
         <p className="mb-10 text-base sm:text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 max-w-[42rem] mx-auto">
-          Associate Principal Engineer specializing in micro-frontend architectures, performance engineering, and robust event-driven workflows. Proven record of driving latency down by 30% and API overhead by 60% across millions of users.
+          Associate Principal Engineer specializing in high-performance platform systems, dynamic runtime orchestration, and event-driven architectures. Designing scalable boundaries, developer tools, and data-caching policies that empower cross-functional squads and million-user products.
         </p>
       </div>
 

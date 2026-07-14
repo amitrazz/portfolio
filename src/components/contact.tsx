@@ -5,6 +5,7 @@ import { useSectionInView } from '@/lib/hooks';
 import SectionHeading from './section-heading';
 import { LuMail, LuSend, LuGithub, LuLinkedin } from 'react-icons/lu';
 import toast from 'react-hot-toast';
+import { sendEmailAction } from '@/app/actions';
 
 export default function Contact() {
   const { ref } = useSectionInView('Contact', 0.5);
@@ -14,12 +15,17 @@ export default function Contact() {
     e.preventDefault();
     setIsPending(true);
 
-    // Simulate sending message
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    const formData = new FormData(e.currentTarget);
+    const result = await sendEmailAction(null, formData);
     
-    toast.success("Message sent! I'll get back to you shortly.");
     setIsPending(false);
-    (e.target as HTMLFormElement).reset();
+
+    if (result.success) {
+      toast.success("Message sent! I'll get back to you shortly.");
+      (e.target as HTMLFormElement).reset();
+    } else {
+      toast.error(result.error || "Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -76,6 +82,7 @@ export default function Contact() {
             </label>
             <input
               id="contact-email"
+              name="email"
               type="email"
               required
               maxLength={500}
@@ -90,6 +97,7 @@ export default function Contact() {
             </label>
             <textarea
               id="contact-message"
+              name="message"
               required
               maxLength={5000}
               placeholder="Hi Amit, I'd love to chat about..."

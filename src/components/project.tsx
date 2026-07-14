@@ -109,9 +109,9 @@ export default function Project({
               <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
                 <LuLayers className="text-indigo-500" /> System Architecture
               </h4>
-              <p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400 font-mono leading-relaxed bg-white dark:bg-zinc-900 p-3.5 rounded-lg border border-zinc-200/40 dark:border-zinc-800/80 break-words whitespace-pre-wrap w-full overflow-hidden">
+              <pre className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400 font-mono leading-relaxed bg-white dark:bg-zinc-900 p-4 rounded-lg border border-zinc-200/40 dark:border-zinc-800/80 whitespace-pre overflow-x-auto w-full">
                 {architecture}
-              </p>
+              </pre>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">

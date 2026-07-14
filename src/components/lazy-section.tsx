@@ -7,6 +7,7 @@ interface LazySectionProps {
   id?: string;
   children: React.ReactNode;
   fallback: React.ReactNode;
+  estimatedHeight?: string;
   threshold?: number;
   rootMargin?: string;
 }
@@ -15,6 +16,7 @@ export default function LazySection({
   id,
   children,
   fallback,
+  estimatedHeight,
   threshold = 0.05,
   rootMargin = "150px",
 }: LazySectionProps) {
@@ -32,7 +34,12 @@ export default function LazySection({
   }, [inView]);
 
   return (
-    <div id={id} ref={ref} className="w-full scroll-mt-28">
+    <div 
+      id={id} 
+      ref={ref} 
+      className="w-full scroll-mt-28"
+      style={!shouldRender && estimatedHeight ? { minHeight: estimatedHeight } : undefined}
+    >
       {shouldRender ? children : fallback}
     </div>
   );
