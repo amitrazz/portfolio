@@ -1,7 +1,10 @@
-# Target only modern browsers that support ES modules and Baseline JS features
-# This prevents Next.js / SWC / Babel from injecting polyfills for flat, at, hasOwn, etc.
-last 2 Chrome versions
-last 2 Firefox versions
-last 2 Safari versions
-last 2 Edge versions
+# Explicitly target modern browsers that natively support ES2022 features (at, hasOwn, flat, fromEntries)
+# Chrome 94+ (Sep 2021)
+# Firefox 92+ (Sep 2021)
+# Safari 15.4+ (Mar 2022)
+# Edge 94+ (Sep 2021)
+chrome >= 94
+firefox >= 92
+safari >= 15.4
+edge >= 94
 not dead
