@@ -1,0 +1,7 @@
+# Target only modern browsers that support ES modules and Baseline JS features
+# This prevents Next.js / SWC / Babel from injecting polyfills for flat, at, hasOwn, etc.
+last 2 Chrome versions
+last 2 Firefox versions
+last 2 Safari versions
+last 2 Edge versions
+not dead
