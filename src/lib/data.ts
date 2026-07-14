@@ -108,7 +108,7 @@ export const projectsData = [
     solution: "Designed and engineered a decentralized Micro-Frontend (MFE) runtime orchestration framework. Implemented runtime component injection using Webpack Module Federation with decoupled domain boundaries, autonomous build pipelines, and dynamic asset manifests.",
     architecture: `+------------------ User Browser -------------------+
 |                                                   |
-|             [ Host Shell Application ]             |
+|             [ Host Shell Application ]            |
 |                         │                         |
 |             (Demands Remote Modules)              |
 |                         │                         |
@@ -137,7 +137,7 @@ export const projectsData = [
 |                        ▼                          |
 |         [ Token Compiler (Style Dict) ]           |
 |            ├── Generate CSS Variables             |
-|            └── Export Theme JSON                      |
+|            └── Export Theme JSON                  |
 |                        │                          |
 |                        ▼                          |
 |         [ Headless Radix Primitives ]             |
