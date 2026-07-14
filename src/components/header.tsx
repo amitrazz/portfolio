@@ -100,6 +100,7 @@ export default function Header() {
         {/* Brand Logo */}
         <Link 
           href="#home"
+          aria-label="Amit Kumar Portfolio Home"
           onClick={() => {
             setActiveSection("Home");
             setTimeOfLastClick(Date.now());
@@ -190,6 +191,7 @@ export default function Header() {
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-100 dark:border-zinc-900">
                 <Link
                   href="#home"
+                  aria-label="Amit Kumar Portfolio Home"
                   onClick={() => {
                     setActiveSection("Home");
                     setTimeOfLastClick(Date.now());

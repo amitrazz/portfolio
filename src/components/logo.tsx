@@ -8,6 +8,7 @@ export default function Logo() {
         <div className="absolute inset-0 bg-indigo-500/10 rounded-lg blur-md scale-75 group-hover:scale-100 transition-all duration-350" />
 
         <svg
+          aria-hidden="true"
           width="26"
           height="26"
           viewBox="0 0 100 100"
