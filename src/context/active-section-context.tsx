@@ -50,8 +50,11 @@ export default function ActiveSectionContextProvider({
           const mappedName = sectionMap[sectionId];
           if (mappedName) {
             setActiveSection(mappedName);
-            if (window.location.hash !== `#${sectionId}`) {
-              window.history.replaceState(null, "", `#${sectionId}`);
+            const targetPath = sectionId === "home" ? "/" : `#${sectionId}`;
+            const currentHash = window.location.hash;
+            const targetHash = sectionId === "home" ? "" : `#${sectionId}`;
+            if (currentHash !== targetHash) {
+              window.history.replaceState(null, "", targetPath);
             }
           }
         }

@@ -122,7 +122,7 @@ export default function Header() {
       <nav className="flex fixed top-0 left-1/2 h-[4.5rem] w-full -translate-x-1/2 items-center justify-between px-6 sm:top-6 sm:h-[3.25rem] sm:w-[58rem] sm:px-6 animate-nav-slide-down">
         {/* Brand Logo */}
         <Link 
-          href="/#home"
+          href="/"
           onClick={() => {
             setActiveSection("Home");
             setTimeOfLastClick(Date.now());
@@ -222,7 +222,7 @@ export default function Header() {
               {/* Drawer Header */}
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-100 dark:border-zinc-900">
                 <Link
-                  href="/#home"
+                  href="/"
                   onClick={() => {
                     setActiveSection("Home");
                     setTimeOfLastClick(Date.now());

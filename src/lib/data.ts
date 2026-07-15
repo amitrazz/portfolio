@@ -2,7 +2,7 @@
 // or icon imports, allowing for optimal tree shaking and preventing transitively bloating layouts.
 
 export const links = [
-  { name: "Home", hash: "/#home" },
+  { name: "Home", hash: "/" },
   { name: "About", hash: "/#about" },
   { name: "Expertise", hash: "/#expertise" },
   { name: "Experience", hash: "/#experience" },
