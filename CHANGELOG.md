@@ -1,3 +1,10 @@
+## [1.6.3](https://github.com/amitrazz/portfolio/compare/v1.6.2...v1.6.3) (2026-07-15)
+
+
+### Bug Fixes
+
+* update header mobile drawer logo link and intro contact link to use root-relative paths ([67c9c6f](https://github.com/amitrazz/portfolio/commit/67c9c6f219c9e2995c2b1796f388a4b79cb953cb))
+
 ## [1.6.2](https://github.com/amitrazz/portfolio/compare/v1.6.1...v1.6.2) (2026-07-15)
 
 
