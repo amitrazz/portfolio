@@ -1,3 +1,10 @@
+## [1.6.5](https://github.com/amitrazz/portfolio/compare/v1.6.4...v1.6.5) (2026-07-15)
+
+
+### Bug Fixes
+
+* enforce absolute root-relative paths in history.replaceState to prevent scrollspy hash stacking bugs ([31f2d0c](https://github.com/amitrazz/portfolio/commit/31f2d0cfc644b2bf4f30620a7c6e18524097e37d))
+
 ## [1.6.4](https://github.com/amitrazz/portfolio/compare/v1.6.3...v1.6.4) (2026-07-15)
 
 
