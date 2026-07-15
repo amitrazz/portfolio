@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/amitrazz/portfolio/compare/v1.6.1...v1.6.2) (2026-07-15)
+
+
+### Bug Fixes
+
+* prepend slash to navigation hash links to ensure consistent routing ([b87080d](https://github.com/amitrazz/portfolio/commit/b87080de140eedda5a84272e58062f89095a012c))
+
 ## [1.6.1](https://github.com/amitrazz/portfolio/compare/v1.6.0...v1.6.1) (2026-07-15)
 
 
