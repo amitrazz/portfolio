@@ -4,12 +4,10 @@
 export const links = [
   { name: "Home", hash: "#home" },
   { name: "About", hash: "#about" },
-  { name: "Architecture", hash: "#architecture" },
+  { name: "Expertise", hash: "#expertise" },
   { name: "Experience", hash: "#experience" },
   { name: "Projects", hash: "#projects" },
-  { name: "Skills", hash: "#skills" },
   { name: "Achievements", hash: "#achievements" },
-  { name: "Principles", hash: "#principles" },
   { name: "Contact", hash: "#contact" },
 ] as const;
 
@@ -18,59 +16,185 @@ export const experiencesData = [
     title: "Associate Principal Engineer",
     company: "Aptos India Pvt. Ltd.",
     location: "Bangalore, India",
-    date: "May 2023 – Present",
+    duration: "May 2023 – Present",
     icon: "cpu",
-    responsibilities: [
-      "Architected a Federated Micro-Frontend Platform, enabling 10+ autonomous squads to deploy independently and eliminating weekly release bottlenecks.",
-      "Engineered a multi-theme, WCAG AA-compliant Enterprise Design System, achieving a 95%+ component reuse rate across 5 core portals and heavily reducing UI code duplication.",
-      "Spearheaded runtime performance auditing across critical user journeys, slashing P95 latency by 30% (from 2.5s to 1.7s).",
-      "Defined organizational frontend architecture standards, establishing module boundaries, rendering strategies (SSR/CSR), and cache-aside data guidelines.",
-      "Standardized build pipelines, developer tooling, and automated CI/CD workflows, reducing developer cycle times by 40%.",
-      "Collaborated with backend teams to optimize API schema designs, decreasing redundant network payload weights by 60%."
+
+    summary:
+      "Leading frontend platform architecture for enterprise retail solutions by driving micro-frontend adoption, design system standardization, performance engineering, and developer platform initiatives across multiple engineering squads.",
+
+    scope: {
+      domain: "Retail Commerce",
+      ownership: [
+        "Frontend Platform Architecture",
+        "Micro-Frontend Platform",
+        "Enterprise Design System",
+        "Performance Engineering",
+        "Developer Experience",
+      ],
+      stakeholders: "10+ Engineering Squads",
+    },
+
+    keyAchievements: [
+      "Architected a federated Micro-Frontend Platform enabling 10+ autonomous squads to deploy independently while eliminating centralized release bottlenecks.",
+      "Designed and scaled an enterprise Design System with 95%+ component reuse across multiple business applications.",
+      "Established frontend architecture standards covering module boundaries, rendering strategies, caching, and platform governance.",
+      "Improved Core Web Vitals by reducing P95 latency by 30% (2.5s → 1.7s) through rendering optimization, code splitting, and caching.",
+      "Standardized CI/CD pipelines and developer tooling, reducing engineering feedback cycles by 40%.",
+      "Collaborated with backend architects to redesign API contracts, reducing payload sizes by 60% and improving application responsiveness.",
     ],
-    tech: ["React.js", "Next.js", "TypeScript", "Micro-frontends", "Design Systems", "Web Vitals", "SSR", "CSR", "NPM Registry", "CI/CD"]
+
+    businessImpact: [
+      "Enabled independent product delivery.",
+      "Reduced release coordination overhead.",
+      "Improved developer productivity.",
+      "Established long-term frontend platform governance.",
+    ],
+
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Module Federation",
+      "Design Systems",
+      "SSR",
+      "Web Vitals",
+      "CI/CD",
+      "GitHub Actions",
+    ],
   },
+
   {
     title: "Tech Lead",
-    company: "Valuebound Consulting Services (Client: Airmeet Inc.)",
+    company: "Valuebound Consulting Services (Client: Airmeet)",
     location: "Bangalore, India",
-    date: "Jul 2021 – May 2023",
+    duration: "Jul 2021 – May 2023",
     icon: "network",
-    responsibilities: [
-      "Directed frontend architecture and technical roadmap execution for enterprise webinar portals supporting millions of active users.",
-      "Championed the adoption of a schema-federated GraphQL topology, reducing network payload sizes and data transfer weights by 60%.",
-      "Implemented Incremental Static Regeneration (ISR), Apollo Client caching, and localized CloudFront CDN edge routing, improving P95 dashboard load times by 45%.",
-      "Built and maintained a unified UI design library to standardize code boundaries across multiple organizational segments.",
-      "Mentored 12+ developers on performance engineering, API integration guidelines, and scalable state management patterns."
+
+    summary:
+      "Led frontend architecture for a large-scale virtual events platform, focusing on rendering performance, GraphQL architecture, caching strategies, and shared engineering standards.",
+
+    scope: {
+      domain: "Virtual Events Platform",
+      ownership: [
+        "Frontend Architecture",
+        "GraphQL Platform",
+        "Rendering Strategy",
+        "Performance Engineering",
+        "Design System",
+      ],
+      stakeholders: "Cross-functional Product Teams",
+    },
+
+    keyAchievements: [
+      "Defined the frontend architecture roadmap supporting millions of users across webinar and virtual event platforms.",
+      "Led migration to a schema-federated GraphQL architecture, reducing network payloads by 60%.",
+      "Implemented Incremental Static Regeneration (ISR), Apollo caching, and CloudFront edge caching, reducing P95 dashboard load time by 45%.",
+      "Built a shared component library that standardized UI development across multiple engineering teams.",
+      "Mentored 12+ engineers on architecture, performance optimization, and scalable frontend practices.",
     ],
-    tech: ["React.js", "Next.js", "TypeScript", "GraphQL", "SSR", "Caching", "Design Systems", "State Management", "Apollo Client"]
+
+    businessImpact: [
+      "Improved application scalability.",
+      "Accelerated feature development.",
+      "Improved SEO and customer experience.",
+      "Established frontend engineering standards.",
+    ],
+
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "GraphQL",
+      "Apollo",
+      "ISR",
+      "CloudFront",
+      "Design Systems",
+    ],
   },
+
   {
     title: "Software Engineer III",
-    company: "Robosoft Technologies (Client: Discovery, Inc.)",
+    company: "Robosoft Technologies (Client: Discovery Inc.)",
     location: "Bangalore, India",
-    date: "Mar 2021 – Jul 2021",
+    duration: "Mar 2021 – Jul 2021",
     icon: "server",
-    responsibilities: [
-      "Developed high-throughput OTT streaming dashboard interfaces under strict performance budgets using React, Next.js, and TypeScript.",
-      "Reduced bundle weights by 35% through route-based code splitting, dynamic lazy loading, and dependency tree-shaking.",
-      "Optimized Time to First Byte (TTFB) to ~300ms by fine-tuning server-side rendering parameters and configuring edge caching."
+
+    summary:
+      "Built high-performance OTT applications with a strong emphasis on browser performance, bundle optimization, and streaming experience.",
+
+    scope: {
+      domain: "OTT Streaming",
+      ownership: [
+        "Performance Engineering",
+        "Frontend Architecture",
+        "Rendering Optimization",
+      ],
+      stakeholders: "Global Media Platform",
+    },
+
+    keyAchievements: [
+      "Developed high-performance OTT interfaces under strict performance budgets.",
+      "Reduced JavaScript bundle size by 35% through route-based code splitting, lazy loading, and dependency optimization.",
+      "Optimized Time to First Byte (TTFB) to approximately 300ms using SSR tuning and CDN edge caching.",
     ],
-    tech: ["React.js", "Next.js", "TypeScript", "Code Splitting", "Bundle Optimization", "TTFB", "CDN", "Edge Optimization", "OTT"]
+
+    businessImpact: [
+      "Improved playback startup time.",
+      "Enhanced user engagement.",
+      "Reduced page load latency.",
+    ],
+
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Webpack",
+      "CloudFront",
+      "Web Vitals",
+    ],
   },
+
   {
     title: "Software Engineer",
     company: "Creatise",
     location: "Bangalore, India",
-    date: "Jun 2017 – Feb 2021",
+    duration: "Jun 2017 – Feb 2021",
     icon: "layers",
-    responsibilities: [
-      "Built responsive, multi-page frontend platforms for catalog e-commerce and media clients using React.",
-      "Accelerated catalog page rendering speeds using static server pre-rendering, browser image resizing, and localized cache policies.",
-      "Delivered reusable UI primitives, accelerating frontend feature execution timelines by 20% for the engineering team."
+
+    summary:
+      "Developed scalable frontend applications for e-commerce and media platforms while building strong foundations in performance optimization, reusable component architecture, and responsive UI engineering.",
+
+    scope: {
+      domain: "E-commerce & Media",
+      ownership: [
+        "Frontend Development",
+        "Performance Optimization",
+        "Reusable Components",
+      ],
+      stakeholders: "Multiple Client Projects",
+    },
+
+    keyAchievements: [
+      "Built responsive React applications for catalog-driven e-commerce and media platforms.",
+      "Improved rendering performance through server-side pre-rendering, image optimization, and browser caching.",
+      "Developed reusable UI components that accelerated feature delivery by approximately 20%.",
     ],
-    tech: ["React.js", "JavaScript", "SSR", "Caching", "Lazy Loading", "Component Architecture", "E-commerce"]
-  }
+
+    businessImpact: [
+      "Improved page performance.",
+      "Reduced duplicate development effort.",
+      "Established reusable UI patterns.",
+    ],
+
+    technologies: [
+      "React",
+      "JavaScript",
+      "SSR",
+      "Caching",
+      "Lazy Loading",
+      "Component Architecture",
+    ],
+  },
 ] as const;
 
 export const projectsData = [
@@ -218,7 +342,6 @@ export const projectsData = [
       "Platform governance is essential for long-term scalability.",
     ],
   },
-
   {
     id: "enterprise-design-system",
     featured: true,
@@ -339,7 +462,6 @@ export const projectsData = [
       "Adoption strategy is as important as technical implementation.",
     ],
   },
-
   {
     id: "graphql-rendering-platform",
     featured: true,
@@ -456,7 +578,6 @@ export const projectsData = [
       "Caching strategy matters more than rendering strategy.",
     ],
   },
-
   {
     id: "ott-performance-platform",
     featured: true,
@@ -576,123 +697,298 @@ export const projectsData = [
 
 export const architectureExpertise = [
   {
-    title: "Distributed Systems & Scalability",
-    description: "Designing decoupled asynchronous workflows and event-driven architectures. Implementing reliability patterns like circuit breakers, retries, idempotency, and eventual consistency.",
+    title: "Platform Architecture",
     icon: "network",
+    description:
+      "Designing scalable platform architectures that enable autonomous engineering teams through clear domain boundaries, reusable platform capabilities, and standardized engineering practices.",
+    capabilities: [
+      "Platform Strategy",
+      "Domain-Driven Design",
+      "Architecture Governance",
+      "Technical Roadmaps",
+      "Cross-Team Standards",
+    ],
   },
+
   {
-    title: "Micro-Frontend (MFE) Platforms",
-    description: "Orchestrating micro-frontends using Module Federation. Defining strict domain boundaries, runtime state synchronization, independent CI/CD pipelines, and shared registries.",
-    icon: "cpu",
+    title: "Distributed Systems",
+    icon: "server",
+    description:
+      "Building resilient distributed systems using asynchronous communication, event-driven workflows, CQRS, and reliability patterns to ensure scalability and fault tolerance.",
+    capabilities: [
+      "Event-Driven Architecture",
+      "CQRS",
+      "Saga Patterns",
+      "Idempotency",
+      "Circuit Breakers",
+      "Retries & Dead Letter Queues",
+      "Eventual Consistency",
+    ],
   },
+
+  {
+    title: "Frontend Platform Engineering",
+    icon: "cpu",
+    description:
+      "Architecting enterprise frontend platforms with Micro-Frontends, shared design systems, and developer tooling that improve engineering velocity while maintaining consistency across products.",
+    capabilities: [
+      "Module Federation",
+      "Micro-Frontends",
+      "Enterprise Design Systems",
+      "Developer Experience",
+      "Monorepo Strategy",
+      "Component Libraries",
+    ],
+  },
+
   {
     title: "Performance Engineering",
-    description: "Maximizing Core Web Vitals (LCP, INP, CLS, TTFB). Implementing route-based code-splitting, tree-shaking, smart prefetching, CDN edge caching, and aggressive bundle optimization.",
     icon: "activity",
+    description:
+      "Driving application performance through rendering optimization, intelligent caching, bundle optimization, and Core Web Vitals improvements across high-traffic applications.",
+    capabilities: [
+      "Core Web Vitals",
+      "SSR / ISR",
+      "Edge Rendering",
+      "Bundle Optimization",
+      "Code Splitting",
+      "Caching Strategies",
+      "CDN Optimization",
+    ],
   },
+
   {
-    title: "Cloud Infrastructure & Serverless",
-    description: "Building resilient production systems on AWS utilizing Lambda, API Gateway, DynamoDB, ECS, CloudFront, and Docker. Defining Infrastructure as Code (IaC) via CloudFormation.",
+    title: "Cloud & Platform Infrastructure",
     icon: "aws",
+    description:
+      "Building cloud-native platforms on AWS with scalable infrastructure, serverless architectures, CI/CD automation, and Infrastructure as Code to improve operational efficiency and reliability.",
+    capabilities: [
+      "AWS",
+      "Lambda",
+      "API Gateway",
+      "EventBridge",
+      "DynamoDB",
+      "CloudFront",
+      "Docker",
+      "CI/CD",
+      "Infrastructure as Code",
+    ],
   },
+
   {
-    title: "API Design & Schema Federation",
-    description: "Structuring high-throughput APIs using GraphQL (Apollo/Federation) and REST. Preventing data over-fetching, ensuring strict schema safety, and managing robust client-side caching.",
+    title: "API & Integration Architecture",
     icon: "graphql",
+    description:
+      "Designing high-performance APIs and integration layers using REST and GraphQL while optimizing schema design, caching, and contract-first development for scalable distributed applications.",
+    capabilities: [
+      "REST",
+      "GraphQL Federation",
+      "Schema Design",
+      "API Governance",
+      "Apollo",
+      "Caching",
+      "Contract-First APIs",
+    ],
+  },
+
+  {
+    title: "Technical Leadership",
+    icon: "layers",
+    description:
+      "Leading architectural initiatives, establishing engineering standards, mentoring developers, and driving platform adoption across cross-functional engineering organizations.",
+    capabilities: [
+      "Architecture Reviews",
+      "Engineering Standards",
+      "RFC Process",
+      "Mentoring",
+      "Technical Strategy",
+      "Cross-Team Collaboration",
+      "Developer Productivity",
+    ],
   },
   {
-    title: "Enterprise Component Architecture",
-    description: "Engineering headless, accessible, and multi-themed design systems. Enforcing strict design tokens, modular UI libraries, and high-velocity developer workflows.",
-    icon: "layers",
-  }
+    title: "Observability & Reliability Engineering",
+    icon: "shield",
+    description:
+      "Designing highly observable and resilient systems with end-to-end telemetry, distributed tracing, proactive monitoring, and fault-tolerant architectures that minimize operational risk and accelerate incident resolution.",
+    capabilities: [
+      "OpenTelemetry",
+      "Distributed Tracing",
+      "Structured Logging",
+      "Metrics & Alerting",
+      "SLO / SLA",
+      "Fault Tolerance",
+      "Incident Response",
+      "Root Cause Analysis",
+    ],
+  },
+
+  {
+    title: "Developer Experience & Platform Automation",
+    icon: "terminal",
+    description:
+      "Building internal developer platforms, engineering tooling, and automated delivery pipelines that improve developer productivity, reduce cognitive load, and enable fast, reliable software delivery at scale.",
+    capabilities: [
+      "CI/CD Automation",
+      "Build Optimization",
+      "Internal Developer Platforms",
+      "Monorepo Tooling",
+      "Code Quality Automation",
+      "Release Engineering",
+      "GitHub Actions",
+      "Developer Productivity",
+    ],
+  },
 ] as const;
 
 export const engineeringPrinciples = [
   {
-    title: "Design for Scale",
-    description: "Every module, pipeline, or API is architected under the assumption that load, team size, and codebase complexity will double. Scale must be built in, not bolted on.",
-    icon: "compass"
+    title: "Architect for Organizational Scale",
+    description:
+      "The greatest scalability challenge is often organizational rather than technical. I design systems with clear ownership boundaries, autonomous services, and well-defined contracts that enable teams to deliver independently while minimizing coordination overhead.",
+    icon: "compass",
   },
+
   {
-    title: "Contract-First Execution",
-    description: "Defining strict schemas (GraphQL, TypeScript, OpenAPI) before writing logic. This enables parallel frontend/backend development and guarantees system safety.",
-    icon: "terminal"
+    title: "Contracts Before Code",
+    description:
+      "Well-defined APIs and schemas are the foundation of reliable systems. I advocate contract-first development using OpenAPI, GraphQL, and TypeScript to enable parallel development, reduce integration risks, and evolve systems safely.",
+    icon: "terminal",
   },
+
   {
-    title: "Performance is a Feature",
-    description: "Latency directly correlates to user retention and business conversion. Every millisecond counts—from the initial edge server response to the final browser paint.",
-    icon: "flame"
+    title: "Performance by Design",
+    description:
+      "Performance is an architectural concern, not a post-release optimization. Every decision—from rendering strategies and caching to data fetching and bundle composition—is measured against user experience, scalability, and business outcomes.",
+    icon: "flame",
   },
+
   {
-    title: "Exceptional Developer Experience",
-    description: "Tooling, build times, and pipelines are the primary leverage of engineering organizations. Fast feedback loops directly translate to high product quality and rapid velocity.",
-    icon: "sparkles"
+    title: "Build for Resilience",
+    description:
+      "Failures are inevitable in distributed systems. I design architectures that degrade gracefully through retries, circuit breakers, idempotency, observability, and fault isolation to maintain reliability under production workloads.",
+    icon: "shield",
   },
+
   {
-    title: "Observability & Fault Tolerance",
-    description: "Systems must fail gracefully. Designing with comprehensive telemetry, active monitoring, retries, and intelligent fallback states to ensure 99.99% availability.",
-    icon: "shield"
+    title: "Developer Experience is a Force Multiplier",
+    description:
+      "Great engineering organizations are built on exceptional developer experience. Investing in reusable platforms, automation, tooling, and fast feedback loops improves software quality, accelerates delivery, and scales engineering productivity.",
+    icon: "sparkles",
   },
+
   {
-    title: "Automate Everything",
-    description: "Environments, testing, styling enforcement, and deployments should be strictly automated. If an operation requires manual execution twice, it deserves a pipeline.",
-    icon: "activity"
-  }
+    title: "Measure, Then Optimize",
+    description:
+      "Every architectural decision should be validated with data. I rely on telemetry, profiling, distributed tracing, and production metrics to identify bottlenecks, quantify impact, and guide continuous optimization.",
+    icon: "activity",
+  },
 ] as const;
 
 export const achievementsData = [
   {
+    value: "10+",
+    label: "Engineering Squads",
+    description:
+      "Enabled autonomous deployments across 10+ engineering squads by architecting a federated Micro-Frontend platform.",
+  },
+  {
+    value: "95%+",
+    label: "Component Reuse",
+    description:
+      "Built an enterprise design system adopted across multiple products, significantly reducing duplicated UI development.",
+  },
+  {
     value: "30%",
-    label: "Latency Reduction",
-    description: "Slashed frontend latency across critical user journeys from 2.5s to 1.7s."
+    label: "P95 Latency Reduction",
+    description:
+      "Reduced critical user journey latency from 2.5s to 1.7s through rendering optimization, caching, and bundle improvements.",
   },
   {
     value: "60%",
-    label: "Payload Optimization",
-    description: "Championed GraphQL migration and schema tuning, drastically reducing redundant network data transfers."
+    label: "Payload Reduction",
+    description:
+      "Optimized GraphQL schemas and API contracts, reducing redundant network payloads and improving application responsiveness.",
   },
   {
     value: "45%",
-    label: "P95 Speedup",
-    description: "Implemented ISR, caching, and edge routing to drop P95 latency thresholds on enterprise dashboards."
+    label: "Dashboard Performance",
+    description:
+      "Improved P95 dashboard load times using ISR, Apollo caching, and CloudFront edge delivery.",
   },
   {
-    value: "35%",
-    label: "Bundle Shrinkage",
-    description: "Streamlined code-splitting, tree-shaking, and external dependencies to maximize Core Web Vitals."
+    value: "40%",
+    label: "Developer Productivity",
+    description:
+      "Standardized build pipelines and CI/CD workflows, reducing engineering feedback cycles and accelerating feature delivery.",
+  },
+] as const;
+export const awardsData = [
+  {
+    title: "Living Our Commitment – Excellence",
+    issuer: "Aptos Retail",
+    date: "Mar 2026",
+    description:
+      "Recognized for outstanding engineering leadership, platform architecture contributions, and delivering high-impact strategic initiatives.",
   },
   {
-    value: "Award",
-    label: "Living Our Commitment - Excellence",
-    description: "Received top engineering and execution honors at Aptos in March 2026."
+    title: "Spot Award",
+    issuer: "Valuebound Consulting Services",
+    date: "Mar 2023",
+    description:
+      "Awarded for exceptional ownership, technical execution, and delivering customer-critical solutions.",
   },
   {
-    value: "Award",
-    label: "Star of the Quarter & Best Talent",
-    description: "Awarded consecutively at Valuebound for technical leadership in frontend architecture."
-  }
+    title: "Star of the Quarter",
+    issuer: "Valuebound Consulting Services",
+    date: "Sep 2022",
+    description:
+      "Recognized for consistently delivering high-quality solutions and technical leadership across engineering initiatives.",
+  },
+  {
+    title: "Innovation Award",
+    issuer: "Valuebound Consulting Services",
+    date: "Jul 2022",
+    description:
+      "Awarded for introducing innovative engineering solutions that improved platform scalability and developer productivity.",
+  },
+  {
+    title: "Best Talent of the Year",
+    issuer: "Valuebound Consulting Services",
+    date: "Jan 2022",
+    description:
+      "Recognized as one of the organization's top engineering performers for technical excellence, ownership, and customer impact.",
+  },
+  {
+    title: "Spot Award",
+    issuer: "Valuebound Consulting Services",
+    date: "Oct 2021",
+    description:
+      "Recognized for exceptional delivery, customer focus, and rapid execution on strategic engineering initiatives.",
+  },
 ] as const;
 
 export const skillsData = [
-  // Frontend
+  // Architecture
+  { name: "System Design", category: "Architecture" },
+  { name: "Distributed Systems", category: "Architecture" },
+  { name: "Domain-Driven Design", category: "Architecture" },
+  { name: "Event-Driven Architecture", category: "Architecture" },
+  { name: "Microservices", category: "Architecture" },
+  { name: "API Design", category: "Architecture" },
+  { name: "Performance Engineering", category: "Architecture" },
+  { name: "Scalability & Reliability", category: "Architecture" },
+
+  // Frontend Platform
   { name: "React.js", category: "Frontend" },
   { name: "Next.js", category: "Frontend" },
   { name: "TypeScript", category: "Frontend" },
-  { name: "Micro-frontends", category: "Frontend" },
-  { name: "Design Systems", category: "Frontend" },
+  { name: "Micro-Frontends", category: "Frontend" },
+  { name: "Module Federation", category: "Frontend" },
+  { name: "Enterprise Design Systems", category: "Frontend" },
+  { name: "SSR / ISR", category: "Frontend" },
   { name: "Tailwind CSS", category: "Frontend" },
-  { name: "SSR & ISR", category: "Frontend" },
-  { name: "Framer Motion", category: "Frontend" },
-
-  // Architecture & Leadership
-  { name: "Distributed Systems", category: "Architecture" },
-  { name: "System Design", category: "Architecture" },
-  { name: "API Design (REST, GraphQL)", category: "Architecture" },
-  { name: "Performance Engineering", category: "Architecture" },
-  { name: "Reliability Patterns", category: "Architecture" },
-  { name: "Caching Strategies", category: "Architecture" },
-  { name: "Technical Leadership", category: "Leadership" },
-  { name: "Developer Experience (DX)", category: "Leadership" },
+  { name: "Storybook", category: "Frontend" },
 
   // Backend
   { name: "Node.js", category: "Backend" },
@@ -700,18 +996,41 @@ export const skillsData = [
   { name: "Express.js", category: "Backend" },
   { name: "GraphQL", category: "Backend" },
   { name: "REST APIs", category: "Backend" },
+  { name: "Apollo Federation", category: "Backend" },
 
-  // Cloud & Infra
-  { name: "AWS (Lambda, API Gateway)", category: "Cloud" },
+  // Cloud & Infrastructure
+  { name: "AWS", category: "Cloud" },
+  { name: "Lambda", category: "Cloud" },
+  { name: "API Gateway", category: "Cloud" },
+  { name: "EventBridge", category: "Cloud" },
+  { name: "DynamoDB", category: "Cloud" },
+  { name: "CloudFront", category: "Cloud" },
   { name: "Docker", category: "Cloud" },
-  { name: "CI/CD (GitHub Actions)", category: "DevOps" },
-  { name: "Infrastructure as Code", category: "DevOps" },
-  { name: "Observability & Telemetry", category: "DevOps" },
+  { name: "Infrastructure as Code", category: "Cloud" },
 
-  // Databases & Messaging
-  { name: "PostgreSQL", category: "Databases" },
-  { name: "MongoDB", category: "Databases" },
-  { name: "DynamoDB", category: "Databases" },
-  { name: "Event-driven Workflows", category: "Messaging" },
-  { name: "Message Queues", category: "Messaging" }
-] as const;
+  // Data & Messaging
+  { name: "PostgreSQL", category: "Data" },
+  { name: "MongoDB", category: "Data" },
+  { name: "DynamoDB", category: "Data" },
+  { name: "Redis", category: "Data" },
+  { name: "Caching Strategies", category: "Data" },
+  { name: "EventBridge", category: "Messaging" },
+  { name: "SNS / SQS", category: "Messaging" },
+  { name: "Event-Driven Workflows", category: "Messaging" },
+
+  // DevOps & Observability
+  { name: "CI/CD", category: "DevOps" },
+  { name: "GitHub Actions", category: "DevOps" },
+  { name: "Performance Profiling", category: "DevOps" },
+  { name: "OpenTelemetry", category: "DevOps" },
+  { name: "CloudWatch", category: "DevOps" },
+  { name: "Observability", category: "DevOps" },
+
+  // Engineering Leadership
+  { name: "Platform Architecture", category: "Leadership" },
+  { name: "Technical Strategy", category: "Leadership" },
+  { name: "Architecture Reviews", category: "Leadership" },
+  { name: "Technical Mentoring", category: "Leadership" },
+  { name: "Engineering Standards", category: "Leadership" },
+  { name: "Developer Experience", category: "Leadership" },
+];

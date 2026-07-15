@@ -41,12 +41,10 @@ export default function ActiveSectionContextProvider({
           const sectionMap: Record<string, SectionName> = {
             home: "Home",
             about: "About",
-            architecture: "Architecture",
+            expertise: "Expertise",
             experience: "Experience",
             projects: "Projects",
-            skills: "Skills",
             achievements: "Achievements",
-            principles: "Principles",
             contact: "Contact",
           };
           const mappedName = sectionMap[sectionId];
@@ -63,12 +61,10 @@ export default function ActiveSectionContextProvider({
     const sectionIds = [
       "home",
       "about",
-      "architecture",
+      "expertise",
       "experience",
       "projects",
-      "skills",
       "achievements",
-      "principles",
       "contact",
     ];
     

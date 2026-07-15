@@ -68,7 +68,7 @@ export default function Experience() {
             <span className="absolute -left-[29px] sm:-left-[41px] md:-left-[49px] top-1.5 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-400 shadow-sm">
               {getExperienceIcon(item.icon)}
             </span>
-
+ 
             {/* Content Card */}
             <div className="premium-card p-4 sm:p-6 md:p-8">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
@@ -83,7 +83,7 @@ export default function Experience() {
                 
                 <div className="text-left md:text-right">
                   <span className="inline-block text-xs font-semibold px-2.5 py-1 bg-zinc-100 dark:bg-zinc-800/80 rounded-md text-zinc-700 dark:text-zinc-300">
-                    {item.date}
+                    {item.duration}
                   </span>
                   <p className="text-xs text-zinc-700 dark:text-zinc-400 mt-1">
                     {item.location}
@@ -91,18 +91,52 @@ export default function Experience() {
                 </div>
               </div>
 
-              {/* Responsibilities list */}
-              <ul className="list-disc pl-4 space-y-2.5 mb-6 text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                {item.responsibilities.map((resp, idx) => (
-                  <li key={idx} className="marker:text-indigo-500">
-                    {resp}
-                  </li>
-                ))}
-              </ul>
+              {/* Summary */}
+              <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 italic mb-4 leading-relaxed bg-zinc-50 dark:bg-zinc-900/35 p-3 rounded-lg border border-zinc-200/20 dark:border-zinc-800/20">
+                {item.summary}
+              </p>
 
+              {/* Scope & Context */}
+              <div className="flex flex-wrap gap-x-4 gap-y-2 mb-4 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                <div>
+                  <span className="font-semibold text-zinc-700 dark:text-zinc-300">Domain:</span> {item.scope.domain}
+                </div>
+                {item.scope.stakeholders && (
+                  <div>
+                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Stakeholders:</span> {item.scope.stakeholders}
+                  </div>
+                )}
+              </div>
+ 
+              {/* Key Achievements */}
+              <div className="mb-4">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2">Key Achievements</h4>
+                <ul className="list-disc pl-4 space-y-2 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                  {item.keyAchievements.map((achievement, idx) => (
+                    <li key={idx} className="marker:text-indigo-500">
+                      {achievement}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Business Impact */}
+              {item.businessImpact && item.businessImpact.length > 0 && (
+                <div className="mb-6 pt-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2">Business Impact</h4>
+                  <ul className="list-disc pl-4 space-y-1 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                    {item.businessImpact.map((impact, idx) => (
+                      <li key={idx} className="marker:text-indigo-500 font-medium">
+                        {impact}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+ 
               {/* Technologies used */}
-              <div className="flex flex-wrap gap-1.5 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
-                {item.tech.map((tag) => (
+              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-100 dark:border-zinc-800/80">
+                {item.technologies.map((tag) => (
                   <span
                     key={tag}
                     className="bg-zinc-100/80 text-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 text-xs px-2.5 py-1 rounded-md border border-zinc-200/20 font-medium"

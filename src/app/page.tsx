@@ -10,19 +10,6 @@ import {
   SummaryCardSkeleton 
 } from "@/components/shimmer";
 
-// 1. Height-matched layout skeletons
-const ArchitectureSkeleton = () => (
-  <div className="mb-16 sm:mb-28 max-w-[58rem] mx-auto px-4 w-full animate-pulse">
-    <div className="h-8 w-64 bg-zinc-200 dark:bg-zinc-800 rounded-lg mx-auto mb-6" />
-    <div className="h-4 w-[28rem] max-w-full bg-zinc-200 dark:bg-zinc-800 rounded-md mx-auto mb-12" />
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <SummaryCardSkeleton />
-      <SummaryCardSkeleton />
-      <SummaryCardSkeleton />
-    </div>
-  </div>
-);
-
 const ExperienceLoader = () => (
   <div className="mb-16 sm:mb-28 max-w-[48rem] mx-auto px-4 w-full animate-pulse">
     <div className="h-8 w-64 bg-zinc-200 dark:bg-zinc-800 rounded-lg mx-auto mb-12" />
@@ -48,32 +35,15 @@ const SkillsLoader = () => (
   <div className="mb-28 max-w-[53rem] mx-auto px-4 w-full animate-pulse text-center">
     <div className="h-8 w-64 bg-zinc-200 dark:bg-zinc-800 rounded-lg mx-auto mb-6" />
     <div className="h-4 w-[24rem] max-w-full bg-zinc-200 dark:bg-zinc-800 rounded-md mx-auto mb-12" />
-    <div className="flex flex-wrap justify-center gap-2 mb-10">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <div key={i} className="h-9 w-20 bg-zinc-200 dark:bg-zinc-800 rounded-xl" />
-      ))}
-    </div>
-    <div className="flex flex-wrap justify-center gap-2 max-w-[44rem] mx-auto">
-      {Array.from({ length: 15 }).map((_, i) => (
-        <div key={i} className="h-10 w-28 bg-zinc-200 dark:bg-zinc-800 rounded-2xl" />
+    <div className="grid sm:grid-cols-2 gap-6 max-w-[58rem] mx-auto text-left">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div key={i} className="h-40 bg-zinc-100 dark:bg-zinc-900 rounded-2xl border border-zinc-200/20 dark:border-zinc-800/20" />
       ))}
     </div>
   </div>
 );
 
 const AchievementsLoader = () => (
-  <div className="mb-16 sm:mb-28 max-w-[58rem] mx-auto px-4 w-full animate-pulse">
-    <div className="h-8 w-64 bg-zinc-200 dark:bg-zinc-800 rounded-lg mx-auto mb-6" />
-    <div className="h-4 w-[24rem] max-w-full bg-zinc-200 dark:bg-zinc-800 rounded-md mx-auto mb-12" />
-    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <SummaryCardSkeleton />
-      <SummaryCardSkeleton />
-      <SummaryCardSkeleton />
-    </div>
-  </div>
-);
-
-const PrinciplesLoader = () => (
   <div className="mb-16 sm:mb-28 max-w-[58rem] mx-auto px-4 w-full animate-pulse">
     <div className="h-8 w-64 bg-zinc-200 dark:bg-zinc-800 rounded-lg mx-auto mb-6" />
     <div className="h-4 w-[24rem] max-w-full bg-zinc-200 dark:bg-zinc-800 rounded-md mx-auto mb-12" />
@@ -98,11 +68,6 @@ const ContactLoader = () => (
   </div>
 );
 
-// 2. Dynamic loading configuration
-const Architecture = dynamic(() => import("@/components/architecture"), {
-  loading: () => <ArchitectureSkeleton />
-});
-
 const Experience = dynamic(() => import("@/components/experience"), {
   loading: () => <ExperienceLoader />
 });
@@ -119,10 +84,6 @@ const Achievements = dynamic(() => import("@/components/achievements"), {
   loading: () => <AchievementsLoader />
 });
 
-const Principles = dynamic(() => import("@/components/principles"), {
-  loading: () => <PrinciplesLoader />
-});
-
 const Contact = dynamic(() => import("@/components/contact"), {
   loading: () => <ContactLoader />
 });
@@ -135,8 +96,9 @@ export default function Home() {
       <About />
       <SectionDivider />
       
-      <LazySection id="architecture" fallback={<ArchitectureSkeleton />} estimatedHeight="500px">
-        <Architecture />
+      {/* Unified Expertise Segment (contains Architecture, Principles, and Stack tabs) */}
+      <LazySection id="expertise" fallback={<SkillsLoader />} estimatedHeight="600px">
+        <Skills />
       </LazySection>
       <SectionDivider />
       
@@ -150,18 +112,8 @@ export default function Home() {
       </LazySection>
       <SectionDivider />
       
-      <LazySection id="skills" fallback={<SkillsLoader />} estimatedHeight="350px">
-        <Skills />
-      </LazySection>
-      <SectionDivider />
-      
       <LazySection id="achievements" fallback={<AchievementsLoader />} estimatedHeight="480px">
         <Achievements />
-      </LazySection>
-      <SectionDivider />
-      
-      <LazySection id="principles" fallback={<PrinciplesLoader />} estimatedHeight="500px">
-        <Principles />
       </LazySection>
       <SectionDivider />
       

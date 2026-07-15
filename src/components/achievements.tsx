@@ -1,7 +1,8 @@
-// Server Component — static data, no framer-motion, no 'use client'
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import SectionHeading from './section-heading';
-import { achievementsData } from '@/lib/data';
+import { achievementsData, awardsData } from '@/lib/data';
 
 function IconTrophy() {
   return (
@@ -13,43 +14,69 @@ function IconTrophy() {
     </svg>
   );
 }
-function IconTrendingDown() {
+
+function IconSparkles() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-indigo-500" aria-hidden="true">
-      <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/>
-      <polyline points="17 18 23 18 23 12"/>
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
     </svg>
   );
 }
 
 export default function Achievements() {
+  const [activeTab, setActiveTab] = useState<'achievements' | 'awards'>('achievements');
+
   return (
     <section id="achievements" className="mb-16 sm:mb-28 max-w-[58rem] mx-auto px-4 w-full scroll-mt-28">
-      <SectionHeading>Measurable Achievements</SectionHeading>
+      <SectionHeading>Impact &amp; Recognition</SectionHeading>
 
-      <p className="mb-12 text-center text-zinc-700 dark:text-zinc-300 max-w-[36rem] mx-auto text-base sm:text-lg leading-relaxed">
-        Quantifiable business impact, performance metrics, and professional execution awards.
+      <p className="mb-10 text-center text-zinc-700 dark:text-zinc-300 max-w-[36rem] mx-auto text-base sm:text-lg leading-relaxed">
+        Quantifiable platform metrics, core business achievements, and honors received for engineering execution.
       </p>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {achievementsData.map((item, index) => {
-          const isAward = item.value === 'Award';
-          return (
+      {/* Tabs Pill Bar */}
+      <div className="flex bg-zinc-100 dark:bg-zinc-900 border border-zinc-200/50 dark:border-zinc-800/80 p-1.5 rounded-full max-w-[28rem] mx-auto mb-12 shadow-inner">
+        <button
+          onClick={() => setActiveTab('achievements')}
+          className={`flex-1 py-2 px-4 rounded-full text-xs sm:text-sm font-bold tracking-wide text-center transition cursor-pointer select-none ${
+            activeTab === 'achievements'
+              ? 'bg-white dark:bg-zinc-950 text-indigo-600 dark:text-indigo-400 shadow-md scale-[1.01]'
+              : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200'
+          }`}
+        >
+          Key Achievements
+        </button>
+        <button
+          onClick={() => setActiveTab('awards')}
+          className={`flex-1 py-2 px-4 rounded-full text-xs sm:text-sm font-bold tracking-wide text-center transition cursor-pointer select-none ${
+            activeTab === 'awards'
+              ? 'bg-white dark:bg-zinc-950 text-indigo-600 dark:text-indigo-400 shadow-md scale-[1.01]'
+              : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200'
+          }`}
+        >
+          Awards &amp; Honors
+        </button>
+      </div>
+
+      {activeTab === 'achievements' ? (
+        /* Achievements Grid */
+        <div key="achievements-grid" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {achievementsData.map((item, index) => (
             <div
-              key={item.label}
+              key={`${item.label}-${index}`}
               className="premium-card p-4 sm:p-6 flex flex-col justify-between animate-fade-in-up"
               style={{ animationDelay: `${index * 60}ms` }}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-xs font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
-                    Metric / Honor
+                    Metric Value
                   </span>
-                  {isAward ? <IconTrophy /> : <IconTrendingDown />}
+                  <IconSparkles />
                 </div>
 
-                <h3 className={`font-extrabold tracking-tight mb-2 text-zinc-900 dark:text-zinc-50 ${isAward ? 'text-lg md:text-xl' : 'text-2xl xs:text-3xl sm:text-4xl'}`}>
-                  {item.value === 'Award' ? 'Honored Award' : item.value}
+                <h3 className="font-extrabold tracking-tight mb-1 text-zinc-900 dark:text-zinc-50 text-2xl sm:text-3xl md:text-4xl">
+                  {item.value}
                 </h3>
 
                 <h4 className="font-bold text-sm sm:text-base text-zinc-800 dark:text-zinc-200 mb-2">
@@ -57,13 +84,46 @@ export default function Achievements() {
                 </h4>
               </div>
 
-              <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
+              <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-400 leading-relaxed mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
                 {item.description}
               </p>
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      ) : (
+        /* Awards Grid */
+        <div key="awards-grid" className="grid sm:grid-cols-2 gap-6">
+          {awardsData.map((item, index) => (
+            <div
+              key={`${item.title}-${item.date}-${index}`}
+              className="premium-card p-4 sm:p-6 flex flex-col justify-between animate-fade-in-up"
+              style={{ animationDelay: `${index * 60}ms` }}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex flex-col text-left">
+                    <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+                      {item.issuer}
+                    </span>
+                    <span className="text-[10px] text-zinc-700 dark:text-zinc-400 mt-0.5">
+                      {item.date}
+                    </span>
+                  </div>
+                  <IconTrophy />
+                </div>
+
+                <h3 className="font-extrabold tracking-tight mb-2 text-zinc-900 dark:text-zinc-50 text-lg sm:text-xl">
+                  {item.title}
+                </h3>
+              </div>
+
+              <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-400 leading-relaxed mt-2 pt-2 border-t border-zinc-100 dark:border-zinc-800/80">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
