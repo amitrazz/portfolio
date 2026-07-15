@@ -25,27 +25,59 @@ function IconAward() {
 }
 
 type ProjectProps = {
+  id: string;
   title: string;
-  subtitle: string;
-  problem: string;
-  solution: string;
-  architecture: string;
+  company: string;
+  duration: string;
+  domain: string;
+  role: string;
+  featured: boolean;
+  executiveSummary: string;
+  businessContext: {
+    industry: string;
+    users: string;
+    engineeringTeams: string;
+    repositories: string;
+    deploymentFrequency: string;
+    challenge: string;
+  };
+  problemStatement: string;
+  objectives: readonly string[];
+  constraints: readonly string[];
+  architecture: {
+    overview: string;
+    diagram: string;
+    components: readonly {
+      name: string;
+      responsibility: readonly string[];
+    }[];
+  };
+  technicalChallenges: readonly {
+    title: string;
+    description: string;
+    solution: string;
+  }[];
+  businessImpact: readonly string[];
+  measurableResults: readonly {
+    metric: string;
+    before: string;
+    after: string;
+  }[];
   technologies: readonly string[];
-  businessImpact: string;
-  challenges: string;
-  results: string;
 };
 
 export default function Project({
   title,
-  subtitle,
-  problem,
-  solution,
+  company,
+  duration,
+  role,
+  executiveSummary,
+  problemStatement,
   architecture,
-  technologies,
+  technicalChallenges,
   businessImpact,
-  challenges,
-  results,
+  measurableResults,
+  technologies,
 }: ProjectProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -56,11 +88,14 @@ export default function Project({
       <div className="flex flex-col md:flex-row justify-between items-stretch md:items-start gap-4 mb-4">
         <div className="flex-1">
           <span className="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
-            {subtitle}
+            {role} • {company}
           </span>
           <h3 className="text-xl sm:text-2xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight mt-1">
             {title}
           </h3>
+          <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-0.5">
+            {duration}
+          </p>
         </div>
         <button
           onClick={() => setIsExpanded(!isExpanded)}
@@ -73,9 +108,14 @@ export default function Project({
         </button>
       </div>
 
-      <p className="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">
-        <span className="font-semibold text-zinc-800 dark:text-zinc-200">Business Impact:</span> {businessImpact}
-      </p>
+      <div className="text-base text-zinc-700 dark:text-zinc-300 leading-relaxed mb-4">
+        <span className="font-semibold text-zinc-800 dark:text-zinc-200 block mb-1">Business Impact:</span>
+        <ul className="list-disc pl-4 space-y-1 mt-1 text-sm sm:text-base">
+          {businessImpact.map((impact, idx) => (
+            <li key={idx} className="marker:text-indigo-500">{impact}</li>
+          ))}
+        </ul>
+      </div>
 
       {/* Main Badges */}
       <div className="flex flex-wrap gap-1.5 mb-2">
@@ -110,8 +150,8 @@ export default function Project({
                 <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
                   <IconShieldAlert /> The Problem
                 </h4>
-                <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
-                  {problem}
+                <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
+                  {problemStatement}
                 </p>
               </div>
 
@@ -119,8 +159,8 @@ export default function Project({
                 <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
                   <IconCpu /> The Solution
                 </h4>
-                <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
-                  {solution}
+                <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
+                  {executiveSummary}
                 </p>
               </div>
             </div>
@@ -130,28 +170,44 @@ export default function Project({
               <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
                 <IconLayers /> System Architecture
               </h4>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3 leading-relaxed">
+                {architecture.overview}
+              </p>
               <pre className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400 font-mono leading-relaxed bg-white dark:bg-zinc-900 p-4 rounded-lg border border-zinc-200/40 dark:border-zinc-800/80 whitespace-pre overflow-x-auto w-full">
-                {architecture}
+                {architecture.diagram}
               </pre>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2">
+                <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-3">
                   Key Technical Challenges
                 </h4>
-                <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
-                  {challenges}
-                </p>
+                <div className="flex flex-col gap-4">
+                  {technicalChallenges.map((challenge, idx) => (
+                    <div key={idx} className="border-l-2 border-indigo-500 pl-3">
+                      <h5 className="font-bold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100">{challenge.title}</h5>
+                      <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1">{challenge.description}</p>
+                      <p className="text-xs sm:text-sm text-indigo-600 dark:text-indigo-400 mt-1"><span className="font-semibold">Solution:</span> {challenge.solution}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div>
-                <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-2">
-                  <IconAward /> Outcomes &amp; Results
+                <h4 className="text-sm font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-3 flex items-center gap-2">
+                  <IconAward /> Outcomes &amp; Measurable Results
                 </h4>
-                <p className="text-base text-zinc-700 dark:text-zinc-400 leading-relaxed">
-                  {results}
-                </p>
+                <div className="grid grid-cols-1 gap-2.5">
+                  {measurableResults.map((result, idx) => (
+                    <div key={idx} className="flex justify-between items-center bg-zinc-100/50 dark:bg-zinc-900/50 p-3 rounded-xl border border-zinc-200/20 dark:border-zinc-800/20">
+                      <span className="text-xs sm:text-sm font-semibold text-zinc-700 dark:text-zinc-300">{result.metric}</span>
+                      <span className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400">
+                        {result.before} → <span className="text-indigo-600 dark:text-indigo-400 font-bold">{result.after}</span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

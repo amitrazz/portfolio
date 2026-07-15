@@ -5,21 +5,17 @@
 // on every badge on every filter click, then ran a JS FLIP animation for each one.
 // Replaced with CSS opacity+scale transitions on each badge individually.
 import { skillsData } from '@/lib/data';
-import { useSectionInView } from '@/lib/hooks';
 import { useState } from 'react';
 import SectionHeading from './section-heading';
 
 export default function Skills() {
-  const { ref } = useSectionInView('Skills', 0.4);
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
   const categories = ['All', ...Array.from(new Set(skillsData.map((s) => s.category)))];
 
   return (
     <section
-      ref={ref}
-      id="skills"
-      className="mb-28 max-w-[53rem] text-center sm:mb-40 mx-auto px-4 w-full scroll-mt-28"
+      className="mb-28 max-w-[53rem] text-center sm:mb-40 mx-auto px-4 w-full"
     >
       <SectionHeading>Technical Skills</SectionHeading>
       

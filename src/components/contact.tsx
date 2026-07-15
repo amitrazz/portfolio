@@ -1,14 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import { useSectionInView } from '@/lib/hooks';
 import SectionHeading from './section-heading';
 import { LuMail, LuSend, LuGithub, LuLinkedin } from 'react-icons/lu';
 import toast from 'react-hot-toast';
 import { sendEmailAction } from '@/app/actions';
 
 export default function Contact() {
-  const { ref } = useSectionInView('Contact', 0.5);
   const [isPending, setIsPending] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,7 +28,6 @@ export default function Contact() {
 
   return (
     <section
-      ref={ref}
       className="mb-16 sm:mb-28 max-w-[42rem] text-center mx-auto px-4 w-full"
     >
       <SectionHeading>Get In Touch</SectionHeading>

@@ -2,42 +2,15 @@
 // or icon imports, allowing for optimal tree shaking and preventing transitively bloating layouts.
 
 export const links = [
-  {
-    name: "Home",
-    hash: "#home",
-  },
-  {
-    name: "About",
-    hash: "#about",
-  },
-  {
-    name: "Architecture",
-    hash: "#architecture",
-  },
-  {
-    name: "Experience",
-    hash: "#experience",
-  },
-  {
-    name: "Projects",
-    hash: "#projects",
-  },
-  {
-    name: "Skills",
-    hash: "#skills",
-  },
-  {
-    name: "Achievements",
-    hash: "#achievements",
-  },
-  {
-    name: "Principles",
-    hash: "#principles",
-  },
-  {
-    name: "Contact",
-    hash: "#contact",
-  },
+  { name: "Home", hash: "#home" },
+  { name: "About", hash: "#about" },
+  { name: "Architecture", hash: "#architecture" },
+  { name: "Experience", hash: "#experience" },
+  { name: "Projects", hash: "#projects" },
+  { name: "Skills", hash: "#skills" },
+  { name: "Achievements", hash: "#achievements" },
+  { name: "Principles", hash: "#principles" },
+  { name: "Contact", hash: "#contact" },
 ] as const;
 
 export const experiencesData = [
@@ -48,12 +21,12 @@ export const experiencesData = [
     date: "May 2023 – Present",
     icon: "cpu",
     responsibilities: [
-      "Architected and engineered a Federated Micro-Frontend Platform, unblocking 10+ autonomous squads to release updates independently and eliminating weekly release bottlenecks.",
-      "Evolved a multi-theme, WCAG AA Compliant Enterprise Design System, achieving 95%+ component reuse rate across 5 core portals and reducing UI code duplication.",
-      "Led runtime performance auditing and optimization cycles across critical user journeys, reducing P95 latency by 30% (from 2.5s down to 1.7s).",
-      "Established organizational frontend architecture standards, outlining module boundaries, rendering strategies (SSR/CSR), and cache-aside data guidelines.",
-      "Standardized build pipelines, developer tooling, and automated CI/CD workflows, shortening developer cycle times by 40%.",
-      "Collaborated with backend architecture squads to optimize API schema designs, reducing redundant network payload weights by 60%."
+      "Architected a Federated Micro-Frontend Platform, enabling 10+ autonomous squads to deploy independently and eliminating weekly release bottlenecks.",
+      "Engineered a multi-theme, WCAG AA-compliant Enterprise Design System, achieving a 95%+ component reuse rate across 5 core portals and heavily reducing UI code duplication.",
+      "Spearheaded runtime performance auditing across critical user journeys, slashing P95 latency by 30% (from 2.5s to 1.7s).",
+      "Defined organizational frontend architecture standards, establishing module boundaries, rendering strategies (SSR/CSR), and cache-aside data guidelines.",
+      "Standardized build pipelines, developer tooling, and automated CI/CD workflows, reducing developer cycle times by 40%.",
+      "Collaborated with backend teams to optimize API schema designs, decreasing redundant network payload weights by 60%."
     ],
     tech: ["React.js", "Next.js", "TypeScript", "Micro-frontends", "Design Systems", "Web Vitals", "SSR", "CSR", "NPM Registry", "CI/CD"]
   },
@@ -64,10 +37,10 @@ export const experiencesData = [
     date: "Jul 2021 – May 2023",
     icon: "network",
     responsibilities: [
-      "Led frontend architecture design and technical roadmap execution for enterprise webinar portals supporting millions of active users.",
-      "Drove adoption of a schema-federated GraphQL topology, pruning network payload sizes and data transfer weights by 60%.",
-      "Implemented Incremental Static Regeneration (ISR), Apollo Client caching, and localized CloudFront CDN edge routing, improving P95 dashboard loading times by 45%.",
-      "Built and maintained a unified UI design library, standardizing code boundaries across multiple organizational segments.",
+      "Directed frontend architecture and technical roadmap execution for enterprise webinar portals supporting millions of active users.",
+      "Championed the adoption of a schema-federated GraphQL topology, reducing network payload sizes and data transfer weights by 60%.",
+      "Implemented Incremental Static Regeneration (ISR), Apollo Client caching, and localized CloudFront CDN edge routing, improving P95 dashboard load times by 45%.",
+      "Built and maintained a unified UI design library to standardize code boundaries across multiple organizational segments.",
       "Mentored 12+ developers on performance engineering, API integration guidelines, and scalable state management patterns."
     ],
     tech: ["React.js", "Next.js", "TypeScript", "GraphQL", "SSR", "Caching", "Design Systems", "State Management", "Apollo Client"]
@@ -79,9 +52,9 @@ export const experiencesData = [
     date: "Mar 2021 – Jul 2021",
     icon: "server",
     responsibilities: [
-      "Developed high-throughput OTT streaming dashboard interfaces with strict performance budgets using React, Next.js, and TypeScript.",
-      "Pruned bundle weights by 35% through route-based code splitting, dynamic dependency lazy loading, and dependency tree-shaking.",
-      "Optimized Time to First Byte (TTFB) to ~300ms by tuning server-side rendering parameters and configuring edge caching."
+      "Developed high-throughput OTT streaming dashboard interfaces under strict performance budgets using React, Next.js, and TypeScript.",
+      "Reduced bundle weights by 35% through route-based code splitting, dynamic lazy loading, and dependency tree-shaking.",
+      "Optimized Time to First Byte (TTFB) to ~300ms by fine-tuning server-side rendering parameters and configuring edge caching."
     ],
     tech: ["React.js", "Next.js", "TypeScript", "Code Splitting", "Bundle Optimization", "TTFB", "CDN", "Edge Optimization", "OTT"]
   },
@@ -93,8 +66,8 @@ export const experiencesData = [
     icon: "layers",
     responsibilities: [
       "Built responsive, multi-page frontend platforms for catalog e-commerce and media clients using React.",
-      "Optimized catalog page rendering speeds using static server prerendering, browser image resizing, and cache policies.",
-      "Delivered reusable UI primitives, accelerating team frontend feature execution timelines by 20%."
+      "Accelerated catalog page rendering speeds using static server pre-rendering, browser image resizing, and localized cache policies.",
+      "Delivered reusable UI primitives, accelerating frontend feature execution timelines by 20% for the engineering team."
     ],
     tech: ["React.js", "JavaScript", "SSR", "Caching", "Lazy Loading", "Component Architecture", "E-commerce"]
   }
@@ -102,137 +75,286 @@ export const experiencesData = [
 
 export const projectsData = [
   {
+    id: "federated-microfrontend",
+
     title: "Federated Micro-Frontend Platform",
-    subtitle: "Aptos India Pvt. Ltd.",
-    problem: "A monolithic retail dashboard shared across 10+ engineering teams suffered from deployment bottlenecks, where a failure in one feature blocked weekly release deployments for all teams. Build cycles exceeded 45 minutes, and local runs were fragile.",
-    solution: "Designed and engineered a decentralized Micro-Frontend (MFE) runtime orchestration framework. Implemented runtime component injection using Webpack Module Federation with decoupled domain boundaries, autonomous build pipelines, and dynamic asset manifests.",
-    architecture: `+------------------ User Browser -------------------+
-|                                                   |
-|             [ Host Shell Application ]            |
-|                         │                         |
-|             (Demands Remote Modules)              |
-|                         │                         |
-|                         ▼                         |
-|          [ Custom Remote Module Loader ]          |
-|                         │                         |
-|         ┌───────────────┼───────────────┐         |
-|         ▼               ▼               ▼         |
-|     [ MFE 1 ]       [ MFE 2 ]       [ MFE 3 ]     |
-|    (Analytics)     (Checkout)      (Inventory)    |
-|         │               │               │         |
-|         └───── Federated State Sync ────┘         |
-+---------------------------------------------------+`,
-    technologies: ["React.js", "Next.js", "TypeScript", "Module Federation", "Tailwind CSS", "GitHub Actions", "Docker"],
-    businessImpact: "Decoupled deployment cycles for 10 independent squads. Reduced cross-team code integration friction, boosting development velocity and product feature release cycles.",
-    challenges: "Handling major/minor version discrepancies of shared dependencies (e.g. React Core, Framer Motion) without bloating runtime assets, and isolating CSS namespaces under tailwind utility compiles.",
-    results: "100% autonomous deployment boundaries achieved. Build times crashed from 45 minutes to under 5 minutes. Release cycles improved from bi-weekly synchronized deployments to instant, zero-downtime production updates.",
-  },
-  {
-    title: "Enterprise Core Design System",
-    subtitle: "Aptos & Airmeet Systems",
-    problem: "Severe visual inconsistencies across multiple product suites led to high CSS bloating, layout bugs, and duplicate engineering efforts across frontlines, delaying critical feature delivery by weeks.",
-    solution: "Architected a multi-theme, accessible-first (WCAG AA Compliant) core design library from the ground up. Enforced structural tokens via Style Dictionary, wrapping headless primitives with robust brand-compliant guidelines.",
-    architecture: `+------------------ Figma Tokens -------------------+
-|                        │                          |
-|                        ▼                          |
-|         [ Token Compiler (Style Dict) ]           |
-|            ├── Generate CSS Variables             |
-|            └── Export Theme JSON                  |
-|                        │                          |
-|                        ▼                          |
-|         [ Headless Radix Primitives ]             |
-|                        │                          |
-|                        ▼                          |
-|         [ Custom Accessible UI Library ]          |
-+---------------------------------------------------+`,
-    technologies: ["React.js", "TypeScript", "Tailwind CSS", "Radix UI", "Storybook", "Lerna / Turborepo", "Semantic Release"],
-    businessImpact: "Created a single source of truth for UX design, accelerating development timelines and aligning corporate branding standards across high-traffic customer interfaces.",
-    challenges: "Securing organization-wide adoption of breaking system transitions and structuring clean semver release version boundaries for downstream platforms.",
-    results: "Achieved 95%+ component reuse rates across core portals, speeding up UI creation times for new features by 30% and guaranteeing out-of-the-box keyboard/screen-reader accessibility.",
-  },
-  {
-    title: "GraphQL Caching & Rendering Engine",
-    subtitle: "Airmeet Platform",
-    problem: "Excessive client payloads, over-fetching on real-time dashboards, and poor SEO indexing for webinar register landing pages due to heavy client-side GraphQL query processing.",
-    solution: "Led migration to a schema-federated GraphQL topology. Implemented Next.js Incremental Static Regeneration (ISR) with localized cache-aside strategies, edge routing, and granular cache policies.",
-    architecture: `+----------------- Network Traffic -----------------+
-|                                                   |
-|                 [ Client Browser ]                |
-|                        │                          |
-|                 (Requests Route)                  |
-|                        │                          |
-|                        ▼                          |
-|             [ CloudFront Edge CDN ]               |
-|            (Serves Cached Static HTML)            |
-|                        │                          |
-|                    Cache Miss                     |
-|                        ▼                          |
-|              [ Next.js ISR Render ]               |
-|                        │                          |
-|             (GraphQL Federated Query)             |
-|                        ▼                          |
-|            [ Apollo Gateway Engine ]              |
-+---------------------------------------------------+`,
-    technologies: ["Next.js", "TypeScript", "GraphQL", "Apollo Client", "GraphQL Codegen", "CloudFront CDN"],
-    businessImpact: "Reduced server-side query loads and bandwidth consumption while vastly increasing site speed indexing and registration conversions.",
-    challenges: "Resolving complex Apollo client-side cache invalidations for highly dynamic event calendars without introducing stale data reads.",
-    results: "P95 latency thresholds dropped by 45%, network API data payload weights reduced by 60%, and page rendering speeds optimized to near-instant transitions.",
-  },
-  {
-    title: "High-Performance OTT Video Engine",
-    subtitle: "Discovery, Inc. Client Project",
-    problem: "Severe playback loading delays and high mobile buffering rates on media dashboard players, leading to user drops and low engagement statistics on video components.",
-    solution: "Overhauled the streaming platform's compilation bundles. Implemented dynamic asset code splitting, route-based dynamic component lazy loading, and fine-tuned preloading scripts.",
-    architecture: `+----------------- Video Playback ------------------+
-|                                                   |
-|                 [ Browser Shell ]                 |
-|                        │                          |
-|             (Dynamic Import of Player)            |
-|                        │                          |
-|                        ▼                          |
-|              [ CloudFront Edge CDN ]              |
-|             (Streams HLS Chunk Blocks)            |
-|                        │                          |
-|                    Cache Miss                     |
-|                        ▼                          |
-|             [ Media Transcode Server ]            |
-+---------------------------------------------------+`,
-    technologies: ["React.js", "Next.js", "TypeScript", "Webpack", "CloudFront", "Lighthouse", "Web Vitals Optimization"],
-    businessImpact: "Maximized video watch times and mobile engagement metrics by eliminating resource compilation blocks during initial stream playback starts.",
-    challenges: "Shrinking Javascript bundle weights containing heavy media drivers without delaying initial media interaction playback triggers.",
-    results: "Total bundle size reduced by 35%, Time to First Byte (TTFB) optimized to ~300ms, and Google Lighthouse performance index raised to 95+.",
+
+    company: "Aptos India Pvt. Ltd.",
+
+    duration: "2023 - Present",
+
+    domain: "Retail Commerce Platform",
+
+    role: "Associate Principal Engineer",
+
+    featured: true,
+
+    executiveSummary:
+      "Architected a federated micro-frontend platform that transformed a tightly coupled retail application into independently deployable domain applications. Established architectural governance, runtime contracts, and shared platform standards enabling autonomous delivery across multiple engineering squads.",
+
+    businessContext: {
+      industry: "Retail",
+      users: "Internal Operations",
+      engineeringTeams: "10+",
+      repositories: "15+",
+      deploymentFrequency: "Weekly",
+      challenge:
+        "Independent product teams were blocked by a shared frontend monolith where every release required synchronized deployments and full regression testing."
+    },
+
+    problemStatement:
+      "The organization had outgrown a centralized frontend architecture. A single application served multiple business domains including inventory, merchandising, promotions, fulfillment, and analytics. Every feature required rebuilding and redeploying the entire application, creating long feedback cycles and high operational risk.",
+
+    objectives: [
+      "Enable independent deployments",
+      "Reduce deployment risk",
+      "Improve developer experience",
+      "Scale engineering organization",
+      "Establish frontend platform governance"
+    ],
+
+    constraints: [
+      "Existing React ecosystem",
+      "Backward compatibility",
+      "No downtime migration",
+      "Shared authentication",
+      "Shared routing",
+      "Shared design system",
+      "Cross-MFE communication",
+      "Independent release cycles"
+    ],
+
+    architecture: {
+      overview:
+        "Introduced a runtime-composed micro-frontend platform using Module Federation with a lightweight shell application responsible for authentication, routing, layout composition, dependency management, and platform services.",
+
+      diagram: `...`,
+
+      components: [
+        {
+          name: "Shell Application",
+          responsibility: [
+            "Authentication",
+            "Routing",
+            "Layout",
+            "Shared dependencies",
+            "Platform services"
+          ]
+        },
+        {
+          name: "Remote Applications",
+          responsibility: [
+            "Business capabilities",
+            "Independent deployment",
+            "Domain ownership"
+          ]
+        },
+        {
+          name: "Module Registry",
+          responsibility: [
+            "Runtime discovery",
+            "Version resolution",
+            "Remote manifest loading"
+          ]
+        },
+        {
+          name: "Shared Platform",
+          responsibility: [
+            "Design System",
+            "Analytics",
+            "Telemetry",
+            "Error Boundary",
+            "Feature Flags"
+          ]
+        }
+      ]
+    },
+
+    architectureDecisions: [
+      {
+        decision:
+          "Adopt Module Federation instead of monorepo-only architecture",
+
+        rationale:
+          "Independent deployments were the primary business requirement.",
+
+        alternatives: [
+          "Nx Monorepo",
+          "Single SPA",
+          "Iframe composition"
+        ],
+
+        tradeoffs: [
+          "Runtime complexity",
+          "Dependency governance",
+          "Version management"
+        ]
+      },
+      {
+        decision:
+          "Centralize platform capabilities in the shell application",
+
+        rationale:
+          "Avoid duplicated authentication, routing, telemetry and shared state.",
+
+        tradeoffs: [
+          "Shell versioning",
+          "Platform ownership"
+        ]
+      }
+    ],
+
+    scale: {
+      squads: "10+",
+      repositories: "15+",
+      deployments: "Independent",
+      buildTimeBefore: "45 min",
+      buildTimeAfter: "<5 min"
+    },
+
+    technicalChallenges: [
+      {
+        title: "Dependency Versioning",
+
+        description:
+          "Multiple MFEs required different React and third-party library versions.",
+
+        solution:
+          "Implemented shared dependency contracts with singleton enforcement and semantic version validation."
+      },
+      {
+        title: "Shared State",
+
+        description:
+          "Cross-domain communication without introducing tight coupling.",
+
+        solution:
+          "Built event-driven communication using custom event bus and shared platform APIs."
+      },
+      {
+        title: "CSS Isolation",
+
+        description:
+          "Tailwind utility collisions across independently deployed applications.",
+
+        solution:
+          "Introduced namespace isolation and shared design tokens."
+      }
+    ],
+
+    performance: {
+      improvements: [
+        "Build time reduced by 89%",
+        "Independent deployments",
+        "Reduced CI execution",
+        "Smaller deployment artifacts"
+      ]
+    },
+
+    resiliency: {
+      strategies: [
+        "Remote fallback components",
+        "Runtime timeout handling",
+        "Error boundaries per MFE",
+        "Graceful degradation",
+        "Manifest validation"
+      ]
+    },
+
+    observability: {
+      metrics: [
+        "Remote load time",
+        "Bundle size",
+        "Runtime failures",
+        "Error rate",
+        "Deployment success",
+        "Core Web Vitals"
+      ]
+    },
+
+    businessImpact: [
+      "Enabled autonomous engineering teams",
+      "Reduced release coordination",
+      "Accelerated feature delivery",
+      "Lower deployment risk",
+      "Improved developer productivity"
+    ],
+
+    measurableResults: [
+      {
+        metric: "Build Time",
+        before: "45 min",
+        after: "<5 min"
+      },
+      {
+        metric: "Deployment Model",
+        before: "Centralized",
+        after: "Independent"
+      },
+      {
+        metric: "Release Frequency",
+        before: "Weekly",
+        after: "On-demand"
+      }
+    ],
+
+    leadership: {
+      responsibilities: [
+        "Defined platform architecture",
+        "Established engineering standards",
+        "Reviewed RFCs",
+        "Mentored engineers",
+        "Drove cross-team adoption"
+      ]
+    },
+
+    lessonsLearned: [
+      "Organizational boundaries matter more than technical boundaries.",
+      "Dependency governance is critical in federated architectures.",
+      "Platform ownership determines long-term success."
+    ],
+
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Module Federation",
+      "Webpack",
+      "GitHub Actions",
+      "Docker"
+    ]
   }
-] as const;
+]
 
 export const architectureExpertise = [
   {
     title: "Distributed Systems & Scalability",
-    description: "Designing decoupled asynchronous workflows, event-driven architectures, and implementing reliability patterns like circuit breakers, retries, idempotency, and eventual consistency.",
+    description: "Designing decoupled asynchronous workflows and event-driven architectures. Implementing reliability patterns like circuit breakers, retries, idempotency, and eventual consistency.",
     icon: "network",
   },
   {
     title: "Micro-Frontend (MFE) Platforms",
-    description: "Orchestrating micro-frontends using Module Federation. Defining strict boundaries, runtime state sync, independent CI/CD pipelines, and shared system registries.",
+    description: "Orchestrating micro-frontends using Module Federation. Defining strict domain boundaries, runtime state synchronization, independent CI/CD pipelines, and shared registries.",
     icon: "cpu",
   },
   {
     title: "Performance Engineering",
-    description: "Maximizing Core Web Vitals (LCP, INP, CLS, TTFB). Implementing route-based code-splitting, tree-shaking, smart prefetching, CDN edge caching, and bundle optimization.",
+    description: "Maximizing Core Web Vitals (LCP, INP, CLS, TTFB). Implementing route-based code-splitting, tree-shaking, smart prefetching, CDN edge caching, and aggressive bundle optimization.",
     icon: "activity",
   },
   {
     title: "Cloud Infrastructure & Serverless",
-    description: "Building production systems on AWS using Lambda, API Gateway, DynamoDB, ECS, CloudFront, Docker, and defining Infrastructure as Code (IaC) via CloudFormation.",
+    description: "Building resilient production systems on AWS utilizing Lambda, API Gateway, DynamoDB, ECS, CloudFront, and Docker. Defining Infrastructure as Code (IaC) via CloudFormation.",
     icon: "aws",
   },
   {
     title: "API Design & Schema Federation",
-    description: "Structuring high-throughput APIs using GraphQL (Apollo/Federation) and REST. Preventing over-fetching, ensuring schema safety, and managing client-side caching.",
+    description: "Structuring high-throughput APIs using GraphQL (Apollo/Federation) and REST. Preventing data over-fetching, ensuring strict schema safety, and managing robust client-side caching.",
     icon: "graphql",
   },
   {
     title: "Enterprise Component Architecture",
-    description: "Engineering headless, accessible, and multi-themed design systems. Enforcing design tokens, modular UI libraries, and high developer velocity workflows.",
+    description: "Engineering headless, accessible, and multi-themed design systems. Enforcing strict design tokens, modular UI libraries, and high-velocity developer workflows.",
     icon: "layers",
   }
 ] as const;
@@ -240,32 +362,32 @@ export const architectureExpertise = [
 export const engineeringPrinciples = [
   {
     title: "Design for Scale",
-    description: "Every module, pipeline, or API is architected under the assumption that load, team size, and codebase complexity will double. Scale is built in, not bolted on.",
+    description: "Every module, pipeline, or API is architected under the assumption that load, team size, and codebase complexity will double. Scale must be built in, not bolted on.",
     icon: "compass"
   },
   {
-    title: "API & Contract First",
-    description: "Defining strict schemas (GraphQL, TypeScript, OpenAPI) before writing any logic. Enables parallel frontend/backend development and ensures system safety.",
+    title: "Contract-First Execution",
+    description: "Defining strict schemas (GraphQL, TypeScript, OpenAPI) before writing logic. This enables parallel frontend/backend development and guarantees system safety.",
     icon: "terminal"
   },
   {
     title: "Performance is a Feature",
-    description: "Latency directly correlates to user retention and business conversion. Every millisecond counts, from edge server response to final browser render.",
+    description: "Latency directly correlates to user retention and business conversion. Every millisecond counts—from the initial edge server response to the final browser paint.",
     icon: "flame"
   },
   {
     title: "Exceptional Developer Experience",
-    description: "Tooling, build times, and pipelines are the leverage of engineering organizations. Fast feedback loops directly translate to high product quality and velocity.",
+    description: "Tooling, build times, and pipelines are the primary leverage of engineering organizations. Fast feedback loops directly translate to high product quality and rapid velocity.",
     icon: "sparkles"
   },
   {
     title: "Observability & Fault Tolerance",
-    description: "Systems must fail gracefully. Designing with proper telemetry, active monitoring, retries, and fallback states to deliver robust 99.99% availability.",
+    description: "Systems must fail gracefully. Designing with comprehensive telemetry, active monitoring, retries, and intelligent fallback states to ensure 99.99% availability.",
     icon: "shield"
   },
   {
-    title: "Automation Over Manual Operations",
-    description: "All environments, testing, styling enforcement, and deployment releases should be automated. If it has to be run manually twice, it deserves a pipeline.",
+    title: "Automate Everything",
+    description: "Environments, testing, styling enforcement, and deployments should be strictly automated. If an operation requires manual execution twice, it deserves a pipeline.",
     icon: "activity"
   }
 ] as const;
@@ -274,22 +396,22 @@ export const achievementsData = [
   {
     value: "30%",
     label: "Latency Reduction",
-    description: "Optimized frontend performance across critical user journeys, dropping latency from 2.5s down to 1.7s."
+    description: "Slashed frontend latency across critical user journeys from 2.5s to 1.7s."
   },
   {
     value: "60%",
     label: "Payload Optimization",
-    description: "Drove GraphQL migration and schema tuning, reducing redundant network data transfer."
+    description: "Championed GraphQL migration and schema tuning, drastically reducing redundant network data transfers."
   },
   {
     value: "45%",
     label: "P95 Speedup",
-    description: "Implemented server rendering, caching, and edge optimization, dropping P95 latency thresholds."
+    description: "Implemented ISR, caching, and edge routing to drop P95 latency thresholds on enterprise dashboards."
   },
   {
     value: "35%",
     label: "Bundle Shrinkage",
-    description: "Streamlined code-splitting, tree-shaking, and external dependencies to maximize Web Vital scores."
+    description: "Streamlined code-splitting, tree-shaking, and external dependencies to maximize Core Web Vitals."
   },
   {
     value: "Award",
@@ -299,7 +421,7 @@ export const achievementsData = [
   {
     value: "Award",
     label: "Star of the Quarter & Best Talent",
-    description: "Awarded consecutively at Valuebound for leadership in frontend architecture."
+    description: "Awarded consecutively at Valuebound for technical leadership in frontend architecture."
   }
 ] as const;
 
@@ -320,7 +442,7 @@ export const skillsData = [
   { name: "API Design (REST, GraphQL)", category: "Architecture" },
   { name: "Performance Engineering", category: "Architecture" },
   { name: "Reliability Patterns", category: "Architecture" },
-  { name: "Caching Strategies (Redis)", category: "Architecture" },
+  { name: "Caching Strategies", category: "Architecture" },
   { name: "Technical Leadership", category: "Leadership" },
   { name: "Developer Experience (DX)", category: "Leadership" },
 
@@ -334,7 +456,7 @@ export const skillsData = [
   // Cloud & Infra
   { name: "AWS (Lambda, API Gateway)", category: "Cloud" },
   { name: "Docker", category: "Cloud" },
-  { name: "CI/CD (GitHub Actions, Jenkins)", category: "DevOps" },
+  { name: "CI/CD (GitHub Actions)", category: "DevOps" },
   { name: "Infrastructure as Code", category: "DevOps" },
   { name: "Observability & Telemetry", category: "DevOps" },
 

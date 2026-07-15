@@ -1,13 +1,11 @@
 "use client";
 
-import { useSectionInView } from '@/lib/hooks';
 import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { LuArrowRight, LuDownload, LuGithub, LuLinkedin } from 'react-icons/lu';
 import { useActiveSectionContext } from '@/context/active-section-context';
 
 export default function Intro() {
-  const { ref } = useSectionInView('Home', 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   const shouldReduceMotion = useReducedMotion();
 
@@ -20,7 +18,6 @@ export default function Intro() {
 
   return (
     <section
-      ref={ref}
       id="home"
       className="mb-16 sm:mb-28 max-w-[54rem] text-center scroll-mt-[100rem] pt-12 mx-auto px-4 w-full"
     >
