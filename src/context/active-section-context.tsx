@@ -50,7 +50,7 @@ export default function ActiveSectionContextProvider({
           const mappedName = sectionMap[sectionId];
           if (mappedName) {
             setActiveSection(mappedName);
-            const targetPath = sectionId === "home" ? "/" : `#${sectionId}`;
+            const targetPath = sectionId === "home" ? "/" : `/#${sectionId}`;
             const currentHash = window.location.hash;
             const targetHash = sectionId === "home" ? "" : `#${sectionId}`;
             if (currentHash !== targetHash) {
@@ -96,7 +96,7 @@ export default function ActiveSectionContextProvider({
       if (isAtBottom) {
         setActiveSection("Contact");
         if (window.location.hash !== "#contact") {
-          window.history.replaceState(null, "", "#contact");
+          window.history.replaceState(null, "", "/#contact");
         }
       }
     };
