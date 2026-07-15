@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/amitrazz/portfolio/compare/v1.4.10...v1.5.0) (2026-07-15)
+
+
+### Features
+
+* update URL hash when active section changes to reflect scroll position ([48737d7](https://github.com/amitrazz/portfolio/commit/48737d7b69db3459dafb5abd9d3a57283cf38af7))
+
 ## [1.4.10](https://github.com/amitrazz/portfolio/compare/v1.4.9...v1.4.10) (2026-07-15)
 
 
