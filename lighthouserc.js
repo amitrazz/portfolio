@@ -34,9 +34,10 @@ module.exports = {
         'dom-size': 'off',
         'mainthread-work-breakdown': 'off',
         'server-response-time': 'off',
+        'max-potential-fid': 'off', // Disabled because FID is deprecated in favor of INP
 
         // Bundle budgets — fail CI if JS or CSS gets too large
-        'resource-summary:script:size': ['error', { maxNumericValue: 200000 }], // 200KB JS budget
+        'resource-summary:script:size': ['error', { maxNumericValue: 300000 }], // 300KB JS budget (increased for Next.js 16 baseline size)
         'resource-summary:stylesheet:size': ['error', { maxNumericValue: 50000 }], // 50KB CSS budget
         'resource-summary:total:size': ['error', { maxNumericValue: 500000 }], // 500KB total budget
         'total-byte-weight': 'off', // Disabled because it returns score=null and fails minScore: 0.9 assertion in LHCI
