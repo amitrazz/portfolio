@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/amitrazz/portfolio/compare/v1.5.0...v1.6.0) (2026-07-15)
+
+
+### Features
+
+* implement collapsible ExperienceCard component with detailed impact metrics ([9a1a410](https://github.com/amitrazz/portfolio/commit/9a1a410fa2908f8f7cb8db971fce01ac3198fa93))
+
 # [1.5.0](https://github.com/amitrazz/portfolio/compare/v1.4.10...v1.5.0) (2026-07-15)
 
 
