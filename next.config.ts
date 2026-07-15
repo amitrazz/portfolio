@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   // Modern image formats — AVIF first (40% smaller than WebP), WebP fallback
   images: {
     formats: ['image/avif', 'image/webp'],
+    // Allowed quality values — must include every `quality` prop used in <Image> components.
+    // intro.tsx uses quality="80"; 75 is the Next.js default.
+    qualities: [75, 80],
     // Minimize layout shift by enforcing explicit dimensions
     dangerouslyAllowSVG: false,
     contentDispositionType: 'attachment',
@@ -16,10 +19,11 @@ const nextConfig: NextConfig = {
   // This removes transforms for: async/await, optional chaining, nullish coalescing
   // which Lighthouse's "Legacy JavaScript" audit flags.
   // Browsers with <2% market share (IE11, old Safari) are excluded intentionally.
-  // Next.js 15 reads this via the @babel/preset-env or SWC browserslist config.
+  // Next.js 15+ reads this via the @babel/preset-env or SWC browserslist config.
+  // Tree-shake large icon/animation packages — only bundle the specific icons used.
+  // Still lives under experimental in Next.js 16 types (the build notice is informational only).
   experimental: {
     optimizePackageImports: [
-      // Tell the bundler to only include the specific lu icons used, not all of react-icons/lu
       'react-icons',
       'react-icons/lu',
       'framer-motion',
@@ -27,18 +31,11 @@ const nextConfig: NextConfig = {
   },
 
   // Production HTTP security & caching headers
+  // NOTE: /_next/static/:path* is intentionally omitted — Next.js 16 manages
+  // immutable Cache-Control for hashed static chunks internally.
+  // A custom override would break HMR in development.
   async headers() {
     return [
-      {
-        // Immutable caching for all Next.js static chunks (hashed filenames)
-        source: '/_next/static/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
       {
         // Security & performance headers on all routes
         source: '/:path*',
@@ -56,12 +53,16 @@ const nextConfig: NextConfig = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
           },
-          // Content Security Policy — strict but compatible with Next.js inline scripts & framer-motion
+          // Content Security Policy
+          // In development, React requires eval() for devtools & callstack reconstruction.
+          // We only add 'unsafe-eval' to script-src in dev — prod stays strict.
           {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline'",   // Next.js requires inline for hydration
+              process.env.NODE_ENV === 'development'
+                ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+                : "script-src 'self' 'unsafe-inline'",
               "style-src 'self' 'unsafe-inline'",    // Tailwind requires inline styles
               "img-src 'self' data: blob:",
               "font-src 'self'",

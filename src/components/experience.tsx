@@ -3,17 +3,8 @@
 import React, { useState } from 'react';
 import SectionHeading from './section-heading';
 import { experiencesData } from '@/lib/data';
+import { getTimelineYear, formatMetricKey } from '@/lib/experience-utils';
 
-// Inline SVG icons — eliminates react-icons import from this chunk entirely
-function getTimelineYear(duration: string): string {
-  if (/\bPresent\b/i.test(duration)) {
-    return new Date().getFullYear().toString();
-  }
-  const parts = duration.split(/[–-]/);
-  const endPart = parts[1] ? parts[1].trim() : duration;
-  const match = endPart.match(/\b\d{4}\b/);
-  return match ? match[0] : '';
-}
 function IconChevronDown() {
   return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9" /></svg>;
 }
@@ -42,19 +33,6 @@ interface ExperienceItem {
   readonly leadership?: readonly string[];
   readonly metrics: Record<string, string>;
   readonly technologyFootprint: readonly string[];
-}
-
-function formatMetricKey(key: string): string {
-  if (key === 'ttfb') return 'TTFB';
-  if (key.startsWith('p95')) {
-    return 'P95 ' + key.slice(3).replace(/([A-Z])/g, ' $1').trim().replace(/^./, (str) => str.toUpperCase());
-  }
-  if (key.startsWith('api')) {
-    return 'API ' + key.slice(3).replace(/([A-Z])/g, ' $1').trim().replace(/^./, (str) => str.toUpperCase());
-  }
-  return key
-    .replace(/([A-Z])/g, ' $1')
-    .replace(/^./, (str) => str.toUpperCase());
 }
 
 function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }) {
