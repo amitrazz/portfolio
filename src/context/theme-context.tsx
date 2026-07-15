@@ -22,22 +22,29 @@ export default function ThemeContextProvider({ children }: ThemeContextProviderP
     if (theme === 'light') {
       setTheme('dark');
       window.localStorage.setItem('theme', 'dark');
+      window.localStorage.setItem('themeUserSet', 'true');
       document.documentElement.classList.add('dark');
     } else {
       setTheme('light');
       window.localStorage.setItem('theme', 'light');
+      window.localStorage.setItem('themeUserSet', 'true');
       document.documentElement.classList.remove('dark');
     }
   };
 
   useEffect(() => {
-    // The blocking inline script in layout.tsx already applied the 'dark' class
-    // before the first paint. Here we only sync the React state to match the DOM.
-    // Avoid re-calling classList.add/remove here — that would cause a second style
-    // recalculation and a potential CLS-inducing repaint.
+    // The blocking inline script in layout.tsx already applied the correct class
+    // before the first paint. Here we only sync React state to match the DOM.
     try {
       const localTheme = window.localStorage.getItem('theme') as Theme | null;
-      setTheme(localTheme === 'light' ? 'light' : 'dark');
+      const userSet = window.localStorage.getItem('themeUserSet') === 'true';
+      if (userSet && (localTheme === 'light' || localTheme === 'dark')) {
+        setTheme(localTheme);
+      } else {
+        // No explicit user preference — mirror the OS/browser setting
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'dark' : 'light');
+      }
     } catch {
       setTheme('dark');
     }

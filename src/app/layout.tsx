@@ -150,12 +150,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               (function() {
                 try {
                   var t = localStorage.getItem('theme');
-                  if (t === 'light') {
+                  // 'themeUserSet' flag distinguishes an explicit user toggle from
+                  // the old code that auto-saved 'dark' on every first visit.
+                  // Without this flag, a stored value is treated as stale and ignored.
+                  var userSet = localStorage.getItem('themeUserSet') === 'true';
+                  if (userSet && t === 'light') {
                     document.documentElement.classList.remove('dark');
-                  } else {
-                    // Default: dark mode
+                  } else if (userSet && t === 'dark') {
                     document.documentElement.classList.add('dark');
-                    if (!t) localStorage.setItem('theme', 'dark');
+                  } else {
+                    // No explicit user preference — respect the OS/browser setting
+                    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    if (prefersDark) {
+                      document.documentElement.classList.add('dark');
+                    } else {
+                      document.documentElement.classList.remove('dark');
+                    }
                   }
                 } catch(e) {
                   document.documentElement.classList.add('dark');
