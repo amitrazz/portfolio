@@ -1,3 +1,11 @@
+## [1.6.4](https://github.com/amitrazz/portfolio/compare/v1.6.3...v1.6.4) (2026-07-15)
+
+
+### Bug Fixes
+
+* replace <a> with <Link> for internal contact anchor in intro.tsx to resolve ESLint warning ([d0d8571](https://github.com/amitrazz/portfolio/commit/d0d8571a48cfc7513d4a2a183e5331635d6fcb4e))
+* update Home links to point to '/' instead of '/#home' and configure scrollspy to clear URL hash ([2169b3b](https://github.com/amitrazz/portfolio/commit/2169b3b4362ff113104cc62210043d313328d27a))
+
 ## [1.6.3](https://github.com/amitrazz/portfolio/compare/v1.6.2...v1.6.3) (2026-07-15)
 
 
