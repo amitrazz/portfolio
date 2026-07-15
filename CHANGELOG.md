@@ -1,3 +1,11 @@
+## [1.4.10](https://github.com/amitrazz/portfolio/compare/v1.4.9...v1.4.10) (2026-07-15)
+
+
+### Bug Fixes
+
+* resolve hydration failure by refactoring project.tsx to support the new nested schema structure of projectsData in data.ts ([708eb2b](https://github.com/amitrazz/portfolio/commit/708eb2bd68e7bddbcf1c24bb8c9e50596e490451))
+* update ProjectProps and challenge mapping in project.tsx to support all 4 projects in data.ts ([1cdabb1](https://github.com/amitrazz/portfolio/commit/1cdabb161e8511ed8c679272da17efd4f131a434))
+
 ## [1.4.9](https://github.com/amitrazz/portfolio/compare/v1.4.8...v1.4.9) (2026-07-14)
 
 
