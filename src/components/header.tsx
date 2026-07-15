@@ -222,7 +222,7 @@ export default function Header() {
               {/* Drawer Header */}
               <div className="flex items-center justify-between mb-8 pb-4 border-b border-zinc-100 dark:border-zinc-900">
                 <Link
-                  href="#home"
+                  href="/#home"
                   onClick={() => {
                     setActiveSection("Home");
                     setTimeOfLastClick(Date.now());

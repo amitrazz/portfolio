@@ -76,7 +76,7 @@ export default function Intro() {
           Download Resume <LuDownload className="opacity-70 group-hover:translate-y-0.5 transition" />
         </a>
         <a
-          href="#contact"
+          href="/#contact"
           onClick={() => {
             setActiveSection("Contact");
             setTimeOfLastClick(Date.now());
