@@ -26,49 +26,63 @@ function IconAward() {
 
 type ProjectProps = {
   id: string;
-  title: string;
-  company: string;
-  duration: string;
-  domain: string;
-  role: string;
   featured: boolean;
+  title: string;
+  subtitle: string;
+  category: string;
+  role: string;
+  duration: string;
   executiveSummary: string;
   businessContext: {
-    industry: string;
-    users: string;
-    engineeringTeams: string;
-    repositories: string;
-    deploymentFrequency: string;
+    domain: string;
+    stakeholders?: string;
+    scale?: string;
     challenge: string;
   };
   problemStatement: string;
   objectives: readonly string[];
-  constraints: readonly string[];
   architecture: {
     overview: string;
     diagram: string;
-    components: readonly {
-      name: string;
-      responsibility: readonly string[];
-    }[];
+    keyComponents?: readonly string[];
+    dataFlow?: readonly string[];
+    designPatterns?: readonly string[];
   };
-  technicalChallenges: readonly {
-    title: string;
-    description: string;
-    solution: string;
+  engineeringHighlights: readonly string[];
+  architectureDecisions: readonly {
+    decision: string;
+    rationale: string;
+    tradeoffs: readonly string[];
+    alternatives: readonly string[];
   }[];
+  technicalChallenges: readonly {
+    challenge: string;
+    solution: string;
+    outcome?: string;
+  }[];
+  scale: {
+    teams?: string;
+    repositories?: string;
+    users: string;
+  };
+  reliability: {
+    resiliency: readonly string[];
+    observability: readonly string[];
+    deployment: readonly string[];
+  };
+  technologies: readonly string[];
   businessImpact: readonly string[];
   measurableResults: readonly {
     metric: string;
     before: string;
     after: string;
   }[];
-  technologies: readonly string[];
+  lessonsLearned: readonly string[];
 };
 
 export default function Project({
   title,
-  company,
+  subtitle,
   duration,
   role,
   executiveSummary,
@@ -88,7 +102,7 @@ export default function Project({
       <div className="flex flex-col md:flex-row justify-between items-stretch md:items-start gap-4 mb-4">
         <div className="flex-1">
           <span className="text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
-            {role} • {company}
+            {role} • {subtitle}
           </span>
           <h3 className="text-xl sm:text-2xl font-extrabold text-zinc-900 dark:text-zinc-50 tracking-tight mt-1">
             {title}
@@ -173,9 +187,11 @@ export default function Project({
               <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3 leading-relaxed">
                 {architecture.overview}
               </p>
-              <pre className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400 font-mono leading-relaxed bg-white dark:bg-zinc-900 p-4 rounded-lg border border-zinc-200/40 dark:border-zinc-800/80 whitespace-pre overflow-x-auto w-full">
-                {architecture.diagram}
-              </pre>
+              {architecture.diagram && (
+                <pre className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-400 font-mono leading-relaxed bg-white dark:bg-zinc-900 p-4 rounded-lg border border-zinc-200/40 dark:border-zinc-800/80 whitespace-pre overflow-x-auto w-full">
+                  {architecture.diagram}
+                </pre>
+              )}
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -184,11 +200,13 @@ export default function Project({
                   Key Technical Challenges
                 </h4>
                 <div className="flex flex-col gap-4">
-                  {technicalChallenges.map((challenge, idx) => (
+                  {technicalChallenges.map((challengeItem, idx) => (
                     <div key={idx} className="border-l-2 border-indigo-500 pl-3">
-                      <h5 className="font-bold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100">{challenge.title}</h5>
-                      <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1">{challenge.description}</p>
-                      <p className="text-xs sm:text-sm text-indigo-600 dark:text-indigo-400 mt-1"><span className="font-semibold">Solution:</span> {challenge.solution}</p>
+                      <h5 className="font-bold text-xs sm:text-sm text-zinc-900 dark:text-zinc-100">{challengeItem.challenge}</h5>
+                      <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 mt-1"><span className="font-semibold">Solution:</span> {challengeItem.solution}</p>
+                      {challengeItem.outcome && (
+                        <p className="text-xs sm:text-sm text-indigo-600 dark:text-indigo-400 mt-1"><span className="font-semibold">Outcome:</span> {challengeItem.outcome}</p>
+                      )}
                     </div>
                   ))}
                 </div>

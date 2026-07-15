@@ -75,256 +75,504 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    id: "federated-microfrontend",
-
-    title: "Federated Micro-Frontend Platform",
-
-    company: "Aptos India Pvt. Ltd.",
-
-    duration: "2023 - Present",
-
-    domain: "Retail Commerce Platform",
-
-    role: "Associate Principal Engineer",
-
+    id: "federated-microfrontend-platform",
     featured: true,
+    title: "Federated Micro-Frontend Platform",
+    subtitle: "Aptos India Pvt. Ltd.",
+    category: "Platform Engineering",
+    role: "Associate Principal Engineer",
+    duration: "May 2023 – Present",
 
     executiveSummary:
-      "Architected a federated micro-frontend platform that transformed a tightly coupled retail application into independently deployable domain applications. Established architectural governance, runtime contracts, and shared platform standards enabling autonomous delivery across multiple engineering squads.",
+      "Architected a federated micro-frontend platform that transformed a tightly coupled retail application into independently deployable domain applications, enabling autonomous engineering teams while significantly improving developer productivity and release velocity.",
 
     businessContext: {
-      industry: "Retail",
-      users: "Internal Operations",
-      engineeringTeams: "10+",
-      repositories: "15+",
-      deploymentFrequency: "Weekly",
+      domain: "Retail Commerce Platform",
+      stakeholders: "10+ Engineering Squads",
+      scale: "Enterprise Platform",
       challenge:
-        "Independent product teams were blocked by a shared frontend monolith where every release required synchronized deployments and full regression testing."
+        "Weekly releases required synchronized deployments across all teams, making every release high risk and slowing product delivery.",
     },
 
     problemStatement:
-      "The organization had outgrown a centralized frontend architecture. A single application served multiple business domains including inventory, merchandising, promotions, fulfillment, and analytics. Every feature required rebuilding and redeploying the entire application, creating long feedback cycles and high operational risk.",
+      "The frontend monolith created deployment bottlenecks, fragile builds, long feedback cycles, and tight coupling between business domains.",
 
     objectives: [
       "Enable independent deployments",
-      "Reduce deployment risk",
+      "Reduce release coordination",
       "Improve developer experience",
-      "Scale engineering organization",
-      "Establish frontend platform governance"
-    ],
-
-    constraints: [
-      "Existing React ecosystem",
-      "Backward compatibility",
-      "No downtime migration",
-      "Shared authentication",
-      "Shared routing",
-      "Shared design system",
-      "Cross-MFE communication",
-      "Independent release cycles"
+      "Increase engineering velocity",
+      "Standardize platform architecture",
     ],
 
     architecture: {
       overview:
-        "Introduced a runtime-composed micro-frontend platform using Module Federation with a lightweight shell application responsible for authentication, routing, layout composition, dependency management, and platform services.",
-
-      diagram: `...`,
-
-      components: [
-        {
-          name: "Shell Application",
-          responsibility: [
-            "Authentication",
-            "Routing",
-            "Layout",
-            "Shared dependencies",
-            "Platform services"
-          ]
-        },
-        {
-          name: "Remote Applications",
-          responsibility: [
-            "Business capabilities",
-            "Independent deployment",
-            "Domain ownership"
-          ]
-        },
-        {
-          name: "Module Registry",
-          responsibility: [
-            "Runtime discovery",
-            "Version resolution",
-            "Remote manifest loading"
-          ]
-        },
-        {
-          name: "Shared Platform",
-          responsibility: [
-            "Design System",
-            "Analytics",
-            "Telemetry",
-            "Error Boundary",
-            "Feature Flags"
-          ]
-        }
-      ]
+        "Built a runtime-composed micro-frontend platform using Webpack Module Federation with a lightweight shell responsible for routing, authentication, layout composition, shared dependencies, and platform services.",
+      diagram: "",
+      keyComponents: [
+        "Host Shell",
+        "Remote Applications",
+        "Module Federation",
+        "Shared Design System",
+        "Runtime Module Loader",
+      ],
+      dataFlow: [
+        "User → Shell",
+        "Shell → Module Loader",
+        "Module Loader → Remote Apps",
+        "Remote Apps → Shared Platform Services",
+      ],
+      designPatterns: [
+        "Module Federation",
+        "Micro-Frontend",
+        "Platform Architecture",
+        "Shared Kernel",
+      ],
     },
+
+    engineeringHighlights: [
+      "Designed runtime module loading",
+      "Defined shared dependency governance",
+      "Implemented platform-wide error boundaries",
+      "Created deployment contracts",
+      "Established frontend architecture standards",
+    ],
 
     architectureDecisions: [
       {
-        decision:
-          "Adopt Module Federation instead of monorepo-only architecture",
-
-        rationale:
-          "Independent deployments were the primary business requirement.",
-
-        alternatives: [
-          "Nx Monorepo",
-          "Single SPA",
-          "Iframe composition"
-        ],
-
-        tradeoffs: [
-          "Runtime complexity",
-          "Dependency governance",
-          "Version management"
-        ]
+        decision: "Use Module Federation",
+        rationale: "Enable independent deployments.",
+        tradeoffs: ["Runtime complexity", "Version management"],
+        alternatives: ["Monolith", "Nx Monorepo", "Single SPA"],
       },
-      {
-        decision:
-          "Centralize platform capabilities in the shell application",
-
-        rationale:
-          "Avoid duplicated authentication, routing, telemetry and shared state.",
-
-        tradeoffs: [
-          "Shell versioning",
-          "Platform ownership"
-        ]
-      }
     ],
-
-    scale: {
-      squads: "10+",
-      repositories: "15+",
-      deployments: "Independent",
-      buildTimeBefore: "45 min",
-      buildTimeAfter: "<5 min"
-    },
 
     technicalChallenges: [
       {
-        title: "Dependency Versioning",
-
-        description:
-          "Multiple MFEs required different React and third-party library versions.",
-
-        solution:
-          "Implemented shared dependency contracts with singleton enforcement and semantic version validation."
+        challenge: "Shared dependency version conflicts",
+        solution: "Singleton dependency strategy and semantic version governance.",
+        outcome: "Reduced runtime incompatibilities.",
       },
       {
-        title: "Shared State",
-
-        description:
-          "Cross-domain communication without introducing tight coupling.",
-
-        solution:
-          "Built event-driven communication using custom event bus and shared platform APIs."
+        challenge: "Cross-MFE communication",
+        solution: "Shared platform APIs and event-based communication.",
+        outcome: "Loosely coupled business domains.",
       },
-      {
-        title: "CSS Isolation",
-
-        description:
-          "Tailwind utility collisions across independently deployed applications.",
-
-        solution:
-          "Introduced namespace isolation and shared design tokens."
-      }
     ],
 
-    performance: {
-      improvements: [
-        "Build time reduced by 89%",
-        "Independent deployments",
-        "Reduced CI execution",
-        "Smaller deployment artifacts"
-      ]
+    scale: {
+      teams: "10+",
+      repositories: "15+",
+      users: "Enterprise",
     },
 
-    resiliency: {
-      strategies: [
-        "Remote fallback components",
-        "Runtime timeout handling",
-        "Error boundaries per MFE",
-        "Graceful degradation",
-        "Manifest validation"
-      ]
+    reliability: {
+      resiliency: [
+        "Error Boundaries",
+        "Remote Fallbacks",
+        "Graceful Degradation",
+      ],
+      observability: [
+        "Runtime Error Tracking",
+        "Performance Monitoring",
+        "Deployment Metrics",
+      ],
+      deployment: [
+        "Independent CI/CD",
+        "Zero-Downtime Releases",
+      ],
     },
-
-    observability: {
-      metrics: [
-        "Remote load time",
-        "Bundle size",
-        "Runtime failures",
-        "Error rate",
-        "Deployment success",
-        "Core Web Vitals"
-      ]
-    },
-
-    businessImpact: [
-      "Enabled autonomous engineering teams",
-      "Reduced release coordination",
-      "Accelerated feature delivery",
-      "Lower deployment risk",
-      "Improved developer productivity"
-    ],
-
-    measurableResults: [
-      {
-        metric: "Build Time",
-        before: "45 min",
-        after: "<5 min"
-      },
-      {
-        metric: "Deployment Model",
-        before: "Centralized",
-        after: "Independent"
-      },
-      {
-        metric: "Release Frequency",
-        before: "Weekly",
-        after: "On-demand"
-      }
-    ],
-
-    leadership: {
-      responsibilities: [
-        "Defined platform architecture",
-        "Established engineering standards",
-        "Reviewed RFCs",
-        "Mentored engineers",
-        "Drove cross-team adoption"
-      ]
-    },
-
-    lessonsLearned: [
-      "Organizational boundaries matter more than technical boundaries.",
-      "Dependency governance is critical in federated architectures.",
-      "Platform ownership determines long-term success."
-    ],
 
     technologies: [
       "React",
       "Next.js",
       "TypeScript",
-      "Module Federation",
-      "Webpack",
+      "Webpack Module Federation",
+      "Tailwind CSS",
       "GitHub Actions",
-      "Docker"
-    ]
-  }
-]
+      "Docker",
+    ],
+
+    businessImpact: [
+      "Enabled autonomous engineering teams",
+      "Reduced deployment risk",
+      "Improved release velocity",
+      "Standardized frontend architecture",
+    ],
+
+    measurableResults: [
+      {
+        metric: "Build Time",
+        before: "45 Minutes",
+        after: "<5 Minutes",
+      },
+      {
+        metric: "Deployment Model",
+        before: "Centralized",
+        after: "Independent",
+      },
+    ],
+
+    lessonsLearned: [
+      "Organizational boundaries should drive architectural boundaries.",
+      "Platform governance is essential for long-term scalability.",
+    ],
+  },
+
+  {
+    id: "enterprise-design-system",
+    featured: true,
+    title: "Enterprise Core Design System",
+    subtitle: "Aptos & Airmeet",
+    category: "Developer Platform",
+    role: "Tech Lead / Associate Principal Engineer",
+    duration: "2021 – Present",
+
+    executiveSummary:
+      "Architected an enterprise design system that unified UI development across multiple products, improving accessibility, consistency, and developer productivity.",
+
+    businessContext: {
+      domain: "Enterprise SaaS",
+      stakeholders: "Multiple Product Teams",
+      scale: "Multi-product Platform",
+      challenge:
+        "Independent teams built duplicate UI components, resulting in inconsistent experiences and high maintenance costs.",
+    },
+
+    problemStatement:
+      "Lack of shared UI standards created duplicated effort, accessibility issues, and inconsistent branding across applications.",
+
+    objectives: [
+      "Standardize UI development",
+      "Improve accessibility",
+      "Increase component reuse",
+      "Reduce maintenance cost",
+    ],
+
+    architecture: {
+      overview:
+        "Built a token-driven design system using Style Dictionary, Radix UI, Storybook, and semantic versioning.",
+      diagram: "",
+      keyComponents: [
+        "Design Tokens",
+        "Storybook",
+        "Component Library",
+        "Theme Engine",
+      ],
+      dataFlow: [
+        "Figma → Tokens",
+        "Tokens → Components",
+        "Components → Applications",
+      ],
+      designPatterns: [
+        "Atomic Design",
+        "Headless Components",
+        "Design Tokens",
+      ],
+    },
+
+    engineeringHighlights: [
+      "Implemented WCAG AA accessibility",
+      "Built multi-theme architecture",
+      "Automated semantic releases",
+      "Created reusable component APIs",
+    ],
+
+    architectureDecisions: [
+      {
+        decision: "Token-first architecture",
+        rationale: "Single source of truth across products.",
+        tradeoffs: ["Initial complexity"],
+        alternatives: ["CSS variables only", "Traditional CSS"],
+      },
+    ],
+
+    technicalChallenges: [
+      {
+        challenge: "Organization-wide adoption",
+        solution: "Migration strategy with versioned releases.",
+        outcome: "95%+ component reuse.",
+      },
+    ],
+
+    scale: {
+      teams: "5+",
+      repositories: "Multiple",
+      users: "Enterprise",
+    },
+
+    reliability: {
+      resiliency: ["Semantic Versioning"],
+      observability: ["Storybook Visual Testing"],
+      deployment: ["Automated NPM Releases"],
+    },
+
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Radix UI",
+      "Storybook",
+      "Style Dictionary",
+    ],
+
+    businessImpact: [
+      "Single source of truth",
+      "Faster feature delivery",
+      "Consistent user experience",
+    ],
+
+    measurableResults: [
+      {
+        metric: "Component Reuse",
+        before: "Low",
+        after: "95%+",
+      },
+      {
+        metric: "Development Speed",
+        before: "Baseline",
+        after: "+30%",
+      },
+    ],
+
+    lessonsLearned: [
+      "Adoption strategy is as important as technical implementation.",
+    ],
+  },
+
+  {
+    id: "graphql-rendering-platform",
+    featured: true,
+    title: "GraphQL Caching & Rendering Engine",
+    subtitle: "Airmeet",
+    category: "Distributed Systems",
+    role: "Tech Lead",
+    duration: "2021 –2023",
+
+    executiveSummary:
+      "Led frontend performance architecture by combining GraphQL Federation, ISR, CDN caching, and intelligent client-side caching to improve scalability and user experience.",
+
+    businessContext: {
+      domain: "Virtual Events Platform",
+      stakeholders: "Millions of Users",
+      scale: "High Traffic",
+      challenge:
+        "Large GraphQL payloads and poor caching caused slow dashboards and poor SEO.",
+    },
+
+    problemStatement:
+      "Heavy GraphQL queries increased latency, bandwidth consumption, and rendering time.",
+
+    objectives: [
+      "Reduce API payload",
+      "Improve SEO",
+      "Optimize caching",
+      "Increase rendering speed",
+    ],
+
+    architecture: {
+      overview:
+        "Implemented GraphQL Federation with Apollo, Next.js ISR, CloudFront edge caching, and optimized client-side cache strategies.",
+      diagram: "",
+      keyComponents: [
+        "Apollo",
+        "ISR",
+        "CloudFront",
+        "GraphQL Gateway",
+      ],
+      dataFlow: [
+        "Client → CDN",
+        "CDN → Next.js",
+        "Next.js → GraphQL",
+      ],
+      designPatterns: [
+        "Cache Aside",
+        "ISR",
+        "Edge Caching",
+      ],
+    },
+
+    engineeringHighlights: [
+      "Optimized GraphQL queries",
+      "Implemented ISR",
+      "Reduced payload size",
+      "Improved Core Web Vitals",
+    ],
+
+    architectureDecisions: [
+      {
+        decision: "ISR over SSR",
+        rationale: "Better scalability and SEO.",
+        tradeoffs: ["Cache invalidation"],
+        alternatives: ["SSR", "CSR"],
+      },
+    ],
+
+    technicalChallenges: [
+      {
+        challenge: "Apollo cache invalidation",
+        solution: "Granular cache policies.",
+        outcome: "Reduced stale data.",
+      },
+    ],
+
+    scale: {
+      users: "Millions",
+    },
+
+    reliability: {
+      resiliency: ["CDN Failover"],
+      observability: ["Web Vitals", "GraphQL Metrics"],
+      deployment: ["Zero Downtime"],
+    },
+
+    technologies: [
+      "Next.js",
+      "GraphQL",
+      "Apollo",
+      "CloudFront",
+    ],
+
+    businessImpact: [
+      "Improved SEO",
+      "Reduced bandwidth",
+      "Improved customer experience",
+    ],
+
+    measurableResults: [
+      {
+        metric: "P95 Latency",
+        before: "Baseline",
+        after: "-45%",
+      },
+      {
+        metric: "Payload Size",
+        before: "Baseline",
+        after: "-60%",
+      },
+    ],
+
+    lessonsLearned: [
+      "Caching strategy matters more than rendering strategy.",
+    ],
+  },
+
+  {
+    id: "ott-performance-platform",
+    featured: true,
+    title: "High-Performance OTT Video Engine",
+    subtitle: "Discovery Inc.",
+    category: "Performance Engineering",
+    role: "Software Engineer III",
+    duration: "2021",
+
+    executiveSummary:
+      "Optimized a high-traffic OTT platform through advanced bundle optimization, lazy loading, streaming optimization, and browser performance engineering.",
+
+    businessContext: {
+      domain: "Media Streaming",
+      stakeholders: "Millions of Viewers",
+      scale: "Global OTT Platform",
+      challenge:
+        "Large bundles and inefficient loading negatively impacted video playback and engagement.",
+    },
+
+    problemStatement:
+      "Heavy JavaScript bundles delayed player initialization and increased user abandonment.",
+
+    objectives: [
+      "Reduce bundle size",
+      "Improve startup performance",
+      "Optimize playback",
+      "Improve Lighthouse scores",
+    ],
+
+    architecture: {
+      overview:
+        "Implemented route-based code splitting, lazy loading, optimized prefetching, and CDN delivery for media assets.",
+      diagram: "",
+      keyComponents: [
+        "Webpack",
+        "CloudFront",
+        "Video Player",
+        "Lazy Loading",
+      ],
+      dataFlow: [
+        "Browser → CDN",
+        "CDN → Player",
+      ],
+      designPatterns: [
+        "Code Splitting",
+        "Lazy Loading",
+        "Streaming",
+      ],
+    },
+
+    engineeringHighlights: [
+      "Reduced bundle size",
+      "Improved TTFB",
+      "Optimized playback",
+      "Improved Lighthouse score",
+    ],
+
+    architectureDecisions: [
+      {
+        decision: "Aggressive code splitting",
+        rationale: "Reduce initial load time.",
+        tradeoffs: ["More network requests"],
+        alternatives: ["Single bundle"],
+      },
+    ],
+
+    technicalChallenges: [
+      {
+        challenge: "Large media dependencies",
+        solution: "Dynamic imports.",
+        outcome: "35% bundle reduction.",
+      },
+    ],
+
+    scale: {
+      users: "Millions",
+    },
+
+    reliability: {
+      resiliency: ["CDN Caching"],
+      observability: ["Lighthouse", "Web Vitals"],
+      deployment: ["CI/CD"],
+    },
+
+    technologies: [
+      "React",
+      "Next.js",
+      "Webpack",
+      "CloudFront",
+    ],
+
+    businessImpact: [
+      "Improved engagement",
+      "Reduced buffering",
+      "Better user retention",
+    ],
+
+    measurableResults: [
+      {
+        metric: "Bundle Size",
+        before: "Baseline",
+        after: "-35%",
+      },
+      {
+        metric: "TTFB",
+        before: "600ms+",
+        after: "~300ms",
+      },
+    ],
+
+    lessonsLearned: [
+      "Performance engineering requires continuous measurement and optimization.",
+    ],
+  },
+] as const;
 
 export const architectureExpertise = [
   {
