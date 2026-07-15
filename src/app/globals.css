@@ -127,12 +127,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Navbar slide-down — replaces framer-motion spring on the header.
-   Uses only transform+opacity. Runs once on page load, then GPU layer is freed. */
 @keyframes navSlideDown {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(-100%);
+    transform: translateX(-50%) translateY(-120px);
   }
   to {
     opacity: 1;

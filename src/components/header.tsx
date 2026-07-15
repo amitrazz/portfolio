@@ -119,7 +119,7 @@ export default function Header() {
         className="fixed top-0 left-1/2 -translate-x-1/2 h-[4.5rem] w-full rounded-none border-b border-zinc-200/50 bg-white/70 backdrop-blur-md shadow-sm sm:top-6 sm:h-[3.25rem] sm:w-[58rem] sm:rounded-full sm:border dark:border-zinc-800/50 dark:bg-zinc-950/70 animate-nav-slide-down"
       />
 
-      <nav className="flex fixed top-0 left-1/2 h-[4.5rem] w-full -translate-x-1/2 items-center justify-between px-6 sm:top-6 sm:h-[3.25rem] sm:w-[58rem] sm:px-6">
+      <nav className="flex fixed top-0 left-1/2 h-[4.5rem] w-full -translate-x-1/2 items-center justify-between px-6 sm:top-6 sm:h-[3.25rem] sm:w-[58rem] sm:px-6 animate-nav-slide-down">
         {/* Brand Logo */}
         <Link 
           href="#home"
