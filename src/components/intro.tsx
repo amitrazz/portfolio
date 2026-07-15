@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { LuArrowRight, LuDownload, LuGithub, LuLinkedin } from 'react-icons/lu';
 import { useActiveSectionContext } from '@/context/active-section-context';
 
@@ -75,7 +76,7 @@ export default function Intro() {
         >
           Download Resume <LuDownload className="opacity-70 group-hover:translate-y-0.5 transition" />
         </a>
-        <a
+        <Link
           href="/#contact"
           onClick={() => {
             setActiveSection("Contact");
@@ -84,7 +85,7 @@ export default function Intro() {
           className="group bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-950 w-full sm:w-auto h-12 px-6 flex items-center justify-center gap-2 rounded-xl outline-none hover:scale-105 hover:bg-zinc-800 dark:hover:bg-zinc-200 active:scale-95 transition cursor-pointer border border-zinc-800 dark:border-zinc-200 shadow-md font-semibold text-center"
         >
           Contact Me <LuArrowRight className="opacity-70 group-hover:translate-x-1 transition" />
-        </a>
+        </Link>
 
         <div className="flex gap-2 mt-2 sm:mt-0 w-full sm:w-auto justify-center">
           <a
