@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/amitrazz/portfolio/compare/v1.6.0...v1.6.1) (2026-07-15)
+
+
+### Bug Fixes
+
+* respect system theme preference by adding a user-set flag for explicit theme toggles ([13e7f08](https://github.com/amitrazz/portfolio/commit/13e7f08885b7a2e58e2ee6a74bd29e515c1d23f9))
+
 # [1.6.0](https://github.com/amitrazz/portfolio/compare/v1.5.0...v1.6.0) (2026-07-15)
 
 
