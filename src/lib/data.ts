@@ -2,13 +2,13 @@
 // or icon imports, allowing for optimal tree shaking and preventing transitively bloating layouts.
 
 export const links = [
-  { name: "Home", hash: "#home" },
-  { name: "About", hash: "#about" },
-  { name: "Expertise", hash: "#expertise" },
-  { name: "Experience", hash: "#experience" },
-  { name: "Projects", hash: "#projects" },
-  { name: "Achievements", hash: "#achievements" },
-  { name: "Contact", hash: "#contact" },
+  { name: "Home", hash: "/#home" },
+  { name: "About", hash: "/#about" },
+  { name: "Expertise", hash: "/#expertise" },
+  { name: "Experience", hash: "/#experience" },
+  { name: "Projects", hash: "/#projects" },
+  { name: "Achievements", hash: "/#achievements" },
+  { name: "Contact", hash: "/#contact" },
 ] as const;
 
 export const experiencesData = [
