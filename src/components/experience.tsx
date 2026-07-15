@@ -41,12 +41,6 @@ function IconLayers() {
     </svg>
   );
 }
-function IconChevronDown() {
-  return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>;
-}
-function IconChevronUp() {
-  return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>;
-}
 
 function getExperienceIcon(iconName: string) {
   switch (iconName) {
@@ -56,6 +50,21 @@ function getExperienceIcon(iconName: string) {
     case 'layers': return <IconLayers />;
     default: return null;
   }
+}
+function getTimelineYear(duration: string): string {
+  if (/\bPresent\b/i.test(duration)) {
+    return new Date().getFullYear().toString();
+  }
+  const parts = duration.split(/[–-]/);
+  const endPart = parts[1] ? parts[1].trim() : duration;
+  const match = endPart.match(/\b\d{4}\b/);
+  return match ? match[0] : '';
+}
+function IconChevronDown() {
+  return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>;
+}
+function IconChevronUp() {
+  return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>;
 }
 
 interface ExperienceItem {
@@ -104,8 +113,8 @@ function ExperienceCard({ item, index }: { item: ExperienceItem; index: number }
       style={{ animationDelay: `${index * 80}ms` }}
     >
       {/* Timeline Bubble Node */}
-      <span className="absolute -left-[29px] sm:-left-[41px] md:-left-[49px] top-1.5 flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-400 shadow-sm animate-pulse-once">
-        {getExperienceIcon(item.icon)}
+      <span className="absolute -left-[37px] sm:-left-[49px] top-1.5 flex items-center justify-center w-12 h-6 rounded-full bg-zinc-100 dark:bg-zinc-800 border border-zinc-300/80 dark:border-zinc-700/80 text-zinc-800 dark:text-zinc-200 shadow-sm font-extrabold text-[10px] tracking-tight select-none z-10">
+        {getTimelineYear(item.duration)}
       </span>
 
       {/* Content Card */}

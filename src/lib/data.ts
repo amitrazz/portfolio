@@ -797,7 +797,7 @@ export const architectureExpertise = [
 
   {
     title: "Frontend Platform Engineering",
-    icon: "layout-dashboard",
+    icon: "blocks",
     description:
       "Architecting enterprise frontend platforms with Micro-Frontends, shared design systems, and developer tooling that improve engineering velocity while maintaining consistency across products.",
     capabilities: [
