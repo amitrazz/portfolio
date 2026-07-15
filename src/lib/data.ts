@@ -811,22 +811,6 @@ export const architectureExpertise = [
   },
 
   {
-    title: "Performance Engineering",
-    icon: "activity",
-    description:
-      "Driving application performance through rendering optimization, intelligent caching, bundle optimization, and Core Web Vitals improvements across high-traffic applications.",
-    capabilities: [
-      "Core Web Vitals",
-      "SSR / ISR",
-      "Edge Rendering",
-      "Bundle Optimization",
-      "Code Splitting",
-      "Caching Strategies",
-      "CDN Optimization",
-    ],
-  },
-
-  {
     title: "Cloud & Platform Infrastructure",
     icon: "aws",
     description:
@@ -841,22 +825,6 @@ export const architectureExpertise = [
       "Docker",
       "CI/CD",
       "Infrastructure as Code",
-    ],
-  },
-
-  {
-    title: "API & Integration Architecture",
-    icon: "graphql",
-    description:
-      "Designing high-performance APIs and integration layers using REST and GraphQL while optimizing schema design, caching, and contract-first development for scalable distributed applications.",
-    capabilities: [
-      "REST",
-      "GraphQL Federation",
-      "Schema Design",
-      "API Governance",
-      "Apollo",
-      "Caching",
-      "Contract-First APIs",
     ],
   },
 
@@ -889,23 +857,6 @@ export const architectureExpertise = [
       "Fault Tolerance",
       "Incident Response",
       "Root Cause Analysis",
-    ],
-  },
-
-  {
-    title: "Developer Experience & Platform Automation",
-    icon: "terminal",
-    description:
-      "Building internal developer platforms, engineering tooling, and automated delivery pipelines that improve developer productivity, reduce cognitive load, and enable fast, reliable software delivery at scale.",
-    capabilities: [
-      "CI/CD Automation",
-      "Build Optimization",
-      "Internal Developer Platforms",
-      "Monorepo Tooling",
-      "Code Quality Automation",
-      "Release Engineering",
-      "GitHub Actions",
-      "Developer Productivity",
     ],
   },
 ] as const;
