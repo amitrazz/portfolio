@@ -50,6 +50,9 @@ export default function ActiveSectionContextProvider({
           const mappedName = sectionMap[sectionId];
           if (mappedName) {
             setActiveSection(mappedName);
+            if (window.location.hash !== `#${sectionId}`) {
+              window.history.replaceState(null, "", `#${sectionId}`);
+            }
           }
         }
       });
@@ -89,6 +92,9 @@ export default function ActiveSectionContextProvider({
 
       if (isAtBottom) {
         setActiveSection("Contact");
+        if (window.location.hash !== "#contact") {
+          window.history.replaceState(null, "", "#contact");
+        }
       }
     };
 
