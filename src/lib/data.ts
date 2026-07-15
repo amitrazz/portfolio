@@ -19,50 +19,80 @@ export const experiencesData = [
     duration: "May 2023 – Present",
     icon: "cpu",
 
-    summary:
-      "Leading frontend platform architecture for enterprise retail solutions by driving micro-frontend adoption, design system standardization, performance engineering, and developer platform initiatives across multiple engineering squads.",
+    roleOverview:
+      "Leading frontend platform architecture for enterprise retail commerce products by defining platform strategy, engineering standards, and scalable application architecture across multiple autonomous engineering organizations.",
 
-    scope: {
-      domain: "Retail Commerce",
-      ownership: [
+    organizationScale: {
+      domain: "Enterprise Retail Commerce",
+      engineeringSquads: "10+",
+      products: "Multiple Retail Platforms",
+      architectureScope: [
         "Frontend Platform Architecture",
         "Micro-Frontend Platform",
         "Enterprise Design System",
         "Performance Engineering",
         "Developer Experience",
+        "Architecture Governance",
       ],
-      stakeholders: "10+ Engineering Squads",
     },
 
-    keyAchievements: [
-      "Architected a federated Micro-Frontend Platform enabling 10+ autonomous squads to deploy independently while eliminating centralized release bottlenecks.",
-      "Designed and scaled an enterprise Design System with 95%+ component reuse across multiple business applications.",
-      "Established frontend architecture standards covering module boundaries, rendering strategies, caching, and platform governance.",
-      "Improved Core Web Vitals by reducing P95 latency by 30% (2.5s → 1.7s) through rendering optimization, code splitting, and caching.",
-      "Standardized CI/CD pipelines and developer tooling, reducing engineering feedback cycles by 40%.",
-      "Collaborated with backend architects to redesign API contracts, reducing payload sizes by 60% and improving application responsiveness.",
+    architectureLeadership: [
+      "Architected a federated Micro-Frontend Platform enabling 10+ engineering squads to independently develop, deploy, and release applications while eliminating centralized release bottlenecks.",
+      "Defined the enterprise frontend reference architecture covering module boundaries, rendering strategies, routing, state management, API integration, caching, observability, and platform governance.",
+      "Designed and scaled an enterprise Design System achieving 95%+ component reuse through token-driven theming, accessibility standards, and shared UI governance.",
+      "Partnered with backend architects to redesign API contracts, reducing payload sizes by 60% while improving frontend resilience and long-term maintainability.",
+    ],
+
+    strategicInitiatives: [
+      "Established platform engineering standards for CI/CD, quality gates, automated testing, release governance, and developer tooling.",
+      "Led Core Web Vitals optimization initiatives reducing P95 page latency by 30% (2.5s → 1.7s) through rendering optimization, code splitting, caching, and bundle optimization.",
+      "Introduced architecture governance through RFC reviews, reusable architectural patterns, and platform documentation.",
+      "Standardized frontend engineering practices across product teams, improving consistency, maintainability, and long-term scalability.",
+    ],
+
+    engineeringImpact: [
+      "Enabled fully independent deployments across 10+ engineering squads.",
+      "Reduced engineering feedback cycles by 40% through standardized developer workflows.",
+      "Achieved 95%+ shared component adoption across enterprise applications.",
+      "Reduced frontend integration complexity through platform standardization.",
+      "Improved platform scalability while minimizing release coordination overhead.",
     ],
 
     businessImpact: [
-      "Enabled independent product delivery.",
-      "Reduced release coordination overhead.",
-      "Improved developer productivity.",
-      "Established long-term frontend platform governance.",
+      "Accelerated enterprise product delivery velocity.",
+      "Improved customer experience through faster page performance.",
+      "Reduced long-term engineering maintenance cost.",
+      "Established a scalable frontend platform supporting future business growth.",
     ],
 
-    technologies: [
+    leadership: [
+      "Platform roadmap ownership",
+      "Cross-functional architecture reviews",
+      "Engineering mentoring",
+      "Technical governance",
+      "Platform adoption strategy",
+    ],
+
+    metrics: {
+      engineeringSquads: "10+",
+      componentReuse: "95%+",
+      apiPayloadReduction: "60%",
+      p95LatencyImprovement: "30%",
+      developerProductivityGain: "40%",
+    },
+
+    technologyFootprint: [
       "React",
       "Next.js",
       "TypeScript",
-      "Module Federation",
-      "Design Systems",
+      "Webpack Module Federation",
       "SSR",
-      "Web Vitals",
-      "CI/CD",
+      "Enterprise Design Systems",
+      "Core Web Vitals",
       "GitHub Actions",
+      "CI/CD",
     ],
   },
-
   {
     title: "Tech Lead",
     company: "Valuebound Consulting Services (Client: Airmeet)",
@@ -70,37 +100,64 @@ export const experiencesData = [
     duration: "Jul 2021 – May 2023",
     icon: "network",
 
-    summary:
-      "Led frontend architecture for a large-scale virtual events platform, focusing on rendering performance, GraphQL architecture, caching strategies, and shared engineering standards.",
+    roleOverview:
+      "Owned frontend architecture for a globally distributed virtual events platform serving millions of users by driving GraphQL platform evolution, rendering performance, and frontend architecture modernization.",
 
-    scope: {
+    organizationScale: {
       domain: "Virtual Events Platform",
-      ownership: [
+      scale: "Millions of Users",
+      architectureScope: [
         "Frontend Architecture",
         "GraphQL Platform",
         "Rendering Strategy",
         "Performance Engineering",
         "Design System",
       ],
-      stakeholders: "Cross-functional Product Teams",
     },
 
-    keyAchievements: [
-      "Defined the frontend architecture roadmap supporting millions of users across webinar and virtual event platforms.",
-      "Led migration to a schema-federated GraphQL architecture, reducing network payloads by 60%.",
-      "Implemented Incremental Static Regeneration (ISR), Apollo caching, and CloudFront edge caching, reducing P95 dashboard load time by 45%.",
-      "Built a shared component library that standardized UI development across multiple engineering teams.",
-      "Mentored 12+ engineers on architecture, performance optimization, and scalable frontend practices.",
+    architectureLeadership: [
+      "Defined the frontend architecture roadmap supporting large-scale webinar and virtual event products.",
+      "Led migration to a schema-federated GraphQL architecture reducing over-fetching and network payloads by 60%.",
+      "Designed a multi-layer caching strategy using Apollo Cache, Incremental Static Regeneration (ISR), and CloudFront Edge caching.",
+      "Built and governed a shared UI component platform standardizing frontend development across engineering teams.",
+    ],
+
+    strategicInitiatives: [
+      "Established frontend performance budgets and monitoring for critical customer journeys.",
+      "Improved rendering performance through SSR optimization, route prefetching, caching, and bundle optimization.",
+      "Defined reusable frontend engineering patterns adopted across multiple product teams.",
+    ],
+
+    engineeringImpact: [
+      "Reduced P95 dashboard load time by 45%.",
+      "Improved frontend scalability for high-concurrency virtual events.",
+      "Accelerated feature delivery through reusable platform components.",
+      "Mentored 12+ engineers on scalable frontend architecture and performance engineering.",
     ],
 
     businessImpact: [
-      "Improved application scalability.",
-      "Accelerated feature development.",
-      "Improved SEO and customer experience.",
-      "Established frontend engineering standards.",
+      "Improved customer experience during live events.",
+      "Enhanced platform scalability under peak traffic.",
+      "Accelerated engineering delivery through standardization.",
+      "Established long-term frontend architecture practices.",
     ],
 
-    technologies: [
+    leadership: [
+      "Architecture ownership",
+      "Technical mentoring",
+      "Cross-team collaboration",
+      "Platform standardization",
+      "Engineering best practices",
+    ],
+
+    metrics: {
+      users: "Millions",
+      payloadReduction: "60%",
+      dashboardPerformance: "45%",
+      engineersMentored: "12+",
+    },
+
+    technologyFootprint: [
       "React",
       "Next.js",
       "TypeScript",
@@ -111,7 +168,6 @@ export const experiencesData = [
       "Design Systems",
     ],
   },
-
   {
     title: "Software Engineer III",
     company: "Robosoft Technologies (Client: Discovery Inc.)",
@@ -119,74 +175,103 @@ export const experiencesData = [
     duration: "Mar 2021 – Jul 2021",
     icon: "server",
 
-    summary:
-      "Built high-performance OTT applications with a strong emphasis on browser performance, bundle optimization, and streaming experience.",
+    roleOverview:
+      "Engineered high-performance OTT streaming experiences focused on rendering optimization, streaming performance, and aggressive frontend performance budgets.",
 
-    scope: {
+    organizationScale: {
       domain: "OTT Streaming",
-      ownership: [
+      architectureScope: [
         "Performance Engineering",
-        "Frontend Architecture",
         "Rendering Optimization",
+        "Frontend Architecture",
       ],
-      stakeholders: "Global Media Platform",
     },
 
-    keyAchievements: [
-      "Developed high-performance OTT interfaces under strict performance budgets.",
-      "Reduced JavaScript bundle size by 35% through route-based code splitting, lazy loading, and dependency optimization.",
-      "Optimized Time to First Byte (TTFB) to approximately 300ms using SSR tuning and CDN edge caching.",
+    architectureLeadership: [
+      "Optimized application rendering pipeline using SSR, route-based code splitting, lazy loading, and dependency optimization.",
+      "Reduced JavaScript bundle size by 35% through build optimization and dependency governance.",
+      "Improved Time to First Byte (TTFB) to approximately 300ms by tuning server-side rendering and CDN edge delivery.",
+    ],
+
+    strategicInitiatives: [
+      "Implemented frontend performance budgets for critical user journeys.",
+      "Enhanced rendering efficiency through browser-level optimization techniques.",
+    ],
+
+    engineeringImpact: [
+      "Improved playback startup experience.",
+      "Reduced application load latency.",
+      "Enhanced streaming responsiveness across supported devices.",
     ],
 
     businessImpact: [
-      "Improved playback startup time.",
-      "Enhanced user engagement.",
-      "Reduced page load latency.",
+      "Improved customer engagement.",
+      "Delivered faster streaming experiences.",
+      "Enhanced overall application responsiveness.",
     ],
 
-    technologies: [
+    metrics: {
+      bundleReduction: "35%",
+      ttfb: "~300ms",
+    },
+
+    technologyFootprint: [
       "React",
       "Next.js",
       "TypeScript",
       "Webpack",
       "CloudFront",
-      "Web Vitals",
+      "SSR",
+      "Core Web Vitals",
     ],
   },
-
   {
     title: "Software Engineer",
     company: "Creatise",
     location: "Bangalore, India",
-    duration: "Jun 2017 – Feb 2021",
+    duration: "Jun 2016 – Feb 2021",
     icon: "layers",
 
-    summary:
-      "Developed scalable frontend applications for e-commerce and media platforms while building strong foundations in performance optimization, reusable component architecture, and responsive UI engineering.",
+    roleOverview:
+      "Delivered scalable frontend solutions across e-commerce and media platforms while establishing expertise in reusable architecture, rendering performance, and frontend engineering best practices.",
 
-    scope: {
+    organizationScale: {
       domain: "E-commerce & Media",
-      ownership: [
-        "Frontend Development",
+      architectureScope: [
+        "Frontend Engineering",
+        "Reusable Component Architecture",
         "Performance Optimization",
-        "Reusable Components",
       ],
-      stakeholders: "Multiple Client Projects",
     },
 
-    keyAchievements: [
-      "Built responsive React applications for catalog-driven e-commerce and media platforms.",
-      "Improved rendering performance through server-side pre-rendering, image optimization, and browser caching.",
-      "Developed reusable UI components that accelerated feature delivery by approximately 20%.",
+    architectureLeadership: [
+      "Designed reusable UI architecture accelerating delivery across multiple client engagements.",
+      "Optimized rendering performance through server-side rendering, browser caching, image optimization, and lazy loading.",
+      "Established reusable component patterns reducing duplicate engineering effort across projects.",
+    ],
+
+    strategicInitiatives: [
+      "Improved frontend architecture consistency through reusable design patterns.",
+      "Introduced frontend optimization techniques improving rendering efficiency across applications.",
+    ],
+
+    engineeringImpact: [
+      "Improved page performance across multiple customer-facing applications.",
+      "Reduced feature development effort by approximately 20% through reusable component architecture.",
+      "Created reusable engineering foundations adopted across multiple client projects.",
     ],
 
     businessImpact: [
-      "Improved page performance.",
-      "Reduced duplicate development effort.",
-      "Established reusable UI patterns.",
+      "Improved customer experience.",
+      "Accelerated feature delivery.",
+      "Reduced long-term development effort.",
     ],
 
-    technologies: [
+    metrics: {
+      deliveryAcceleration: "20%",
+    },
+
+    technologyFootprint: [
       "React",
       "JavaScript",
       "SSR",
@@ -199,500 +284,484 @@ export const experiencesData = [
 
 export const projectsData = [
   {
-    id: "federated-microfrontend-platform",
+    id: "store-inventory-management-fulfillment",
+
     featured: true,
-    title: "Federated Micro-Frontend Platform",
-    subtitle: "Aptos India Pvt. Ltd.",
-    category: "Platform Engineering",
+
+    title: "Store Inventory Management & Fulfillment",
+
+    subtitle: "Aptos Retail",
+
+    category: "Enterprise Mobile Platform",
+
     role: "Associate Principal Engineer",
+
     duration: "May 2023 – Present",
 
     executiveSummary:
-      "Architected a federated micro-frontend platform that transformed a tightly coupled retail application into independently deployable domain applications, enabling autonomous engineering teams while significantly improving developer productivity and release velocity.",
+      "Architecting the next-generation Store Inventory Management & Fulfillment mobile platform for Aptos Retail, enabling retailers to manage inventory, fulfillment, receiving, transfers, cycle counts, returns, and store operations through a modular React Native micro-frontend architecture. The platform integrates seamlessly with Order Management, Merchandising, and enterprise retail services through an event-driven integration layer built on AWS.",
 
     businessContext: {
-      domain: "Retail Commerce Platform",
-      stakeholders: "10+ Engineering Squads",
-      scale: "Enterprise Platform",
+      domain: "Enterprise Retail Store Operations",
+
+      product:
+        "Store Inventory Management & Fulfillment (SIMF)",
+
+      users: [
+        "Store Associates",
+        "Store Managers",
+        "Operations Teams",
+        "Inventory Teams",
+        "Fulfillment Teams"
+      ],
+
+      businessCapabilities: [
+        "Inventory Lookup",
+        "Receiving",
+        "Transfers",
+        "Cycle Counts",
+        "Stock Adjustments",
+        "Order Picking",
+        "Packing",
+        "Store Fulfillment",
+        "Returns",
+        "Task Management"
+      ],
+
+      integrations: [
+        "Order Management System (OMS)",
+        "Merchandising",
+        "Enterprise Identity",
+        "Notification Services"
+      ],
+
       challenge:
-        "Weekly releases required synchronized deployments across all teams, making every release high risk and slowing product delivery.",
+        "Modern retail operations require rapid feature delivery across multiple business domains while maintaining high availability, offline capabilities, and seamless integration with enterprise retail systems."
     },
 
     problemStatement:
-      "The frontend monolith created deployment bottlenecks, fragile builds, long feedback cycles, and tight coupling between business domains.",
+      "The platform needed to support independently evolving business capabilities without introducing release dependencies, while providing a consistent user experience and resilient integrations with enterprise backend systems.",
 
     objectives: [
-      "Enable independent deployments",
-      "Reduce release coordination",
-      "Improve developer experience",
-      "Increase engineering velocity",
-      "Standardize platform architecture",
+      "Enable autonomous feature ownership",
+      "Standardize enterprise mobile architecture",
+      "Support independent feature deployments",
+      "Improve developer productivity",
+      "Provide resilient backend integrations",
+      "Support offline-first retail workflows",
+      "Increase long-term platform scalability"
     ],
 
     architecture: {
       overview:
-        "Built a runtime-composed micro-frontend platform using Webpack Module Federation with a lightweight shell responsible for routing, authentication, layout composition, shared dependencies, and platform services.",
-      diagram: "",
+        "Designed a modular React Native micro-frontend platform where every business capability is independently owned and developed as an isolated feature module. A lightweight application shell provides navigation, authentication, feature flags, analytics, shared UI components, and platform services. Enterprise integrations are abstracted through an event-driven integration layer using AWS EventBridge and Amazon SQS, decoupling mobile applications from backend systems.",
+
       keyComponents: [
-        "Host Shell",
-        "Remote Applications",
-        "Module Federation",
-        "Shared Design System",
-        "Runtime Module Loader",
+        "React Native Application Shell",
+        "Micro-Frontend Feature Modules",
+        "Shared Platform SDK",
+        "Enterprise Design System",
+        "Feature Flag Framework",
+        "Authentication Layer",
+        "AWS EventBridge",
+        "Amazon SQS",
+        "Integration Services",
+        "OMS",
+        "Merchandising Services"
       ],
+
       dataFlow: [
-        "User → Shell",
-        "Shell → Module Loader",
-        "Module Loader → Remote Apps",
-        "Remote Apps → Shared Platform Services",
+        "Store Associate → Mobile Shell",
+        "Shell → Feature Module",
+        "Feature Module → Integration Service",
+        "Integration Service → EventBridge",
+        "EventBridge → SQS",
+        "Backend Services → OMS / Merchandising",
+        "Domain Events → Mobile Synchronization"
       ],
+
       designPatterns: [
-        "Module Federation",
-        "Micro-Frontend",
-        "Platform Architecture",
+        "Micro-Frontend Architecture",
+        "Domain-Driven Design",
+        "Backend for Frontend",
+        "Event-Driven Architecture",
+        "Publisher / Subscriber",
+        "CQRS",
         "Shared Kernel",
-      ],
+        "Offline-First Synchronization"
+      ]
     },
 
     engineeringHighlights: [
-      "Designed runtime module loading",
-      "Defined shared dependency governance",
-      "Implemented platform-wide error boundaries",
-      "Created deployment contracts",
-      "Established frontend architecture standards",
+      "Architected a modular React Native platform enabling independent development of retail business capabilities.",
+      "Defined frontend platform standards covering module boundaries, navigation, dependency governance, state isolation, and shared services.",
+      "Designed a reusable platform SDK for authentication, networking, analytics, feature flags, offline storage, and observability.",
+      "Established architecture governance through reusable patterns, design reviews, and engineering standards.",
+      "Partnered with backend platform teams to design scalable event-driven integration patterns across enterprise retail systems."
     ],
 
     architectureDecisions: [
       {
-        decision: "Use Module Federation",
-        rationale: "Enable independent deployments.",
-        tradeoffs: ["Runtime complexity", "Version management"],
-        alternatives: ["Monolith", "Nx Monorepo", "Single SPA"],
+        decision: "Domain-Oriented Micro-Frontend Architecture",
+
+        rationale:
+          "Allow each retail capability to evolve independently without introducing cross-team deployment dependencies.",
+
+        tradeoffs: [
+          "Additional platform governance",
+          "Shared dependency management",
+          "Runtime orchestration complexity"
+        ],
+
+        alternatives: [
+          "Monolithic React Native Application",
+          "Multiple Independent Mobile Applications"
+        ]
       },
+
+      {
+        decision: "Event-Driven Enterprise Integrations",
+
+        rationale:
+          "Reduce coupling between mobile clients and enterprise backend systems while improving resilience and scalability.",
+
+        tradeoffs: [
+          "Eventual consistency",
+          "Distributed tracing complexity",
+          "Operational observability"
+        ],
+
+        alternatives: [
+          "Direct REST Integrations",
+          "Synchronous Service Orchestration"
+        ]
+      }
     ],
 
     technicalChallenges: [
       {
-        challenge: "Shared dependency version conflicts",
-        solution: "Singleton dependency strategy and semantic version governance.",
-        outcome: "Reduced runtime incompatibilities.",
-      },
-      {
-        challenge: "Cross-MFE communication",
-        solution: "Shared platform APIs and event-based communication.",
-        outcome: "Loosely coupled business domains.",
-      },
-    ],
+        challenge:
+          "Maintaining architectural consistency across independently owned business modules.",
 
-    scale: {
-      teams: "10+",
-      repositories: "15+",
-      users: "Enterprise",
-    },
+        solution:
+          "Established shared platform contracts, design system governance, navigation standards, and platform SDKs.",
+
+        outcome:
+          "Consistent user experience with autonomous engineering teams."
+      },
+
+      {
+        challenge:
+          "Supporting enterprise integrations across OMS and Merchandising platforms.",
+
+        solution:
+          "Designed asynchronous integration services leveraging AWS EventBridge and Amazon SQS.",
+
+        outcome:
+          "Improved scalability, resilience, and reduced system coupling."
+      },
+
+      {
+        challenge:
+          "Ensuring application reliability in retail environments with intermittent connectivity.",
+
+        solution:
+          "Implemented offline-first synchronization, local persistence, retry strategies, and background synchronization.",
+
+        outcome:
+          "Reliable store operations even during network interruptions."
+      }
+    ],
 
     reliability: {
       resiliency: [
-        "Error Boundaries",
-        "Remote Fallbacks",
+        "Offline-First Architecture",
         "Graceful Degradation",
+        "Retry Policies",
+        "Dead Letter Queues",
+        "Circuit Breakers",
+        "Event Replay"
       ],
+
       observability: [
-        "Runtime Error Tracking",
-        "Performance Monitoring",
-        "Deployment Metrics",
+        "Distributed Tracing",
+        "Application Telemetry",
+        "CloudWatch Monitoring",
+        "Crash Analytics",
+        "Business Event Metrics"
       ],
+
       deployment: [
-        "Independent CI/CD",
-        "Zero-Downtime Releases",
-      ],
+        "Independent CI/CD Pipelines",
+        "Feature Flags",
+        "Blue/Green Releases",
+        "Canary Deployments"
+      ]
     },
 
     technologies: [
-      "React",
-      "Next.js",
+      "React Native",
       "TypeScript",
-      "Webpack Module Federation",
-      "Tailwind CSS",
+      "Redux Toolkit",
+      "React Navigation",
+      "AWS EventBridge",
+      "Amazon SQS",
+      "AWS Lambda",
+      "API Gateway",
+      "CloudWatch",
       "GitHub Actions",
-      "Docker",
+      "Docker"
     ],
 
     businessImpact: [
-      "Enabled autonomous engineering teams",
-      "Reduced deployment risk",
-      "Improved release velocity",
-      "Standardized frontend architecture",
-    ],
-
-    measurableResults: [
-      {
-        metric: "Build Time",
-        before: "45 Minutes",
-        after: "<5 Minutes",
-      },
-      {
-        metric: "Deployment Model",
-        before: "Centralized",
-        after: "Independent",
-      },
+      "Enabled domain-oriented engineering ownership across retail capabilities.",
+      "Standardized enterprise mobile architecture for future product expansion.",
+      "Reduced coupling between mobile applications and enterprise backend systems.",
+      "Improved maintainability through reusable platform services.",
+      "Accelerated delivery of new retail capabilities through modular architecture."
     ],
 
     lessonsLearned: [
-      "Organizational boundaries should drive architectural boundaries.",
-      "Platform governance is essential for long-term scalability.",
-    ],
+      "Business capabilities should define architectural boundaries.",
+      "Platform engineering is essential for sustainable micro-frontend ecosystems.",
+      "Shared services should remain minimal to avoid distributed monoliths.",
+      "Event-driven integrations provide significantly better scalability than tightly coupled synchronous APIs.",
+      "Offline-first architecture is a fundamental requirement for enterprise retail applications."
+    ]
   },
   {
-    id: "enterprise-design-system",
+    id: "enterprise-integration-platform",
+
     featured: true,
-    title: "Enterprise Core Design System",
-    subtitle: "Aptos & Airmeet",
-    category: "Developer Platform",
-    role: "Tech Lead / Associate Principal Engineer",
-    duration: "2021 – Present",
 
-    executiveSummary:
-      "Architected an enterprise design system that unified UI development across multiple products, improving accessibility, consistency, and developer productivity.",
+    title: "Enterprise Integration & Automation Platform",
 
-    businessContext: {
-      domain: "Enterprise SaaS",
-      stakeholders: "Multiple Product Teams",
-      scale: "Multi-product Platform",
-      challenge:
-        "Independent teams built duplicate UI components, resulting in inconsistent experiences and high maintenance costs.",
-    },
-
-    problemStatement:
-      "Lack of shared UI standards created duplicated effort, accessibility issues, and inconsistent branding across applications.",
-
-    objectives: [
-      "Standardize UI development",
-      "Improve accessibility",
-      "Increase component reuse",
-      "Reduce maintenance cost",
-    ],
-
-    architecture: {
-      overview:
-        "Built a token-driven design system using Style Dictionary, Radix UI, Storybook, and semantic versioning.",
-      diagram: "",
-      keyComponents: [
-        "Design Tokens",
-        "Storybook",
-        "Component Library",
-        "Theme Engine",
-      ],
-      dataFlow: [
-        "Figma → Tokens",
-        "Tokens → Components",
-        "Components → Applications",
-      ],
-      designPatterns: [
-        "Atomic Design",
-        "Headless Components",
-        "Design Tokens",
-      ],
-    },
-
-    engineeringHighlights: [
-      "Implemented WCAG AA accessibility",
-      "Built multi-theme architecture",
-      "Automated semantic releases",
-      "Created reusable component APIs",
-    ],
-
-    architectureDecisions: [
-      {
-        decision: "Token-first architecture",
-        rationale: "Single source of truth across products.",
-        tradeoffs: ["Initial complexity"],
-        alternatives: ["CSS variables only", "Traditional CSS"],
-      },
-    ],
-
-    technicalChallenges: [
-      {
-        challenge: "Organization-wide adoption",
-        solution: "Migration strategy with versioned releases.",
-        outcome: "95%+ component reuse.",
-      },
-    ],
-
-    scale: {
-      teams: "5+",
-      repositories: "Multiple",
-      users: "Enterprise",
-    },
-
-    reliability: {
-      resiliency: ["Semantic Versioning"],
-      observability: ["Storybook Visual Testing"],
-      deployment: ["Automated NPM Releases"],
-    },
-
-    technologies: [
-      "React",
-      "TypeScript",
-      "Tailwind",
-      "Radix UI",
-      "Storybook",
-      "Style Dictionary",
-    ],
-
-    businessImpact: [
-      "Single source of truth",
-      "Faster feature delivery",
-      "Consistent user experience",
-    ],
-
-    measurableResults: [
-      {
-        metric: "Component Reuse",
-        before: "Low",
-        after: "95%+",
-      },
-      {
-        metric: "Development Speed",
-        before: "Baseline",
-        after: "+30%",
-      },
-    ],
-
-    lessonsLearned: [
-      "Adoption strategy is as important as technical implementation.",
-    ],
-  },
-  {
-    id: "graphql-rendering-platform",
-    featured: true,
-    title: "GraphQL Caching & Rendering Engine",
     subtitle: "Airmeet",
-    category: "Distributed Systems",
-    role: "Tech Lead",
-    duration: "2021 –2023",
+
+    category: "Platform Engineering",
+
+    role: "Senior Software Engineer",
+
+    duration: "Jul 2021 – May 2023",
 
     executiveSummary:
-      "Led frontend performance architecture by combining GraphQL Federation, ISR, CDN caching, and intelligent client-side caching to improve scalability and user experience.",
+      "Architected and led the development of Airmeet's Enterprise Integration & Automation Platform, enabling seamless connectivity between Airmeet and enterprise CRM, marketing automation, analytics, and business applications. Designed a reusable connector framework and webhook-driven integration architecture that standardized third-party integrations, accelerated enterprise onboarding, and reduced engineering duplication across product teams.",
 
     businessContext: {
-      domain: "Virtual Events Platform",
-      stakeholders: "Millions of Users",
-      scale: "High Traffic",
+      domain: "Enterprise Virtual Events Platform",
+
+      product: "Enterprise Integration Platform",
+
+      users: [
+        "Enterprise Customers",
+        "Marketing Teams",
+        "Sales Teams",
+        "Customer Success",
+        "Product Engineering"
+      ],
+
+      supportedPlatforms: [
+        "Salesforce CRM",
+        "Microsoft Dynamics 365",
+        "HubSpot",
+        "Google Analytics",
+        "Google Tag Manager",
+        "Facebook Pixel",
+        "Marketo",
+        "Mailchimp",
+        "Zapier",
+        "Slack",
+        "Eventbrite",
+        "Custom Webhooks"
+      ],
+
       challenge:
-        "Large GraphQL payloads and poor caching caused slow dashboards and poor SEO.",
+        "Enterprise customers relied on Airmeet to seamlessly integrate with their existing CRM, analytics, and marketing ecosystems. Individual product teams were implementing integrations independently, resulting in duplicated logic, inconsistent APIs, and increasing maintenance complexity."
     },
 
     problemStatement:
-      "Heavy GraphQL queries increased latency, bandwidth consumption, and rendering time.",
+      "The platform required a scalable integration architecture capable of supporting multiple enterprise providers while maintaining consistent authentication, payload transformation, webhook delivery, and operational reliability.",
 
     objectives: [
-      "Reduce API payload",
-      "Improve SEO",
-      "Optimize caching",
-      "Increase rendering speed",
+      "Standardize enterprise integrations",
+      "Accelerate connector development",
+      "Reduce engineering duplication",
+      "Enable reusable integration architecture",
+      "Simplify enterprise onboarding",
+      "Improve reliability and observability"
     ],
 
     architecture: {
       overview:
-        "Implemented GraphQL Federation with Apollo, Next.js ISR, CloudFront edge caching, and optimized client-side cache strategies.",
-      diagram: "",
+        "Designed a centralized webhook-driven integration platform exposing reusable connector abstractions for enterprise systems. Airmeet business events were published through configurable webhooks where provider-specific connectors transformed and synchronized data with CRM, analytics, marketing automation, and external business applications. The platform standardized authentication, payload transformation, retry policies, and delivery mechanisms while abstracting third-party implementation details behind a common connector framework.",
+
       keyComponents: [
-        "Apollo",
-        "ISR",
-        "CloudFront",
-        "GraphQL Gateway",
+        "Integration Gateway",
+        "Connector Framework",
+        "Webhook Engine",
+        "Authentication Manager",
+        "Payload Transformation Layer",
+        "Configuration Service",
+        "Retry Engine",
+        "Monitoring Dashboard"
       ],
+
       dataFlow: [
-        "Client → CDN",
-        "CDN → Next.js",
-        "Next.js → GraphQL",
+        "Airmeet Business Event",
+        "Webhook Dispatcher",
+        "Connector Framework",
+        "Payload Transformation",
+        "Enterprise Platform",
+        "Delivery Monitoring & Retry"
       ],
+
       designPatterns: [
-        "Cache Aside",
-        "ISR",
-        "Edge Caching",
-      ],
+        "Webhook Architecture",
+        "Adapter Pattern",
+        "Strategy Pattern",
+        "Factory Pattern",
+        "Dependency Injection",
+        "Template Method"
+      ]
     },
 
     engineeringHighlights: [
-      "Optimized GraphQL queries",
-      "Implemented ISR",
-      "Reduced payload size",
-      "Improved Core Web Vitals",
+      "Architected a reusable connector framework supporting CRM, analytics, marketing automation, and business application integrations.",
+      "Designed a configurable webhook platform enabling reliable event delivery to external enterprise systems.",
+      "Standardized authentication, payload transformation, connector lifecycle management, and error handling.",
+      "Built customer-configurable webhook subscriptions supporting custom business workflows.",
+      "Defined reusable integration contracts that significantly reduced the effort required to onboard new integration providers."
     ],
 
     architectureDecisions: [
       {
-        decision: "ISR over SSR",
-        rationale: "Better scalability and SEO.",
-        tradeoffs: ["Cache invalidation"],
-        alternatives: ["SSR", "CSR"],
+        decision: "Reusable Connector Framework",
+
+        rationale:
+          "Abstract provider-specific implementations behind standardized contracts to simplify future integrations.",
+
+        tradeoffs: [
+          "Additional abstraction layer",
+          "Connector lifecycle governance",
+          "Framework maintenance"
+        ],
+
+        alternatives: [
+          "Direct API Integrations",
+          "Product-specific Connector Implementations"
+        ]
       },
+
+      {
+        decision: "Webhook-Driven Integration Architecture",
+
+        rationale:
+          "Provide loosely coupled, near real-time synchronization between Airmeet and external enterprise systems.",
+
+        tradeoffs: [
+          "Webhook delivery monitoring",
+          "Retry handling",
+          "Provider-specific payload transformations"
+        ],
+
+        alternatives: [
+          "Scheduled Batch Synchronization",
+          "Synchronous REST APIs"
+        ]
+      }
     ],
 
     technicalChallenges: [
       {
-        challenge: "Apollo cache invalidation",
-        solution: "Granular cache policies.",
-        outcome: "Reduced stale data.",
+        challenge:
+          "Supporting multiple authentication mechanisms across enterprise platforms.",
+
+        solution:
+          "Built a pluggable authentication framework supporting OAuth 2.0, API Keys, JWT, and provider-specific authentication flows.",
+
+        outcome:
+          "Simplified onboarding of new enterprise integrations."
       },
+
+      {
+        challenge:
+          "Maintaining consistent payload structures across heterogeneous third-party APIs.",
+
+        solution:
+          "Designed a canonical event model with provider-specific transformation adapters.",
+
+        outcome:
+          "Reduced connector complexity while improving maintainability."
+      },
+
+      {
+        challenge:
+          "Handling webhook delivery failures and external API availability.",
+
+        solution:
+          "Implemented configurable retry policies, idempotent processing, webhook delivery tracking, and operational monitoring.",
+
+        outcome:
+          "Improved delivery reliability without impacting core Airmeet workflows."
+      }
     ],
 
-    scale: {
-      users: "Millions",
-    },
-
     reliability: {
-      resiliency: ["CDN Failover"],
-      observability: ["Web Vitals", "GraphQL Metrics"],
-      deployment: ["Zero Downtime"],
+      resiliency: [
+        "Webhook Retry Policies",
+        "Idempotent Event Processing",
+        "Delivery Tracking",
+        "Graceful Failure Handling",
+        "Configurable Retry Strategies"
+      ],
+
+      observability: [
+        "Webhook Delivery Metrics",
+        "Integration Health Dashboard",
+        "Connector Performance Monitoring",
+        "Application Logging",
+        "Operational Alerts"
+      ],
+
+      deployment: [
+        "Independent Connector Releases",
+        "Feature Toggles",
+        "Backward Compatible APIs",
+        "Zero-Downtime Deployments"
+      ]
     },
 
     technologies: [
-      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "React JS",
+      "Express.js",
+      "REST APIs",
       "GraphQL",
-      "Apollo",
-      "CloudFront",
+      "Webhooks",
+      "OAuth 2.0",
+      "JWT",
+      "Jest",
+      "OpenAPI",
+      "Swagger"
     ],
 
     businessImpact: [
-      "Improved SEO",
-      "Reduced bandwidth",
-      "Improved customer experience",
-    ],
-
-    measurableResults: [
-      {
-        metric: "P95 Latency",
-        before: "Baseline",
-        after: "-45%",
-      },
-      {
-        metric: "Payload Size",
-        before: "Baseline",
-        after: "-60%",
-      },
+      "Standardized enterprise integration architecture across the Airmeet platform.",
+      "Reduced engineering effort through reusable connector infrastructure.",
+      "Accelerated onboarding of enterprise customers and third-party integrations.",
+      "Simplified maintenance through standardized integration contracts.",
+      "Enabled rapid expansion of Airmeet's enterprise integration ecosystem."
     ],
 
     lessonsLearned: [
-      "Caching strategy matters more than rendering strategy.",
-    ],
-  },
-  {
-    id: "ott-performance-platform",
-    featured: true,
-    title: "High-Performance OTT Video Engine",
-    subtitle: "Discovery Inc.",
-    category: "Performance Engineering",
-    role: "Software Engineer III",
-    duration: "2021",
-
-    executiveSummary:
-      "Optimized a high-traffic OTT platform through advanced bundle optimization, lazy loading, streaming optimization, and browser performance engineering.",
-
-    businessContext: {
-      domain: "Media Streaming",
-      stakeholders: "Millions of Viewers",
-      scale: "Global OTT Platform",
-      challenge:
-        "Large bundles and inefficient loading negatively impacted video playback and engagement.",
-    },
-
-    problemStatement:
-      "Heavy JavaScript bundles delayed player initialization and increased user abandonment.",
-
-    objectives: [
-      "Reduce bundle size",
-      "Improve startup performance",
-      "Optimize playback",
-      "Improve Lighthouse scores",
-    ],
-
-    architecture: {
-      overview:
-        "Implemented route-based code splitting, lazy loading, optimized prefetching, and CDN delivery for media assets.",
-      diagram: "",
-      keyComponents: [
-        "Webpack",
-        "CloudFront",
-        "Video Player",
-        "Lazy Loading",
-      ],
-      dataFlow: [
-        "Browser → CDN",
-        "CDN → Player",
-      ],
-      designPatterns: [
-        "Code Splitting",
-        "Lazy Loading",
-        "Streaming",
-      ],
-    },
-
-    engineeringHighlights: [
-      "Reduced bundle size",
-      "Improved TTFB",
-      "Optimized playback",
-      "Improved Lighthouse score",
-    ],
-
-    architectureDecisions: [
-      {
-        decision: "Aggressive code splitting",
-        rationale: "Reduce initial load time.",
-        tradeoffs: ["More network requests"],
-        alternatives: ["Single bundle"],
-      },
-    ],
-
-    technicalChallenges: [
-      {
-        challenge: "Large media dependencies",
-        solution: "Dynamic imports.",
-        outcome: "35% bundle reduction.",
-      },
-    ],
-
-    scale: {
-      users: "Millions",
-    },
-
-    reliability: {
-      resiliency: ["CDN Caching"],
-      observability: ["Lighthouse", "Web Vitals"],
-      deployment: ["CI/CD"],
-    },
-
-    technologies: [
-      "React",
-      "Next.js",
-      "Webpack",
-      "CloudFront",
-    ],
-
-    businessImpact: [
-      "Improved engagement",
-      "Reduced buffering",
-      "Better user retention",
-    ],
-
-    measurableResults: [
-      {
-        metric: "Bundle Size",
-        before: "Baseline",
-        after: "-35%",
-      },
-      {
-        metric: "TTFB",
-        before: "600ms+",
-        after: "~300ms",
-      },
-    ],
-
-    lessonsLearned: [
-      "Performance engineering requires continuous measurement and optimization.",
-    ],
-  },
+      "Reusable connector frameworks provide significantly greater engineering leverage than provider-specific implementations.",
+      "Webhook-driven architectures enable loosely coupled enterprise integrations while remaining simple to extend.",
+      "Canonical event models reduce long-term maintenance complexity.",
+      "Observability and delivery tracking are fundamental requirements for enterprise integration platforms.",
+      "Platform engineering creates sustainable scalability by enabling product teams to build on shared infrastructure rather than duplicating integration logic."
+    ]
+  }
 ] as const;
 
 export const architectureExpertise = [

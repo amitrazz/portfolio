@@ -52,13 +52,49 @@ function getExperienceIcon(iconName: string) {
   }
 }
 
+interface ExperienceItem {
+  readonly title: string;
+  readonly company: string;
+  readonly location: string;
+  readonly duration: string;
+  readonly icon: string;
+  readonly roleOverview: string;
+  readonly organizationScale: {
+    readonly domain: string;
+    readonly scale?: string;
+    readonly engineeringSquads?: string;
+    readonly products?: string;
+    readonly architectureScope?: readonly string[];
+  };
+  readonly architectureLeadership: readonly string[];
+  readonly strategicInitiatives: readonly string[];
+  readonly engineeringImpact: readonly string[];
+  readonly businessImpact: readonly string[];
+  readonly leadership?: readonly string[];
+  readonly metrics: Record<string, string>;
+  readonly technologyFootprint: readonly string[];
+}
+
+function formatMetricKey(key: string): string {
+  if (key === 'ttfb') return 'TTFB';
+  if (key.startsWith('p95')) {
+    return 'P95 ' + key.slice(3).replace(/([A-Z])/g, ' $1').trim().replace(/^./, (str) => str.toUpperCase());
+  }
+  if (key.startsWith('api')) {
+    return 'API ' + key.slice(3).replace(/([A-Z])/g, ' $1').trim().replace(/^./, (str) => str.toUpperCase());
+  }
+  return key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (str) => str.toUpperCase());
+}
+
 export default function Experience() {
   return (
     <section id="experience" className="mb-16 sm:mb-28 max-w-[48rem] mx-auto px-4 w-full scroll-mt-28">
       <SectionHeading>Professional Experience</SectionHeading>
       
       <div className="relative border-l border-zinc-200 dark:border-zinc-800 ml-3 sm:ml-6 pl-5 sm:pl-8 py-2 flex flex-col gap-10 sm:gap-12">
-        {experiencesData.map((item, index) => (
+        {(experiencesData as unknown as readonly ExperienceItem[]).map((item, index) => (
           <div
             key={index}
             className="relative animate-slide-in-left"
@@ -91,52 +127,142 @@ export default function Experience() {
                 </div>
               </div>
 
-              {/* Summary */}
+              {/* Role Overview */}
               <p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 italic mb-4 leading-relaxed bg-zinc-50 dark:bg-zinc-900/35 p-3 rounded-lg border border-zinc-200/20 dark:border-zinc-800/20">
-                {item.summary}
+                {item.roleOverview}
               </p>
 
-              {/* Scope & Context */}
-              <div className="flex flex-wrap gap-x-4 gap-y-2 mb-4 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+              {/* Organization Scale & Context */}
+              <div className="flex flex-wrap gap-x-4 gap-y-2 mb-3 text-xs font-medium text-zinc-500 dark:text-zinc-400">
                 <div>
-                  <span className="font-semibold text-zinc-700 dark:text-zinc-300">Domain:</span> {item.scope.domain}
+                  <span className="font-semibold text-zinc-700 dark:text-zinc-300">Domain:</span> {item.organizationScale.domain}
                 </div>
-                {item.scope.stakeholders && (
+                {item.organizationScale.scale && (
                   <div>
-                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Stakeholders:</span> {item.scope.stakeholders}
+                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Scale:</span> {item.organizationScale.scale}
+                  </div>
+                )}
+                {item.organizationScale.engineeringSquads && (
+                  <div>
+                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Squads:</span> {item.organizationScale.engineeringSquads}
+                  </div>
+                )}
+                {item.organizationScale.products && (
+                  <div>
+                    <span className="font-semibold text-zinc-700 dark:text-zinc-300">Products:</span> {item.organizationScale.products}
+                  </div>
+                )}
+              </div>
+
+              {/* Architecture Scope Tags */}
+              {item.organizationScale.architectureScope && item.organizationScale.architectureScope.length > 0 && (
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {item.organizationScale.architectureScope.map((scopeItem) => (
+                    <span
+                      key={scopeItem}
+                      className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-indigo-50/50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-100/30 dark:border-indigo-900/30"
+                    >
+                      {scopeItem}
+                    </span>
+                  ))}
+                </div>
+              )}
+
+              {/* Metrics Grid */}
+              {item.metrics && (
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-6">
+                  {Object.entries(item.metrics).map(([key, value]) => {
+                    const label = formatMetricKey(key);
+                    return (
+                      <div key={key} className="bg-zinc-50/50 dark:bg-zinc-900/40 p-2 sm:p-2.5 rounded-xl border border-zinc-200/10 dark:border-zinc-800/10 text-center">
+                        <div className="text-sm sm:text-base font-extrabold text-indigo-600 dark:text-indigo-400">
+                          {value}
+                        </div>
+                        <div className="text-[10px] sm:text-xs text-zinc-500 dark:text-zinc-400 mt-0.5 font-semibold leading-tight">
+                          {label}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* Key Contributions & Impact */}
+              <div className="space-y-4 mb-6">
+                {item.architectureLeadership && item.architectureLeadership.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                      Architecture &amp; Leadership
+                    </h4>
+                    <ul className="list-disc pl-4 space-y-1.5 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                      {item.architectureLeadership.map((bullet, idx) => (
+                        <li key={idx} className="marker:text-indigo-500/70">{bullet}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {item.strategicInitiatives && item.strategicInitiatives.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                      Strategic Initiatives
+                    </h4>
+                    <ul className="list-disc pl-4 space-y-1.5 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                      {item.strategicInitiatives.map((bullet, idx) => (
+                        <li key={idx} className="marker:text-emerald-500/70">{bullet}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {item.engineeringImpact && item.engineeringImpact.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
+                      Engineering Impact
+                    </h4>
+                    <ul className="list-disc pl-4 space-y-1.5 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                      {item.engineeringImpact.map((bullet, idx) => (
+                        <li key={idx} className="marker:text-cyan-500/70">{bullet}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {item.businessImpact && item.businessImpact.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                      Business Impact
+                    </h4>
+                    <ul className="list-disc pl-4 space-y-1.5 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                      {item.businessImpact.map((bullet, idx) => (
+                        <li key={idx} className="marker:text-amber-500/70">{bullet}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {item.leadership && item.leadership.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-violet-500"></span>
+                      Platform Leadership
+                    </h4>
+                    <ul className="list-disc pl-4 space-y-1.5 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
+                      {item.leadership.map((bullet, idx) => (
+                        <li key={idx} className="marker:text-violet-500/70">{bullet}</li>
+                      ))}
+                    </ul>
                   </div>
                 )}
               </div>
  
-              {/* Key Achievements */}
-              <div className="mb-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2">Key Achievements</h4>
-                <ul className="list-disc pl-4 space-y-2 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                  {item.keyAchievements.map((achievement, idx) => (
-                    <li key={idx} className="marker:text-indigo-500">
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Business Impact */}
-              {item.businessImpact && item.businessImpact.length > 0 && (
-                <div className="mb-6 pt-2">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-800 dark:text-zinc-200 mb-2">Business Impact</h4>
-                  <ul className="list-disc pl-4 space-y-1 text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed">
-                    {item.businessImpact.map((impact, idx) => (
-                      <li key={idx} className="marker:text-indigo-500 font-medium">
-                        {impact}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
- 
-              {/* Technologies used */}
+              {/* Technologies footprint */}
               <div className="flex flex-wrap gap-1.5 pt-4 border-t border-zinc-100 dark:border-zinc-800/80">
-                {item.technologies.map((tag) => (
+                {item.technologyFootprint.map((tag) => (
                   <span
                     key={tag}
                     className="bg-zinc-100/80 text-zinc-700 dark:bg-zinc-900 dark:text-zinc-400 text-xs px-2.5 py-1 rounded-md border border-zinc-200/20 font-medium"
